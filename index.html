@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Tone-Nexus</title>
+    <link rel='stylesheet' type='text/css' href='css/main.css'>
+    <script src='font-awesome/fontawesome-all.js'></script>
+</head>
+
+<body>
+
+    <h2 class="header">Terrible Techno</h2>
+
+    <div class="flex-wrap-buttons">
+        <div id="play" class="play"></div>
+        <div id="stop" class="stop"></div>
+        <div id="tempo" class="stop"></div>
+        <div id="spectogram"></div>
+        <div id="login-btn" class="auth-hidden"></div>
+        <div id="logout-btn" class="auth-hidden"></div>
+        <div id="store-btn" class="auth-hidden"></div>
+    </div>
+    <br>
+    <br>
+    <div id "settings" class="user-settings">
+        <a id="save-settings" href="#" title="save">
+            <i id="save-btn" class="icons fas fa-save fa-2x"></i>
+        </a>
+        <a id="load-settings" href="#" title="load">
+            <i class="icons fas fa-spinner fa-2x"></i>
+        </a>
+        <a id="clear-settings" href="#" title="clear">
+            <i class="icons fas fa-minus-circle fa-2x"></i>
+        </a>
+        <input type="text" id="settings-title" class="settings-title">
+        <div>
+            <h4>Your Settings: </h4>
+            <ul id="user-settings">
+            </ul>
+        </div>
+    </div>
+    <br>
+    <br>
+    <div id="select-sequencer"></div>
+    <div class="flex-wrap">
+        <div>
+            <div class="arp-flexwrap" id="Arpeggiator">
+                <div class="arp-flexitem">
+                    <h2>Arpeggiator:</h2>
+                    <div class="flex-item sequencer" id="sequencer"></div>
+                    <br>
+                    <div class="select-fx">
+                        <div id="one-fx-select" class="one-fx-select"></div>
+                        <br>
+                        <div>
+                            <div class="show-Default"></div>
+                            <div class="fx-hidden show-Delay">
+                                <p class="fx-label">Mix:</p>
+                                <div id="delay-wet"></div>
+                                <p class="fx-label">Feedback:</p>
+                                <div id="delay-feedback"></div>
+                                <p class="fx-label">Time:</p>
+                                <div id="delay-time"></div>
+                            </div>
+                            <div class="fx-hidden show-Phaser">
+                                <p class="fx-label">Mix:</p>
+                                <div id="phaser-wet"></div>
+                                <p class="fx-label">Octaves:</p>
+                                <div id="phaser-octaves"></div>
+                                <p class="fx-label">Frequency:</p>
+                                <div id="phaser-frequency"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <br>
+                </div>
+                <div class="arp-flexitem">
+                    <h2>Volume/Pan:</h2>
+                    <div id="arp-volpan"></div>
+                </div>
+            </div>
+
+            <div id="Bass" class="seq-hidden">
+                <div class="arp-flexwrap">
+                    <div>
+                        <h2>Bass:</h2>
+                        <div class="flex-item sequencer" id="bass-sequencer"></div>
+                    </div>
+                    <div>
+                        <h2>Volume/Pan:</h2>
+                        <div id="bass-volpan"></div>
+                    </div>
+                </div>
+            </div>
+            <div id="Rhythm" class="seq-hidden">
+                <div class="arp-flexwrap">
+                    <div>
+                        <h2>Rhythm:</h2>
+                        <div class="flex-item sequencer" id="beat-sequencer"></div>
+                    </div>
+                    <div>
+                        <h2>Volume/Pan:</h2>
+                        <div id="beat-volpan"></div>
+                    </div>
+                </div>
+            </div>
+            <!-- <div class="select-fx">
+                <div id="one-fx-select" class="one-fx-select"></div>
+                <br>
+                <div>
+                    <div class="show-Default"></div>
+                    <div class="fx-hidden show-Delay">
+                        <p class="fx-label">Mix:</p>
+                        <div id="delay-wet"></div>
+                        <p class="fx-label">Feedback:</p>
+                        <div id="delay-feedback"></div>
+                        <p class="fx-label">Time:</p>
+                        <div id="delay-time"></div>
+                    </div>
+                    <div class="fx-hidden show-Phaser">
+                        <p class="fx-label">Mix:</p>
+                        <div id="phaser-wet"></div>
+                        <p class="fx-label">Octaves:</p>
+                        <div id="phaser-octaves"></div>
+                        <p class="fx-label">Frequency:</p>
+                        <div id="phaser-frequency"></div>
+                    </div>
+                </div>
+            </div> -->
+            <br>
+        </div>
+    </div>
+    <div>
+        <h2>Chords:</h2>
+        <div class="chord-flexwrap">
+            <div class="chord-flexitem chord-0">
+                <p class="Imaj chord play" value="Imaj" id="one">Imaj</p>
+                <p class="iimin chord" value="iimin">iimin</p>
+                <p class="iiimin chord" value="iiimin">iiimin</p>
+                <p class="IVmaj chord" value="IVmaj">IVmaj</p>
+                <p class="Vdom chord" value="Vdom">Vdom</p>
+                <p class="vimin chord" value="vimin">vimin</p>
+                <p class="viiminb5 chord" value="viiminb5">viiminb5</p>
+            </div>
+            <div class="chord-flexitem chord-1">
+                <p class="Imaj chord play" value="Imaj">Imaj</p>
+                <p class="iimin chord" value="iimin">iimin</p>
+                <p class="iiimin chord" value="iiimin">iiimin</p>
+                <p class="IVmaj chord" value="IVmaj">IVmaj</p>
+                <p class="Vdom chord" value="Vdom">Vdom</p>
+                <p class="vimin chord" value="vimin">vimin</p>
+                <p class="viimin5 chord" value="viiminb5">viiminb5</p>
+            </div>
+            <div class="chord-flexitem chord-2">
+                <p class="Imaj chord play" value="Imaj">Imaj</p>
+                <p class="iimin chord" value="iimin">iimin</p>
+                <p class="iiimin chord" value="iiimin">iiimin</p>
+                <p class="IVmaj chord" value="IVmaj">IVmaj</p>
+                <p class="Vdom chord" value="Vdom">Vdom</p>
+                <p class="vimin chord" value="vimin">vimin</p>
+                <p class="viimin5 chord" value="viiminb5">viiminb5</p>
+            </div>
+            <div class="chord-flexitem chord-3">
+                <p class="Imaj chord play" value="Imaj">Imaj</p>
+                <p class="iimin chord" value="iimin">iimin</p>
+                <p class="iiimin chord" value="iiimin">iiimin</p>
+                <p class="IVmaj chord" value="IVmaj">IVmaj</p>
+                <p class="Vdom chord" value="Vdom">Vdom</p>
+                <p class="vimin chord" value="vimin">vimin</p>
+                <p class="viiminb5 chord" value="viiminb5">viiminb5</p>
+            </div>
+            <div class="chord-flexitem chord-4">
+                <p class="Imaj chord play" value="Imaj">Imaj</p>
+                <p class="iimin chord" value="iimin">iimin</p>
+                <p class="iiimin chord" value="iiimin">iiimin</p>
+                <p class="IVmaj chord" value="IVmaj">IVmaj</p>
+                <p class="Vdom chord" value="Vdom">Vdom</p>
+                <p class="vimin chord" value="vimin">vimin</p>
+                <p class="viiminb5 chord" value="viiminb5">viiminb5</p>
+            </div>
+            <div class="chord-flexitem chord-5">
+                <p class="Imaj chord play" value="Imaj">Imaj</p>
+                <p class="iimin chord" value="iimin">iimin</p>
+                <p class="iiimin chord" value="iiimin">iiimin</p>
+                <p class="IVmaj chord" value="IVmaj">IVmaj</p>
+                <p class="Vdom chord" value="Vdom">Vdom</p>
+                <p class="vimin chord" value="vimin">vimin</p>
+                <p class="viiminb5 chord" value="viiminb5">viiminb5</p>
+            </div>
+            <div class="chord-flexitem chord-6">
+                <p class="Imaj chord play" value="Imaj">Imaj</p>
+                <p class="iimin chord" value="iimin">iimin</p>
+                <p class="iiimin chord" value="iiimin">iiimin</p>
+                <p class="IVmaj chord" value="IVmaj">IVmaj</p>
+                <p class="Vdom chord" value="Vdom">Vdom</p>
+                <p class="vimin chord" value="vimin">vimin</p>
+                <p class="viiminb5 chord" value="viiminb5">viiminb5</p>
+            </div>
+            <div class="chord-flexitem chord-7">
+                <p class="Imaj chord play" value="Imaj">Imaj</p>
+                <p class="iimin chord" value="iimin">iimin</p>
+                <p class="iiimin chord" value="iiimin">iiimin</p>
+                <p class="IVmaj chord" value="IVmaj">IVmaj</p>
+                <p class="Vdom chord" value="Vdom">Vdom</p>
+                <p class="vimin chord" value="vimin">vimin</p>
+                <p class="viiminb5 chord" value="viiminb5">viiminb5</p>
+            </div>
+
+        </div>
+    </div>
+
+
+
+
+    <script src='dist/bundle.js'></script>
+</body>
+
+</html>
