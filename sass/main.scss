@@ -1,0 +1,90 @@
+body {
+	background-color: black;
+}
+
+p {
+	color: white;
+}
+
+.flex-wrap-buttons {
+	margin: 0 auto;
+	width: 70%;
+	display: flex;
+	justify-content: space-between;
+	margin-left: 0px;
+}
+
+h2,
+h3 {
+	color: white;
+	
+}
+
+h4 {
+	color: white;
+
+}
+
+
+.chord-flexwrap {
+	display: flex;
+	justify-content: space-between;
+	width: 70%;
+	margin-left: 20px;
+}
+p.chord {
+	border: 1px solid white;
+	text-align: center;
+	padding: 10px 15px;
+	margin-top: 0;
+	margin-bottom: 0;
+	// margin-left: 10px;
+
+}
+.play {
+	background-color: grey;
+}
+.sequencer {
+	margin-left: 30px;
+}
+.border {
+	border: 2px solid yellow;
+}
+.fx-label {
+	display: inline;
+}
+
+.fx-wrap {
+	display: flex;
+	justify-content: space-between;
+	width: 40%;
+}
+.fx-hidden {
+	display: none;
+}
+.seq-hidden {
+	display: none;
+}
+.arp-flexwrap {
+	display: flex;
+}
+.auth-hidden {
+	display: none;
+}
+.icons {
+	color: white;	
+};
+.settings-title {
+	height: 25px;
+	vertical-align: middle;
+	
+}
+.red-icon {
+	color: red;
+}
+ul {
+	color: white;
+}
+li {
+	display: inline;
+}
