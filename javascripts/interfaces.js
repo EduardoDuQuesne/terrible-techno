@@ -108,7 +108,7 @@ module.exports.dialReverbWet = new Nexus.Dial('#reverb-wet', {
     'mode': 'relative',
     'min': 0,
     'max': 1,
-    'step': 0,
+    'step': 0.05,
     'value': 0
 });
 module.exports.dialReverbDampening = new Nexus.Dial('#reverb-dampening', {
@@ -117,16 +117,16 @@ module.exports.dialReverbDampening = new Nexus.Dial('#reverb-dampening', {
     'mode': 'relative',
     'min': 100,
     'max': 1600,
-    'step': 0,
+    'step': 0.05,
     'value': 1600
 });
 module.exports.dialReverbRoomSize = new Nexus.Dial('#reverb-room-size', {
     'size': [25, 25],
     'interaction': 'radial',
     'mode': 'relative',
-    'min': 0.01,
+    'min': 0.05,
     'max': 1,
-    'step': 0,
+    'step': 0.05,
     'value': 0
 });
 
@@ -230,7 +230,7 @@ module.exports.arpSynthEnvelope = new Nexus.Multislider('#fm-multislider',{
     'min': 0,
     'max': 1,
     'step': 0,
-    'values': [0.7,0.7,0.7,0.7,0.7]
+    'values': [0.005, 0.1, 0.3, 1]
    });
 
 //Bass Synth Envelope
