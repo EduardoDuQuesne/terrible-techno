@@ -69,6 +69,11 @@ module.exports.selectFx = new Nexus.Select('#one-fx-select', {
     'options': ['Default', 'Delay', 'Reverb']
 });
 
+module.exports.selectDrumFx = new Nexus.Select('#three-fx-select', {
+    'size': [75, 25],
+    'options': ['Default', 'Distortion']
+});
+
 module.exports.selectSeq = new Nexus.Select('#select-sequencer', {
     'size': [75, 25],
     'options': ['Arpeggiator', 'Bass', 'Rhythm']
@@ -241,4 +246,25 @@ module.exports.bassSynthEnvelope = new Nexus.Multislider('#bass-multislider',{
     'max': 1,
     'step': 0,
     'values': [0.7,0.7,0.7,0.7,0.7]
+   });
+
+   //Drum Distortion
+   module.exports.drumDistoWetDial = new Nexus.Dial('#distortion-wet', {
+    'size': [25, 25],
+    'interaction': 'radial',
+    'mode': 'relative',
+    'min': 0,
+    'max': 1,
+    'step': 0,
+    'value': 0
+   });
+   
+   module.exports.drumDistoAmountDial = new Nexus.Dial('#distortion-amount', {
+    'size': [25, 25],
+    'interaction': 'radial',
+    'mode': 'relative',
+    'min': 0,
+    'max': 1,
+    'step': 0,
+    'value': 0
    });

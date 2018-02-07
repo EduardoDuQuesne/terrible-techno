@@ -92,7 +92,7 @@ $(document).on("click", ".get-setting", function () {
     factory.getSetting(settingId)
         .then(setting => {
             settings.recallSetting(setting);
-            
+
         });
 
 });
@@ -150,6 +150,10 @@ interface.dialReverbRoomSize.on('change', function () {
 });
 //Select Button Listeners//
 interface.selectFx.on('change', function (select) {
+    $(`.show-${select.value}`).show();
+    $(`.show-${select.value}`).siblings().hide();
+});
+interface.selectDrumFx.on('change', function (select) {
     $(`.show-${select.value}`).show();
     $(`.show-${select.value}`).siblings().hide();
 });
@@ -223,4 +227,13 @@ $(document).on('mouseup', '.bass-multislider', function () {
     currentBassSynth.envelope.decay = interface.bassSynthEnvelope.values[1];
     currentBassSynth.envelope.sustain = interface.bassSynthEnvelope.values[2];
     currentBassSynth.envelope.release = interface.bassSynthEnvelope.values[3];
+});
+
+//Drum Distortion
+interface.drumDistoWetDial.on("change", function (value) {
+    fx.drumDisto.wet.value = value;
+});
+
+interface.drumDistoAmountDial.on("change", function (value) {
+    fx.drumDisto.distortion = value;
 });
