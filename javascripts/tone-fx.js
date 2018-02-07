@@ -4,16 +4,25 @@ const $ = require('jquery');
 const Tone = require('tone');
 
 //// INST and FX Sounds////
-module.exports.delayOne = new Tone.FeedbackDelay();
+let delayOne = new Tone.FeedbackDelay();
 // delayOne.wet.value = 0;
 
-module.exports.reverbOne = new Tone.Freeverb();
+let reverbOne = new Tone.Freeverb();
+reverbOne.dampening.value = 1600;
 // phaserOne.wet.value = 0;
 
-module.exports.arpVolPan = new Tone.PanVol();
-module.exports.bassVolPan = new Tone.PanVol();
-module.exports.beatVolPan = new Tone.PanVol();
+let arpVolPan = new Tone.PanVol();
+let bassVolPan = new Tone.PanVol();
+let beatVolPan = new Tone.PanVol();
 
 //Compressor
-module.exports.masterComp = new Tone.Compressor(-30, 3);
+let masterComp = new Tone.Compressor(-30, 3);
 
+module.exports = {
+    delayOne,
+    reverbOne,
+    arpVolPan,
+    bassVolPan,
+    beatVolPan,
+    masterComp
+};

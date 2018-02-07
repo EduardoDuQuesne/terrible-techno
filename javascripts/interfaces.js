@@ -118,13 +118,13 @@ module.exports.dialReverbDampening = new Nexus.Dial('#reverb-dampening', {
     'min': 100,
     'max': 1600,
     'step': 0,
-    'value': 0
+    'value': 1600
 });
 module.exports.dialReverbRoomSize = new Nexus.Dial('#reverb-room-size', {
     'size': [25, 25],
     'interaction': 'radial',
     'mode': 'relative',
-    'min': 0,
+    'min': 0.01,
     'max': 1,
     'step': 0,
     'value': 0
