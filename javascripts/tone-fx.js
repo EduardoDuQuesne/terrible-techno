@@ -27,11 +27,19 @@ let beatVolPan = new Tone.PanVol();
 //Compressor
 let masterComp = new Tone.Compressor(-30, 3);
 
+//Distortion
+let drumDisto = new Tone.Distortion({
+        distortion  : 0,
+        wet: 0,
+        oversample: "4x"       
+});
+
 module.exports = {
     delayOne,
     reverbOne,
     arpVolPan,
     bassVolPan,
     beatVolPan,
-    masterComp
+    masterComp,
+    drumDisto
 };
