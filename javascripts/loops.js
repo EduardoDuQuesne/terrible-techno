@@ -5,7 +5,7 @@ const Tone = require('tone');
 const interface = require('./interfaces');
 const fx = require('./tone-fx');
 
-//Arpeggiator Sounds
+///// Arpeggiator Sounds /////
 let simpleSynth = new Tone.Synth({
     envelope  : {
         attack  : 0.005 ,
@@ -46,7 +46,7 @@ $('.arp-sound-select').on('click', function () {
     synth = arpSounds[$(this).attr('value')];
     synthName = $(this).attr('value');
 });
-//Recall Arp Sound
+//Store and Recall Arp Sound
 let recallArpSound = (synthPatch) => {
     synth = arpSounds[synthPatch];
 };
@@ -54,23 +54,56 @@ let storeArpSound = () => {
     return synthName;
 };
 
-//Bass Sounds
-let bassSimpleSynth = new Tone.Synth().chain(fx.bassVolPan, Tone.Master);
-let bassMonoSynth = new Tone.MonoSynth().chain(fx.bassVolPan, Tone.Master);
-bassMonoSynth.envelope.decay = 0.05;
-let bassFMSynth = new Tone.FMSynth().chain(fx.bassVolPan, Tone.Master);
-bassFMSynth.envelope.decay = 0.05;
+///// Bass Sounds /////
+let bassSimpleSynth = new Tone.Synth({
+    envelope  : {
+        attack  : 0.005 ,
+        decay  : 0.1 ,
+        sustain  : 0.3 ,
+        release  : 1
+        }
+}).chain(fx.bassVolPan, Tone.Master);
+
+let bassMonoSynth = new Tone.MonoSynth({
+    envelope  : {
+        attack  : 0.005 ,
+        decay  : 0.1 ,
+        sustain  : 0.9 ,
+        release  : 1
+        }
+}).chain(fx.bassVolPan, Tone.Master);
+
+let bassFMSynth = new Tone.FMSynth({
+    envelope  : {
+        attack  : 0.01 ,
+        decay  : 0.01 ,
+        sustain  : 1 ,
+        release  : 0.5
+        }
+}).chain(fx.bassVolPan, Tone.Master);
+
 let bassSynth = bassSimpleSynth;
+let bassSynthName = "bassSimpleSynth";
 let bassSounds = {
     "bassSimpleSynth": bassSimpleSynth,
     "bassMonoSynth": bassMonoSynth,
     "bassFMSynth": bassFMSynth,
 };
-//Bass Synth Select
+
+//Bass Sound Select
 $('.bass-sound-select').on('click', function () {
     bassSynth = bassSounds[$(this).attr('value')];
-    console.log('Bass Synth', bassSynth );
+    bassSynthName = $(this).attr('value');
 });
+//Store and Recall Bass Sounds
+let recallBassSound = (synthPatch) => {
+    console.log('bass synth patch', synthPatch );
+    bassSynth = bassSounds[synthPatch];
+};
+let storeBassSound = () => {
+    return bassSynthName;
+};
+
 
 /////Load Chords On Page Load/////
 let arpKeys = [];
@@ -233,5 +266,8 @@ module.exports = {
     bassMonoSynth,
     bassFMSynth,
     bassSynth,
-    bassSounds
+    bassSynthName,
+    bassSounds,
+    storeBassSound,
+    recallBassSound
 };
