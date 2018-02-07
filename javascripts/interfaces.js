@@ -126,8 +126,8 @@ module.exports.dialReverbRoomSize = new Nexus.Dial('#reverb-room-size', {
     'mode': 'relative',
     'min': 0.05,
     'max': 1,
-    'step': 0.05,
-    'value': 0
+    'step': 0,
+    'value': 0.01
 });
 
 ///// VOLUME/PAN AXIS INTERFACE /////
