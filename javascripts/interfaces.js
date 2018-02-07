@@ -66,7 +66,7 @@ module.exports.stopButton = new Nexus.TextButton('#stop', {
 /////Select Interfaces
 module.exports.selectFx = new Nexus.Select('#one-fx-select', {
     'size': [75, 25],
-    'options': ['Default', 'Delay', 'Phaser']
+    'options': ['Default', 'Delay', 'Reverb']
 });
 
 module.exports.selectSeq = new Nexus.Select('#select-sequencer', {
@@ -101,8 +101,8 @@ module.exports.dialDelayTime = new Nexus.Dial('#delay-time', {
     'step': 0,
     'value': 0
 });
-/////Phaser Interface/////
-module.exports.dialPhaserWet = new Nexus.Dial('#phaser-wet', {
+/////Reverb Interface/////
+module.exports.dialReverbWet = new Nexus.Dial('#reverb-wet', {
     'size': [25, 25],
     'interaction': 'radial',
     'mode': 'relative',
@@ -111,16 +111,16 @@ module.exports.dialPhaserWet = new Nexus.Dial('#phaser-wet', {
     'step': 0,
     'value': 0
 });
-module.exports.dialPhaserOctaves = new Nexus.Dial('#phaser-octaves', {
+module.exports.dialReverbDampening = new Nexus.Dial('#reverb-dampening', {
     'size': [25, 25],
     'interaction': 'radial',
     'mode': 'relative',
-    'min': 1,
-    'max': 5,
+    'min': 100,
+    'max': 1600,
     'step': 0,
     'value': 0
 });
-module.exports.dialPhaserFrequency = new Nexus.Dial('#phaser-frequency', {
+module.exports.dialReverbRoomSize = new Nexus.Dial('#reverb-room-size', {
     'size': [25, 25],
     'interaction': 'radial',
     'mode': 'relative',
@@ -135,7 +135,7 @@ module.exports.arpVolPanKnob = new Nexus.Position('#arp-volpan', {
     'size': [200, 198],
     'mode': 'absolute',
     'x': 0.5,
-    'minX': 0,
+    'minX': -1,
     'maxX': 1,
     'stepX': 0,
     'y': 0.5,
@@ -148,7 +148,7 @@ module.exports.bassVolPanKnob = new Nexus.Position('#bass-volpan', {
     'size': [200, 198],
     'mode': 'absolute',
     'x': 0.5,
-    'minX': 0,
+    'minX': -1,
     'maxX': 1,
     'stepX': 0,
     'y': 0.5,
@@ -161,7 +161,7 @@ module.exports.beatVolPanKnob = new Nexus.Position('#beat-volpan', {
     'size': [200, 198],
     'mode': 'absolute',
     'x': 0.5,
-    'minX': 0,
+    'minX': -1,
     'maxX': 1,
     'stepX': 0,
     'y': 0.5,
@@ -169,3 +169,76 @@ module.exports.beatVolPanKnob = new Nexus.Position('#beat-volpan', {
     'maxY': 1,
     'stepY': 0
 });
+
+/////Master Compressor/////
+module.exports.thresholdKnob = new Nexus.Dial('#threshold', {
+    'size': [25, 25],
+    'interaction': 'radial',
+    'mode': 'relative',
+    'min': -60,
+    'max': 0,
+    'step': 1,
+    'value': -30
+});
+module.exports.thresholdNumber = new Nexus.Number('#threshold-number',{
+    'size': [40,25]
+  });
+
+module.exports.ratioKnob = new Nexus.Dial('#ratio', {
+    'size': [25, 25],
+    'interaction': 'radial',
+    'mode': 'relative',
+    'min': 1,
+    'max': 20,
+    'step': 1,
+    'value': 0
+});
+module.exports.ratioNumber = new Nexus.Number('#ratio-number',{
+    'size': [40,25]
+  });
+
+module.exports.attackKnob = new Nexus.Dial('#attack', {
+    'size': [25, 25],
+    'interaction': 'radial',
+    'mode': 'relative',
+    'min': 0.05,
+    'max': 1,
+    'step': 0,
+    'value': 0
+});
+module.exports.attackNumber = new Nexus.Number('#attack-number',{
+    'size': [40,25]
+  });
+
+module.exports.releaseKnob = new Nexus.Dial('#release', {
+    'size': [25, 25],
+    'interaction': 'radial',
+    'mode': 'relative',
+    'min': 0.05,
+    'max': 1,
+    'step': 0,
+    'value': 0
+});
+module.exports.releaseNumber = new Nexus.Number('#release-number',{
+    'size': [40,25]
+  });
+
+//Arp Synth Envelope
+module.exports.arpSynthEnvelope = new Nexus.Multislider('#fm-multislider',{
+    'size': [200,100],
+    'numberOfSliders': 4,
+    'min': 0,
+    'max': 1,
+    'step': 0,
+    'values': [0.7,0.7,0.7,0.7,0.7]
+   });
+
+//Bass Synth Envelope
+module.exports.bassSynthEnvelope = new Nexus.Multislider('#bass-multislider',{
+    'size': [200,100],
+    'numberOfSliders': 4,
+    'min': 0,
+    'max': 1,
+    'step': 0,
+    'values': [0.7,0.7,0.7,0.7,0.7]
+   });

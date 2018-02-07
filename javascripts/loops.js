@@ -5,14 +5,41 @@ const Tone = require('tone');
 const interface = require('./interfaces');
 const fx = require('./tone-fx');
 
-let synth = new Tone.Synth().chain(fx.arpVolPan, fx.delayOne, fx.phaserOne, Tone.Master);
-let bassSynth = new Tone.FMSynth().chain(fx.bassVolPan, Tone.Master);
-synth.envelope.release = 0.2;
-bassSynth.envelope.sustain = 0.1;
-// bassSynth.envelope.decay = 0;
-// bassSynth.envelope.release = 0.4;
+//Arpeggiator Sounds
+let simpleSynth = new Tone.Synth().chain(fx.arpVolPan, fx.delayOne, fx.reverbOne, Tone.Master);
+let fmSynth = new Tone.FMSynth().chain(fx.arpVolPan, fx.delayOne, fx.reverbOne, Tone.Master);
+let amSynth = new Tone.AMSynth().chain(fx.arpVolPan, fx.delayOne, fx.reverbOne, Tone.Master);
+let synth = simpleSynth;
+let arpSounds = {  
+    "simpleSynth": simpleSynth,
+    "FMSynth": fmSynth,
+    "AMSynth": amSynth
+};
 
-/////Load Chords On Page Load
+//Arp Sound Select
+$('.arp-sound-select').on('click', function () {
+    synth = arpSounds[$(this).attr('value')];
+});
+
+//Bass Sounds
+let bassSimpleSynth = new Tone.Synth().chain(fx.bassVolPan, Tone.Master);
+let bassMonoSynth = new Tone.MonoSynth().chain(fx.bassVolPan, Tone.Master);
+bassMonoSynth.envelope.decay = 0.05;
+let bassFMSynth = new Tone.FMSynth().chain(fx.bassVolPan, Tone.Master);
+bassFMSynth.envelope.decay = 0.05;
+let bassSynth = bassSimpleSynth;
+let bassSounds = {
+    "bassSimpleSynth": bassSimpleSynth,
+    "bassMonoSynth": bassMonoSynth,
+    "bassFMSynth": bassFMSynth,
+};
+//Bass Synth Select
+$('.bass-sound-select').on('click', function () {
+    bassSynth = bassSounds[$(this).attr('value')];
+    console.log('Bass Synth', bassSynth );
+});
+
+/////Load Chords On Page Load/////
 let arpKeys = [];
 let loadChords = () => {
     arpKeys = [];
@@ -32,6 +59,7 @@ let changeChords = (target) => {
     }
 };
 
+/////Get Chords For Settings/////
 let getChords = () => {
     let arpKeys = [];
     for (let i = 0; i < 8; i++) {
@@ -40,39 +68,17 @@ let getChords = () => {
     }
     return arpKeys;
 };
-
-
+/////Load Chords on Recall/////
 let loadUserChords = (chords) => {
     arpKeys = [];
     let count = 0;
     chords.forEach((chord) => {
         $(`.chord-${count}`).children().removeClass('play');
-            $(`.chord-${count}`).find(`.${chord}`).addClass('play');
-            arpKeys.push($(`.chord-${count}`).children().filter('.play').attr('value'));
-            count += 1;
+        $(`.chord-${count}`).find(`.${chord}`).addClass('play');
+        arpKeys.push($(`.chord-${count}`).children().filter('.play').attr('value'));
+        count += 1;
     });
 };
-
-
-///// Arpeggiator One /////
-//Sounds to be replaced later//
-let notes = new Tone.Players({
-    "A": "../audio/A1.[mp3|ogg]",
-    "A#": "../audio/As1.[mp3|ogg]",
-    "B": "../audio/B1.[mp3|ogg]",
-    "C": "../audio/C2.[mp3|ogg]",
-    "C#": "../audio/Cs2.[mp3|ogg]",
-    "D": "../audio/D2.[mp3|ogg]",
-    "D#": "../audio/Ds2.[mp3|ogg]",
-    "E": "../audio/E2.[mp3|ogg]",
-    "F": "../audio/F2.[mp3|ogg]",
-    "F#": "../audio/Fs2.[mp3|ogg]",
-    "G": "../audio/G2.[mp3|ogg]",
-    "G#": "../audio/Gs1.[mp3|ogg]"
-}, {
-    "volume": -10,
-    "fadeOut": "64n"
-}).chain(fx.arpVolPan, fx.delayOne, fx.phaserOne, Tone.Master);
 
 ///// Arpeggiator One ////
 //Note Names Arrays//
@@ -99,31 +105,13 @@ let arpLoop = new Tone.Sequence((time, col) => {
     }
     for (let i = 0; i < 4; i++) {
         if (step[i] === true) {
-           synth.triggerAttackRelease(seqKey[i], "8n");
+            synth.triggerAttackRelease(seqKey[i], "8n");
         }
     }
 }, [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15], "16n");
 
-///// BASS LOOP /////
-//Sounds and notes//
-let notes2 = new Tone.Players({
-    "A": "../audio/A1.[mp3|ogg]",
-    "A#": "../audio/As1.[mp3|ogg]",
-    "B": "../audio/B1.[mp3|ogg]",
-    "C": "../audio/C2.[mp3|ogg]",
-    "C#": "../audio/Cs2.[mp3|ogg]",
-    "D": "../audio/D2.[mp3|ogg]",
-    "D#": "../audio/Ds2.[mp3|ogg]",
-    "E": "../audio/E2.[mp3|ogg]",
-    "F": "../audio/F2.[mp3|ogg]",
-    "F#": "../audio/Fs2.[mp3|ogg]",
-    "G": "../audio/G2.[mp3|ogg]",
-    "G#": "../audio/Gs1.[mp3|ogg]"
-}, {
-    "volume": -10,
-    "fadeOut": "64n"
-}).chain(fx.bassVolPan, Tone.Master);
-
+//////Bass//////
+//Bass Notes
 let noteNamesBass = {
     Imaj: ["A2", "C#2", "E2", "G#2"],
     // ASmin: ["A#", "C#", "F", "G#"],
@@ -138,7 +126,7 @@ let noteNamesBass = {
     // Gmaj: ["G", "A#", "C#", "F"],
     viiminb5: ["G#2", "B3", "D3", "F3"]
 };
-
+//Bass Loop
 let bassLoop = new Tone.Sequence((time, col) => {
     step = [];
     for (let i = 0; i < 4; i++) {
@@ -146,7 +134,7 @@ let bassLoop = new Tone.Sequence((time, col) => {
     }
     for (let i = 0; i < 4; i++) {
         if (step[i] === true) {
-            bassSynth.triggerAttackRelease(seqKeyBass[i]);
+            bassSynth.triggerAttackRelease(seqKeyBass[i], "8n");
         }
     }
 }, [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15], "16n");
@@ -160,7 +148,7 @@ let drums = new Tone.Players({
     "clap": "../audio/drums/clap-808.wav",
     "hihat": "../audio/drums/hihat-acoustic01.wav"
 }, {
-    "volume": -10,
+    "volume": 0,
     "fadeOut": "64n"
 }).chain(fx.beatVolPan, Tone.Master);
 //Beat Loop//
@@ -200,4 +188,14 @@ module.exports = {
     loadChords,
     getChords,
     loadUserChords,
+    fmSynth,
+    amSynth,
+    simpleSynth,
+    synth,
+    arpSounds,
+    bassSimpleSynth,
+    bassMonoSynth,
+    bassFMSynth,
+    bassSynth,
+    bassSounds
 };
