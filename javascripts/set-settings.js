@@ -49,8 +49,8 @@ module.exports.storeSettings = (input) => {
     reverbOneWetDisplay: interface.dialReverbWet.value,   
     reverbOneDampening: fx.reverbOne.dampening.value,
     reverbOneDampeningDisplay: interface.dialReverbDampening.value,
-    // reverbOneRoomSize: fx.reverbOne.roomSize.value,
-    // reverbOneRoomSizeDisplay: interface.dialReverbRoomSize.value,
+    reverbOneRoomSize: fx.reverbOne.roomSize.value,
+    reverbOneRoomSizeDisplay: interface.dialReverbRoomSize.value,
     //Chords//
     chords: currentChords
     };
@@ -96,6 +96,6 @@ module.exports.recallSetting = (setting) => {
     interface.dialReverbWet.value = setting.reverbOneWetDisplay;    
     fx.reverbOne.dampening.value = setting.reverbOneDampening;
     interface.dialReverbDampening.value = setting.reverbOneDampeningDisplay;
-    // fx.reverbOne.roomSize.value = setting.reverbOneRoomSize;
-    // interface.dialReverbRoomSize.value = setting.reverbOneRoomSizeDisplay;
+    fx.reverbOne.roomSize.value = setting.reverbOneRoomSize;
+    interface.dialReverbRoomSize.value = setting.reverbOneRoomSizeDisplay;
 };
