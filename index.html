@@ -65,23 +65,37 @@
                                 <p class="fx-label">Time:</p>
                                 <div id="delay-time"></div>
                             </div>
-                            <div class="fx-hidden show-Phaser">
+                            <div class="fx-hidden show-Reverb">
                                 <p class="fx-label">Mix:</p>
-                                <div id="phaser-wet"></div>
-                                <p class="fx-label">Octaves:</p>
-                                <div id="phaser-octaves"></div>
-                                <p class="fx-label">Frequency:</p>
-                                <div id="phaser-frequency"></div>
+                                <div id="reverb-wet"></div>
+                                <p class="fx-label">Dampening:</p>
+                                <div id="reverb-dampening"></div>
+                                <p class="fx-label">Room Size:</p>
+                                <div id="reverb-room-size"></div>
                             </div>
                         </div>
                     </div>
                     <br>
+
+                    <!-- ARPEGGIATOR - SYNTH SELECT -->
+                    <div>
+                        <ul id="arp-synth">
+                            <li class="arp-sound-select" value="simpleSynth">Simple Synth</li>
+                            <li class="arp-sound-select" value="FMSynth">FMSynth</li>
+                            <li class="arp-sound-select" value="AMSynth">AMSynth</li>
+                        </ul>
+                        <div id="fm-multislider"></div>
+                    </div>
                 </div>
+                <!-- Arp Vol/Pan -->
                 <div class="arp-flexitem">
                     <h2>Volume/Pan:</h2>
                     <div id="arp-volpan"></div>
                 </div>
             </div>
+
+
+
 
             <div id="Bass" class="seq-hidden">
                 <div class="arp-flexwrap">
@@ -93,6 +107,14 @@
                         <h2>Volume/Pan:</h2>
                         <div id="bass-volpan"></div>
                     </div>
+                </div>
+                <div>
+                    <ul id="bass-synth">
+                        <li class="bass-sound-select" value="bassSimpleSynth">Simple Synth</li>
+                        <li class="bass-sound-select" value="bassMonoSynth">Mono Synth</li>
+                        <li class="bass-sound-select" value="bassFMSynth">FMSynth</li>
+                    </ul>
+                    <div id="bass-multislider"></div>
                 </div>
             </div>
             <div id="Rhythm" class="seq-hidden">
@@ -212,6 +234,18 @@
         </div>
     </div>
 
+    <!-- Master Compressor -->
+    <div>
+        <h2>Master Compressor</h2>
+        <div id="threshold"></div>
+        <div id="threshold-number"></div>
+        <div id="ratio"></div>
+        <div id="ratio-number"></div>
+        <div id="attack"></div>
+        <div id="attack-number"></div>
+        <div id="release"></div>
+        <div id="release-number"></div>
+    </div>
 
 
 
