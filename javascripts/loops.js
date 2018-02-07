@@ -10,6 +10,7 @@ let simpleSynth = new Tone.Synth().chain(fx.arpVolPan, fx.delayOne, fx.reverbOne
 let fmSynth = new Tone.FMSynth().chain(fx.arpVolPan, fx.delayOne, fx.reverbOne, Tone.Master);
 let amSynth = new Tone.AMSynth().chain(fx.arpVolPan, fx.delayOne, fx.reverbOne, Tone.Master);
 let synth = simpleSynth;
+let synthName = "simpleSynth";
 let arpSounds = {  
     "simpleSynth": simpleSynth,
     "FMSynth": fmSynth,
@@ -19,7 +20,15 @@ let arpSounds = {
 //Arp Sound Select
 $('.arp-sound-select').on('click', function () {
     synth = arpSounds[$(this).attr('value')];
+    synthName = $(this).attr('value');
 });
+//Recall Arp Sound
+let recallArpSound = (synthPatch) => {
+    synth = arpSounds[synthPatch];
+};
+let storeArpSound = () => {
+    return synthName;
+};
 
 //Bass Sounds
 let bassSimpleSynth = new Tone.Synth().chain(fx.bassVolPan, Tone.Master);
@@ -192,6 +201,9 @@ module.exports = {
     amSynth,
     simpleSynth,
     synth,
+    synthName,
+    storeArpSound,
+    recallArpSound,
     arpSounds,
     bassSimpleSynth,
     bassMonoSynth,
