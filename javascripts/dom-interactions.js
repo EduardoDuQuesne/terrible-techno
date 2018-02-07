@@ -93,12 +93,20 @@ $(document).on("click", ".get-setting", function () {
         .then(setting => {
             settings.recallSetting(setting);
         });
+
 });
 
 ////Delete Setting/////
 $(document).on("click", ".delete-setting", function () {
     let fbId = $(this).attr('id').slice(4);
-    factory.deleteSetting(fbId);
+    factory.deleteSetting(fbId)
+        .then(() => {
+            return factory.getAllSettings(firebase.auth().currentUser.uid);
+        })
+        .then(settings => {
+            let userSettings = settings;
+            view.displaySettings(userSettings);
+        });
 });
 
 
@@ -132,16 +140,12 @@ interface.dialDelayTime.on('change', function () {
 //Reverb// 
 interface.dialReverbWet.on('change', function () {
     fx.reverbOne.wet.value = interface.dialReverbWet.value;
-    console.log('Wet: ',  fx.reverbOne.wet.value );
-    
 });
 interface.dialReverbDampening.on('change', function () {
     fx.reverbOne.dampening.value = interface.dialReverbDampening.value;
-    console.log('Dampen: ',  fx.reverbOne.dampening.value );
 });
 interface.dialReverbRoomSize.on('change', function () {
     fx.reverbOne.roomSize.value = interface.dialReverbRoomSize.value;
-    console.log('RoomSize: ',  fx.reverbOne.roomSize.value );
 });
 //Select Button Listeners//
 interface.selectFx.on('change', function (select) {
@@ -202,30 +206,23 @@ $('.arp-sound-select').on('click', function () {
     // interface.arpSynthEnvelope.setSlider(3, currentRelease);
 });
 
-interface.arpSynthEnvelope.on("change", function() {
+interface.arpSynthEnvelope.on("change", function () {
     currentSynth.envelope.attack = interface.arpSynthEnvelope.values[0];
     currentSynth.envelope.decay = interface.arpSynthEnvelope.values[1];
     currentSynth.envelope.sustain = interface.arpSynthEnvelope.values[2];
-    currentSynth.envelope.release = interface.arpSynthEnvelope.values[3];    
+    currentSynth.envelope.release = interface.arpSynthEnvelope.values[3];
 });
 
 ///// Bass Synth Envelopes /////
 let currentBassSynth = loops.bassSounds.bassSimpleSynth;
 $('.bass-sound-select').on('click', function () {
     currentBassSynth = loops.bassSounds[$(this).attr('value')];
-    console.log('Current Bass: ', currentBassSynth );
+    console.log('Current Bass: ', currentBassSynth);
 });
 
-interface.bassSynthEnvelope.on("change", function() {
+interface.bassSynthEnvelope.on("change", function () {
     currentBassSynth.envelope.attack = interface.bassSynthEnvelope.values[0];
     currentBassSynth.envelope.decay = interface.bassSynthEnvelope.values[1];
     currentBassSynth.envelope.sustain = interface.bassSynthEnvelope.values[2];
     currentBassSynth.envelope.release = interface.bassSynthEnvelope.values[3];
-    console.log('BASS ENV release', currentBassSynth.envelope.release );    
 });
-
-
-
-
-
-
