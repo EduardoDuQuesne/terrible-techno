@@ -13,7 +13,7 @@ let delayOne = new Tone.FeedbackDelay({
 
 let reverbOne = new Tone.Freeverb({
     dampening: 1600,
-    wet: 0,
+    wet: 0.01,
     roomSize: 0.05
 });
 // reverbOne.dampening.value = 1600;

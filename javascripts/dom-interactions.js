@@ -92,6 +92,7 @@ $(document).on("click", ".get-setting", function () {
     factory.getSetting(settingId)
         .then(setting => {
             settings.recallSetting(setting);
+            
         });
 
 });
