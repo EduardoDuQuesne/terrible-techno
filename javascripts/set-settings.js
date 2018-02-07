@@ -80,7 +80,9 @@ module.exports.storeSettings = (input) => {
         bassFMEnvDecay: loops.bassFMSynth.envelope.decay,
         bassFMEnvSustain: loops.bassFMSynth.envelope.sustain,
         bassFMEnvRelease: loops.bassFMSynth.envelope.release,
-
+        //drum distortion
+        drumDistoWet: fx.drumDisto.wet.value,
+        drumDistoAmount: fx.drumDisto.distortion,
         //Chords//
         chords: currentChords
     };
@@ -156,6 +158,11 @@ module.exports.recallSetting = (setting) => {
     loops.bassFMSynth.envelope.decay = setting.bassFMEnvDecay;
     loops.bassFMSynth.envelope.sustain = setting.bassFMEnvSustain;
     loops.bassFMSynth.envelope.release = setting.bassFMEnvRelease;
+    //drum disto
+    fx.drumDisto.wet.value = setting.drumDistoWet;
+    interface.drumDistoWetDial.value = setting.drumDistoWet;
+    fx.drumDisto.distortion = setting.drumDistoAmount;
+    interface.drumDistoAmountDial.value = setting.drumDistoAmount;
 };
 
 // let setEnvDisplay = (synthPatch) => {
