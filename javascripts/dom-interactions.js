@@ -192,21 +192,16 @@ interface.releaseKnob.on("change", function (value) {
 });
 interface.releaseNumber.link(interface.releaseKnob);
 
-///// Arpeggiator Synth Envelopes /////
+///// Arpeggiator Synth Envelopes //////
 let currentSynth = loops.arpSounds.simpleSynth;
 $('.arp-sound-select').on('click', function () {
     currentSynth = loops.arpSounds[$(this).attr('value')];
-    // let currentAttack = currentSynth.envelope.attack;
-    // let currentsustain = currentSynth.envelope.decay;
-    // let currentSustain = currentSynth.envelope.sustain;
-    // let currentRelease = currentSynth.envelope.release;
-    // interface.arpSynthEnvelope.setSlider(0, currentAttack);
-    // interface.arpSynthEnvelope.setSlider(1, currentDecay);
-    // interface.arpSynthEnvelope.setSlider(2 , currentSustain);
-    // interface.arpSynthEnvelope.setSlider(3, currentRelease);
+    interface.arpSynthEnvelope.setSlider(0, loops.arpSounds[$(this).attr('value')].envelope.attack);
+    interface.arpSynthEnvelope.setSlider(1, loops.arpSounds[$(this).attr('value')].envelope.decay);
+    interface.arpSynthEnvelope.setSlider(2, loops.arpSounds[$(this).attr('value')].envelope.sustain);
+    interface.arpSynthEnvelope.setSlider(3, loops.arpSounds[$(this).attr('value')].envelope.release);
 });
-
-interface.arpSynthEnvelope.on("change", function () {
+$(document).on('mouseup', '.fm-multislider', function () {
     currentSynth.envelope.attack = interface.arpSynthEnvelope.values[0];
     currentSynth.envelope.decay = interface.arpSynthEnvelope.values[1];
     currentSynth.envelope.sustain = interface.arpSynthEnvelope.values[2];
@@ -217,10 +212,12 @@ interface.arpSynthEnvelope.on("change", function () {
 let currentBassSynth = loops.bassSounds.bassSimpleSynth;
 $('.bass-sound-select').on('click', function () {
     currentBassSynth = loops.bassSounds[$(this).attr('value')];
-    console.log('Current Bass: ', currentBassSynth);
+    interface.bassSynthEnvelope.setSlider(0, loops.bassSounds[$(this).attr('value')].envelope.attack);
+    interface.bassSynthEnvelope.setSlider(1, loops.bassSounds[$(this).attr('value')].envelope.decay);
+    interface.bassSynthEnvelope.setSlider(2, loops.bassSounds[$(this).attr('value')].envelope.sustain);
+    interface.bassSynthEnvelope.setSlider(3, loops.bassSounds[$(this).attr('value')].envelope.release);
 });
-
-interface.bassSynthEnvelope.on("change", function () {
+$(document).on('mouseup', '.bass-multislider', function () {
     currentBassSynth.envelope.attack = interface.bassSynthEnvelope.values[0];
     currentBassSynth.envelope.decay = interface.bassSynthEnvelope.values[1];
     currentBassSynth.envelope.sustain = interface.bassSynthEnvelope.values[2];
