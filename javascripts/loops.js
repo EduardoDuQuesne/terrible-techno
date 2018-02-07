@@ -6,9 +6,33 @@ const interface = require('./interfaces');
 const fx = require('./tone-fx');
 
 //Arpeggiator Sounds
-let simpleSynth = new Tone.Synth().chain(fx.arpVolPan, fx.delayOne, fx.reverbOne, Tone.Master);
-let fmSynth = new Tone.FMSynth().chain(fx.arpVolPan, fx.delayOne, fx.reverbOne, Tone.Master);
-let amSynth = new Tone.AMSynth().chain(fx.arpVolPan, fx.delayOne, fx.reverbOne, Tone.Master);
+let simpleSynth = new Tone.Synth({
+    envelope  : {
+        attack  : 0.005 ,
+        decay  : 0.1 ,
+        sustain  : 0.3 ,
+        release  : 1
+        }
+}).chain(fx.arpVolPan, fx.delayOne, fx.reverbOne, Tone.Master);
+
+let fmSynth = new Tone.FMSynth({
+    envelope  : {
+        attack  : 0.01 ,
+        decay  : 0.01 ,
+        sustain  : 1 ,
+        release  : 0.5
+        }
+}).chain(fx.arpVolPan, fx.delayOne, fx.reverbOne, Tone.Master);
+
+let amSynth = new Tone.AMSynth({
+    envelope  : {
+        attack  : 0.01 ,
+        decay  : 0.01 ,
+        sustain  : 1 ,
+        release  : 0.5
+        }
+}).chain(fx.arpVolPan, fx.delayOne, fx.reverbOne, Tone.Master);
+
 let synth = simpleSynth;
 let synthName = "simpleSynth";
 let arpSounds = {  
