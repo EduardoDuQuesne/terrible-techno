@@ -216,7 +216,7 @@ let drums = new Tone.Players({
 }, {
     "volume": 0,
     "fadeOut": "64n"
-}).chain(fx.beatVolPan, Tone.Master);
+}).chain(fx.beatVolPan, fx.drumDisto, Tone.Master);
 //Beat Loop//
 let step2 = [];
 let beatName = ["kick", "snare", "clap", "hihat"];
