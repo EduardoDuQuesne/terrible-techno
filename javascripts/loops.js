@@ -43,12 +43,12 @@ let arpSounds = {
 
 //Arp Sound Select
 $('.arp-sound-select').on('click', function () {
-    synth = arpSounds[$(this).attr('value')];
+    module.exports.synth = arpSounds[$(this).attr('value')];
     synthName = $(this).attr('value');
 });
 //Store and Recall Arp Sound
 let recallArpSound = (synthPatch) => {
-    synth = arpSounds[synthPatch];
+    synth = arpSounds[`${synthPatch}`];
 };
 let storeArpSound = () => {
     return synthName;
@@ -92,7 +92,7 @@ let bassSounds = {
 
 //Bass Sound Select
 $('.bass-sound-select').on('click', function () {
-    bassSynth = bassSounds[$(this).attr('value')];
+    module.exports.bassSynth = bassSounds[$(this).attr('value')];
     bassSynthName = $(this).attr('value');
 });
 //Store and Recall Bass Sounds
@@ -216,7 +216,7 @@ let drums = new Tone.Players({
 }, {
     "volume": 0,
     "fadeOut": "64n"
-}).chain(fx.beatVolPan, fx.drumDisto, Tone.Master);
+}).chain(fx.beatVolPan, fx.drumDisto, fx.drumSlap, Tone.Master);
 //Beat Loop//
 let step2 = [];
 let beatName = ["kick", "snare", "clap", "hihat"];
