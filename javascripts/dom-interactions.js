@@ -36,11 +36,11 @@ firebase.auth().onAuthStateChanged((user) => {
         $("#logout-btn").show();
         $("#store-btn").show();
         factory.getAllSettings(user.uid)
-        .then(settings => {
-            let userSettings = settings;
-            view.displaySettings(userSettings);
-            $('.icon-spin').hide();
-        });
+            .then(settings => {
+                let userSettings = settings;
+                view.displaySettings(userSettings);
+                $('.icon-spin').hide();
+            });
     } else {
         $('.icon-spin').show();
         $("#login-btn").show();
@@ -49,20 +49,38 @@ firebase.auth().onAuthStateChanged((user) => {
     }
 });
 
-//tempo//
+/////Tempo/////
 interface.tempoKnob.on("change", function () {
     Tone.Transport.bpm.value = interface.tempoKnob.value;
 });
 
 ///// Start and Stop /////
+let startCount = 0;
 $('#play').on("click", () => {
+    startCount += 1;
     loops.chordLoop.start();
 });
 $('#stop').on("click", () => {
+    startCount += 1;
     loops.arpLoop.stop();
     loops.chordLoop.stop();
     loops.bassLoop.stop();
     loops.drumLoop.stop();
+});
+$(document).on('keydown', function (event) {
+    
+    if (event.which === 32) {
+        startCount += 1;
+        event.preventDefault();
+        if (startCount % 2 !== 0) {
+            loops.chordLoop.start();
+        } else {
+            loops.arpLoop.stop();
+            loops.chordLoop.stop();
+            loops.bassLoop.stop();
+            loops.drumLoop.stop();
+        }
+    }
 });
 
 /////User Settings/////
@@ -99,7 +117,7 @@ $(document).on("click", ".get-setting", function () {
 
 });
 
-////Delete Setting/////
+/////Delete Setting/////
 $(document).on("click", ".delete-setting", function () {
     let fbId = $(this).attr('id').slice(4);
     factory.deleteSetting(fbId)
@@ -112,11 +130,11 @@ $(document).on("click", ".delete-setting", function () {
         });
 });
 
-
+/////Clear Settings/////
 $("#clear-settings").on("click", function () {});
 
 
-//Set class to play on all 'Iman' chords on startup//
+/////Set class to play on all 'Iman' chords on startup/////
 $(document).ready(function () {
     loops.loadChords();
 });
@@ -127,7 +145,7 @@ $('p.chord').on('click', function () {
     loops.changeChords(target);
 });
 
-//DELAY//
+/////DELAY/////
 interface.dialDelayWet.on('change', function () {
     fx.delayOne.wet.value = interface.dialDelayWet.value;
 
@@ -140,7 +158,7 @@ interface.dialDelayTime.on('change', function () {
     fx.delayOne.delayTime.value = interface.dialDelayTime.value;
 });
 
-//Reverb// 
+/////Reverb/////
 interface.dialReverbWet.on('change', function () {
     fx.reverbOne.wet.value = interface.dialReverbWet.value;
 });
@@ -150,21 +168,45 @@ interface.dialReverbDampening.on('change', function () {
 interface.dialReverbRoomSize.on('change', function () {
     fx.reverbOne.roomSize.value = interface.dialReverbRoomSize.value;
 });
-//Select Button Listeners//
+/////Select Button Listeners/////
+//Arp Fx
 interface.selectFx.on('change', function (select) {
     $(`.show-${select.value}`).show();
     $(`.show-${select.value}`).siblings().hide();
 });
+//Drum Fx
 interface.selectDrumFx.on('change', function (select) {
     $(`.show-${select.value}`).show();
     $(`.show-${select.value}`).siblings().hide();
 });
-interface.selectSeq.on('change', function (select) {
-    $(`#${select.value}`).show();
-    $(`#${select.value}`).siblings().hide();
+//Sequencer
+$(".tab-select").on("click", function () {
+    let value = $(this).attr('value');
+    $(`#${value}`).show();
+    $(`#${value}`).siblings().hide();
+});
+//Tab Through Sequencer
+let seqTab = ["Arpeggiator", "Bass", "Rhythm"];
+let counter = 0;
+$(document).on('keyup', function (event) {
+    console.log('Key Check', event.which);
+    if (event.which === 187) {
+        counter += 1;
+        if (counter === seqTab.length) {
+            counter = 0;
+        }
+    } else if (event.which === 189) {
+        counter -= 1;
+        if (counter === -1) {
+            counter = seqTab.length - 1;
+        }
+    }
+    $(`#${seqTab[counter]}`).show();
+    $(`#${seqTab[counter]}`).siblings().hide();
 });
 
-//VOL AND PAN//
+
+/////VOL AND PAN/////
 interface.arpVolPanKnob.on('change', function () {
     fx.arpVolPan.volume.input.value = interface.arpVolPanKnob.y;
     fx.arpVolPan.pan.value = interface.arpVolPanKnob.x;
@@ -178,7 +220,7 @@ interface.beatVolPanKnob.on('change', function () {
     fx.beatVolPan.pan.value = interface.beatVolPanKnob.x;
 });
 
-//Master Compressor
+/////Master Compressor/////
 interface.thresholdKnob.on("change", function (value) {
     fx.masterComp.threshold.value = value;
 });
@@ -231,7 +273,7 @@ $(document).on('mouseup', '.bass-multislider', function () {
     currentBassSynth.envelope.release = interface.bassSynthEnvelope.values[3];
 });
 
-//Drum Distortion
+/////Drum Distortion/////
 interface.drumDistoWetDial.on("change", function (value) {
     fx.drumDisto.wet.value = value;
 });
@@ -240,10 +282,10 @@ interface.drumDistoAmountDial.on("change", function (value) {
     fx.drumDisto.distortion = value;
 });
 
-//Drum Reverb
-interface.dialDrumSlapWet.on("change", function(value) {
+/////Drum Reverb/////
+interface.dialDrumSlapWet.on("change", function (value) {
     fx.drumSlap.wet.value = value;
 });
-interface.dialDrumSlapRoomSize.on("change", function(value) {
+interface.dialDrumSlapRoomSize.on("change", function (value) {
     fx.drumSlap.roomSize.value = value;
 });
