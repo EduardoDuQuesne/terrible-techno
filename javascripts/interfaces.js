@@ -160,7 +160,7 @@ module.exports.dialDrumSlapRoomSize = new Nexus.Dial('#drumSlap-room-size', {
 module.exports.arpVolPanKnob = new Nexus.Position('#arp-volpan', {
     'size': [200, 198],
     'mode': 'absolute',
-    'x': 0.5,
+    'x': 0,
     'minX': -1,
     'maxX': 1,
     'stepX': 0,
@@ -173,7 +173,7 @@ module.exports.arpVolPanKnob = new Nexus.Position('#arp-volpan', {
 module.exports.bassVolPanKnob = new Nexus.Position('#bass-volpan', {
     'size': [200, 198],
     'mode': 'absolute',
-    'x': 0.5,
+    'x': 0,
     'minX': -1,
     'maxX': 1,
     'stepX': 0,
@@ -186,7 +186,7 @@ module.exports.bassVolPanKnob = new Nexus.Position('#bass-volpan', {
 module.exports.beatVolPanKnob = new Nexus.Position('#beat-volpan', {
     'size': [200, 198],
     'mode': 'absolute',
-    'x': 0.5,
+    'x': 0,
     'minX': -1,
     'maxX': 1,
     'stepX': 0,
