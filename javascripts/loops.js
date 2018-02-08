@@ -44,7 +44,7 @@ let arpSounds = {
 //Arp Sound Select
 $('.arp-sound-select').on('click', function () {
     module.exports.synth = arpSounds[$(this).attr('value')];
-    synthName = $(this).attr('value');
+    recallArpSound($(this).attr('value'));
 });
 //Store and Recall Arp Sound
 let recallArpSound = (synthPatch) => {
