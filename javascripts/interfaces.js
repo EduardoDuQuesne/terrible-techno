@@ -71,7 +71,7 @@ module.exports.selectFx = new Nexus.Select('#one-fx-select', {
 
 module.exports.selectDrumFx = new Nexus.Select('#three-fx-select', {
     'size': [75, 25],
-    'options': ['Default', 'Distortion']
+    'options': ['Default', 'Distortion', 'Slap']
 });
 
 module.exports.selectSeq = new Nexus.Select('#select-sequencer', {
@@ -107,6 +107,7 @@ module.exports.dialDelayTime = new Nexus.Dial('#delay-time', {
     'value': 0
 });
 /////Reverb Interface/////
+//Arp Reverb
 module.exports.dialReverbWet = new Nexus.Dial('#reverb-wet', {
     'size': [25, 25],
     'interaction': 'radial',
@@ -134,6 +135,26 @@ module.exports.dialReverbRoomSize = new Nexus.Dial('#reverb-room-size', {
     'step': 0,
     'value': 0.01
 });
+//Drum Reverb
+module.exports.dialDrumSlapWet = new Nexus.Dial('#drumSlap-wet', {
+    'size': [25, 25],
+    'interaction': 'radial',
+    'mode': 'relative',
+    'min': 0,
+    'max': 1,
+    'step': 0.05,
+    'value': 0
+});
+module.exports.dialDrumSlapRoomSize = new Nexus.Dial('#drumSlap-room-size', {
+    'size': [25, 25],
+    'interaction': 'radial',
+    'mode': 'relative',
+    'min': 0.05,
+    'max': 1,
+    'step': 0,
+    'value': 0.01
+});
+
 
 ///// VOLUME/PAN AXIS INTERFACE /////
 module.exports.arpVolPanKnob = new Nexus.Position('#arp-volpan', {

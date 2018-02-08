@@ -9,19 +9,24 @@ let delayOne = new Tone.FeedbackDelay({
     delayTime: 0,
     feedback: 0
 });
-// delayOne.wet.value = 0;
 
+//Arp Reverb
 let reverbOne = new Tone.Freeverb({
     dampening: 1600,
     wet: 0.01,
     roomSize: 0.05
 });
-// reverbOne.dampening.value = 1600;
-// reverbOne.wet.value = 0;
-// phaserOne.wet.value = 0;
+//Drum Reverb
+let drumSlap = new Tone.JCReverb({
+    wet: 0,
+    roomSize: 0.05
+});
 
+//Arp Volume and Pan
 let arpVolPan = new Tone.PanVol();
+//Bass Volume and Pan
 let bassVolPan = new Tone.PanVol();
+//Beat Volume and Pan
 let beatVolPan = new Tone.PanVol();
 
 //Compressor
@@ -41,5 +46,6 @@ module.exports = {
     bassVolPan,
     beatVolPan,
     masterComp,
-    drumDisto
+    drumDisto,
+    drumSlap
 };
