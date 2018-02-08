@@ -74,10 +74,6 @@ module.exports.selectDrumFx = new Nexus.Select('#three-fx-select', {
     'options': ['Default', 'Distortion', 'Slap']
 });
 
-module.exports.selectSeq = new Nexus.Select('#select-sequencer', {
-    'size': [75, 25],
-    'options': ['Arpeggiator', 'Bass', 'Rhythm']
-});
 /////Delay Interface/////
 module.exports.dialDelayWet = new Nexus.Dial('#delay-wet', {
     'size': [25, 25],
