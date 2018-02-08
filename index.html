@@ -29,9 +29,6 @@
         <a id="save-settings" href="#" title="save">
             <i id="save-btn" class="icons fas fa-save fa-2x"></i>
         </a>
-        <a id="load-settings" href="#" title="load">
-            <i class="icons fas fa-spinner fa-2x"></i>
-        </a>
         <a id="clear-settings" href="#" title="clear">
             <i class="icons fas fa-minus-circle fa-2x"></i>
         </a>
@@ -39,6 +36,7 @@
         <div>
             <h4>Your Settings: </h4>
             <ul id="user-settings">
+                <i class="icon-spin icons fas fa-spinner fa-spin fa-2x"></i>
             </ul>
         </div>
     </div>
@@ -84,7 +82,7 @@
                             <li class="arp-sound-select" value="FMSynth">FMSynth</li>
                             <li class="arp-sound-select" value="AMSynth">AMSynth</li>
                         </ul>
-                        <div class ="fm-multislider" id="fm-multislider"></div>
+                        <div class="fm-multislider" id="fm-multislider"></div>
                     </div>
                 </div>
                 <!-- Arp Vol/Pan -->
@@ -93,9 +91,6 @@
                     <div id="arp-volpan"></div>
                 </div>
             </div>
-
-
-
 
             <div id="Bass" class="seq-hidden">
                 <div class="arp-flexwrap">
@@ -133,14 +128,12 @@
                                     <p class="fx-label">Amount:</p>
                                     <div id="distortion-amount"></div>
                                 </div>
-                                <!-- <div class="fx-hidden show-Drum-Reverb">
+                                <div class="fx-hidden show-Slap">
                                     <p class="fx-label">Mix:</p>
-                                    <div id="reverb-wet"></div>
-                                    <p class="fx-label">Dampening:</p>
-                                    <div id="reverb-dampening"></div>
+                                    <div id="drumSlap-wet"></div>
                                     <p class="fx-label">Room Size:</p>
-                                    <div id="reverb-room-size"></div>
-                                </div> -->
+                                    <div id="drumSlap-room-size"></div>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -150,29 +143,6 @@
                     </div>
                 </div>
             </div>
-            <!-- <div class="select-fx">
-                <div id="one-fx-select" class="one-fx-select"></div>
-                <br>
-                <div>
-                    <div class="show-Default"></div>
-                    <div class="fx-hidden show-Delay">
-                        <p class="fx-label">Mix:</p>
-                        <div id="delay-wet"></div>
-                        <p class="fx-label">Feedback:</p>
-                        <div id="delay-feedback"></div>
-                        <p class="fx-label">Time:</p>
-                        <div id="delay-time"></div>
-                    </div>
-                    <div class="fx-hidden show-Phaser">
-                        <p class="fx-label">Mix:</p>
-                        <div id="phaser-wet"></div>
-                        <p class="fx-label">Octaves:</p>
-                        <div id="phaser-octaves"></div>
-                        <p class="fx-label">Frequency:</p>
-                        <div id="phaser-frequency"></div>
-                    </div>
-                </div>
-            </div> -->
             <br>
         </div>
     </div>
