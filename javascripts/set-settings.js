@@ -83,6 +83,9 @@ module.exports.storeSettings = (input) => {
         //drum distortion
         drumDistoWet: fx.drumDisto.wet.value,
         drumDistoAmount: fx.drumDisto.distortion,
+        //drum reverb
+        drumSlapWet: fx.drumSlap.wet.value,
+        drumSlapRoomSize: fx.drumSlap.roomSize.value,
         //Chords//
         chords: currentChords
     };
@@ -163,6 +166,11 @@ module.exports.recallSetting = (setting) => {
     interface.drumDistoWetDial.value = setting.drumDistoWet;
     fx.drumDisto.distortion = setting.drumDistoAmount;
     interface.drumDistoAmountDial.value = setting.drumDistoAmount;
+    //drum slap
+    fx.drumSlap.wet.value = setting.drumSlapWet;
+    interface.dialDrumSlapWet.value = setting.drumSlapWet;
+    fx.drumSlap.roomSize.value = setting.drumSlapRoomSize;
+    interface.dialDrumSlapRoomSize.value = setting.drumSlapRoomSize;
 };
 
 // let setEnvDisplay = (synthPatch) => {

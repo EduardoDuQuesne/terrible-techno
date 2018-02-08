@@ -36,11 +36,13 @@ firebase.auth().onAuthStateChanged((user) => {
         $("#logout-btn").show();
         $("#store-btn").show();
         factory.getAllSettings(user.uid)
-            .then(settings => {
-                let userSettings = settings;
-                view.displaySettings(userSettings);
-            });
+        .then(settings => {
+            let userSettings = settings;
+            view.displaySettings(userSettings);
+            $('.icon-spin').hide();
+        });
     } else {
+        $('.icon-spin').show();
         $("#login-btn").show();
         $("#logout-btn").hide();
         $("#store-btn").hide();
@@ -236,4 +238,12 @@ interface.drumDistoWetDial.on("change", function (value) {
 
 interface.drumDistoAmountDial.on("change", function (value) {
     fx.drumDisto.distortion = value;
+});
+
+//Drum Reverb
+interface.dialDrumSlapWet.on("change", function(value) {
+    fx.drumSlap.wet.value = value;
+});
+interface.dialDrumSlapRoomSize.on("change", function(value) {
+    fx.drumSlap.roomSize.value = value;
 });
