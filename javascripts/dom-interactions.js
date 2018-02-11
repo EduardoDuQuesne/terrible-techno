@@ -68,7 +68,7 @@ $('#stop').on("click", () => {
     loops.drumLoop.stop();
 });
 $(document).on('keydown', function (event) {
-    
+
     if (event.which === 32) {
         startCount += 1;
         event.preventDefault();
@@ -186,10 +186,9 @@ $(".tab-select").on("click", function () {
     $(`#${value}`).siblings().hide();
 });
 //Tab Through Sequencer
-let seqTab = ["Arpeggiator", "Bass", "Rhythm"];
+let seqTab = ["Arpeggiator", "Bass", "Rhythm", "Synthesizer"];
 let counter = 0;
 $(document).on('keyup', function (event) {
-    console.log('Key Check', event.which);
     if (event.which === 187) {
         counter += 1;
         if (counter === seqTab.length) {
@@ -218,6 +217,11 @@ interface.bassVolPanKnob.on('change', function () {
 interface.beatVolPanKnob.on('change', function () {
     fx.beatVolPan.volume.input.value = interface.beatVolPanKnob.y;
     fx.beatVolPan.pan.value = interface.beatVolPanKnob.x;
+});
+interface.synthVolPanKnob.on('change', function () {
+    console.log('yo', interface.synthVolPanKnob.y);
+    fx.synthVolPan.volume.input.value = interface.synthVolPanKnob.y;
+    fx.synthVolPan.pan.value = interface.synthVolPanKnob.x;
 });
 
 /////Master Compressor/////
@@ -288,4 +292,85 @@ interface.dialDrumSlapWet.on("change", function (value) {
 });
 interface.dialDrumSlapRoomSize.on("change", function (value) {
     fx.drumSlap.roomSize.value = value;
+});
+
+/////Live Synth/////
+//Note Array for Piano Clicks
+let noteArray = ["C3", "C#3", "D3", "D#3", "E3", "F3", "F#3", "G3", "G#3", "A3", "A#3", "B3", "C4", "C#4", "D4", "D#4", "E4", "F4", "F#4", "G4", "G#4", "A4", "A#4", "B4", "C5", "C#5", "D5", "D#5", "E5", "F5", "F#5", "G5", "G#5", "A5", "A#5", "B5"];
+//Click on Piano Keys
+interface.liveSynthKeyboard.on("change", function (key) {
+    if (key.state === true) {
+        fx.liveSynth.triggerAttack(noteArray[key.note]);
+    }
+    if (key.state === false) {
+        fx.liveSynth.triggerRelease();
+    }
+});
+//Play with Keyboard
+let octave = 4;
+let keyboardNotes = {
+    "key-65": `C${octave}`,
+    "key-87": `C#${octave}`,
+    "key-83": `D${octave}`,
+    "key-69": `D#${octave}`,
+    "key-68": `E${octave}`,
+    "key-70": `F${octave}`,
+    "key-84": `F#${octave}`,
+    "key-71": `G${octave}`,
+    "key-89": `G#${octave}`,
+    "key-72": `A${octave}`,
+    "key-85": `A#${octave}`,
+    "key-74": `B${octave}`,
+    "key-75": `C${octave + 1}`
+};
+
+let keyDown = false;
+let index = 0;
+$(document).on("keydown", function (event) {
+    if (!keyDown && keyboardNotes[`key-${event.which}`] !== undefined) {
+        index = noteArray.indexOf(keyboardNotes[`key-${event.which}`]);
+        interface.liveSynthKeyboard.keys[index].state = true;
+        keyDown = true;
+        fx.liveSynth.triggerAttack(keyboardNotes[`key-${event.which}`]);
+    }
+});
+$(document).on("keyup", function (event) {
+    interface.liveSynthKeyboard.keys[index].state = false;
+    keyDown = false;
+    fx.liveSynth.triggerRelease();
+});
+
+//////settings
+//envelope
+interface.synthAttackDial.on("change", function (value) {
+    fx.liveSynth.envelope.attack = value;
+});
+interface.synthDecayDial.on("change", function (value) {
+    fx.liveSynth.envelope.decay = value;
+});
+interface.synthSustainDial.on("change", function (value) {
+    fx.liveSynth.envelope.sustain = value;
+});
+interface.synthReleaseDial.on("change", function (value) {
+    fx.liveSynth.envelope.release = value;
+});
+//filter envelope
+interface.synthFilterAttackDial.on("change", function (value) {
+    fx.liveSynth.filterEnvelope.attack = value;
+});
+interface.synthFilterDecayDial.on("change", function (value) {
+    fx.liveSynth.filterEnvelope.decay = value;
+});
+interface.synthFilterSustainDial.on("change", function (value) {
+    fx.liveSynth.filterEnvelope.sustain = value;
+});
+interface.synthFilterReleaseDial.on("change", function (value) {
+    fx.liveSynth.filterEnvelope.release = value;
+});
+//portamento
+interface.synthPortamentoDial.on("change", function (value) {
+    fx.liveSynth.portamento = value;
+});
+interface.synthDetuneDial.on("change", function (value) {
+    fx.liveSynth.detune.value = value;
 });
