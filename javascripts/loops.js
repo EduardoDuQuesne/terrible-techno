@@ -150,18 +150,22 @@ let loadUserChords = (chords) => {
 //Note Names Arrays//
 let noteNames = {
     Imaj: ["A4", "C#4", "E4", "G#4"],
-    // ASmin: ["A#", "C#", "F", "G#"],
     iimin: ["B4", "D4", "F#4", "A5"],
-    // Cmaj: ["C", "E", "G", "B"],
     iiimin: ["C#4", "E4", "G#4", "B5"],
     IVmaj: ["D4", "F#4", "A5", "C#5"],
-    // DSmin: ["D#", "F#", "A#", "C#"],
     Vdom: ["E4", "G#4", "B5", "D5"],
-    // Fmaj: ["F", "G#", "C", "D#"],
     vimin: ["F#4", "A5", "C#5", "E5"],
-    // Gmaj: ["G", "A#", "C#", "F"],
     viiminb5: ["G#4", "B5", "D5", "F5"]
 };
+// let noteNames = {
+//     Imaj: ["C3", "E3", "G3", "B3"],
+//     iimin: ["D3", "F3", "A ", "C "],
+//     iiimin: ["E3", "G3", "B ", "D "],
+//     IVmaj: ["F3", "A3", "C ", "E "],
+//     Vdom: ["G3", "B3", "D ", "F "],
+//     vimin: ["A4", "C ", "E ", "G "],
+//     viiminb : ["B4", "D ", "F ", "A "]
+// };
 let seqKey = [];
 let step = [];
 let arpLoop = new Tone.Sequence((time, col) => {
@@ -180,16 +184,11 @@ let arpLoop = new Tone.Sequence((time, col) => {
 //Bass Notes
 let noteNamesBass = {
     Imaj: ["A2", "C#2", "E2", "G#2"],
-    // ASmin: ["A#", "C#", "F", "G#"],
     iimin: ["B2", "D2", "F#2", "A3"],
-    // Cmaj: ["C", "E", "G", "B"],
     iiimin: ["C#2", "E2", "G#2", "B3"],
     IVmaj: ["D2", "F#2", "A3", "C#3"],
-    // DSmin: ["D#", "F#", "A#", "C#"],
     Vdom: ["E2", "G#2", "B3", "D3"],
-    // Fmaj: ["F", "G#", "C", "D#"],
     vimin: ["F#2", "A3", "C#3", "E3"],
-    // Gmaj: ["G", "A#", "C#", "F"],
     viiminb5: ["G#2", "B3", "D3", "F3"]
 };
 //Bass Loop
