@@ -50,6 +50,14 @@ module.exports.beatSequencer = new Nexus.Sequencer('#beat-sequencer', {
     'rows': 4,
     'columns': 16,
 });
+
+/////Synthesizer Interface/////
+module.exports.liveSynthKeyboard = new Nexus.Piano('#synthesizer-live',{
+    'size': [800,200],
+    'mode': 'button',  // 'button', 'toggle', or 'impulse'
+    'lowNote': 0,
+    'highNote': 36
+});
 /////Stop and Start Interface/////
 module.exports.playButton = new Nexus.TextButton('#play', {
     'size': [150, 50],
@@ -192,6 +200,19 @@ module.exports.beatVolPanKnob = new Nexus.Position('#beat-volpan', {
     'stepY': 0
 });
 
+module.exports.synthVolPanKnob = new Nexus.Position('#synth-volpan', {
+    'size': [200, 198],
+    'mode': 'absolute',
+    'x': 0,
+    'minX': -1,
+    'maxX': 1,
+    'stepX': 0,
+    'y': 0.5,
+    'minY': 0,
+    'maxY': 0.18,
+    'stepY': 0
+});
+
 /////Master Compressor/////
 module.exports.thresholdKnob = new Nexus.Dial('#threshold', {
     'size': [25, 25],
@@ -285,3 +306,98 @@ module.exports.bassSynthEnvelope = new Nexus.Multislider('#bass-multislider',{
     'step': 0,
     'value': 0
    });
+
+   /////Synthesizer Dials/////
+   //Envelope
+   module.exports.synthAttackDial = new Nexus.Dial('#synth-attack', {
+    'size': [25, 25],
+    'interaction': 'radial',
+    'mode': 'relative',
+    'min': 0,
+    'max': 1,
+    'step': 0,
+    'value': 0
+   });
+   module.exports.synthDecayDial = new Nexus.Dial('#synth-decay', {
+    'size': [25, 25],
+    'interaction': 'radial',
+    'mode': 'relative',
+    'min': 0,
+    'max': 1,
+    'step': 0,
+    'value': 0
+   });
+   module.exports.synthSustainDial = new Nexus.Dial('#synth-sustain', {
+    'size': [25, 25],
+    'interaction': 'radial',
+    'mode': 'relative',
+    'min': 0,
+    'max': 1,
+    'step': 0,
+    'value': 0
+   });
+   module.exports.synthReleaseDial = new Nexus.Dial('#synth-release', {
+    'size': [25, 25],
+    'interaction': 'radial',
+    'mode': 'relative',
+    'min': 0,
+    'max': 1,
+    'step': 0,
+    'value': 0
+   });
+   //Filter Envelope
+   module.exports.synthFilterAttackDial = new Nexus.Dial('#synth-filter-attack', {
+    'size': [25, 25],
+    'interaction': 'radial',
+    'mode': 'relative',
+    'min': 0,
+    'max': 1,
+    'step': 0,
+    'value': 0
+   });
+   module.exports.synthFilterDecayDial = new Nexus.Dial('#synth-filter-decay', {
+    'size': [25, 25],
+    'interaction': 'radial',
+    'mode': 'relative',
+    'min': 0,
+    'max': 1,
+    'step': 0,
+    'value': 0
+   });
+   module.exports.synthFilterSustainDial = new Nexus.Dial('#synth-filter-sustain', {
+    'size': [25, 25],
+    'interaction': 'radial',
+    'mode': 'relative',
+    'min': 0,
+    'max': 1,
+    'step': 0,
+    'value': 0
+   });
+   module.exports.synthFilterReleaseDial = new Nexus.Dial('#synth-filter-release', {
+    'size': [25, 25],
+    'interaction': 'radial',
+    'mode': 'relative',
+    'min': 0,
+    'max': 1,
+    'step': 0,
+    'value': 0
+   });
+   module.exports.synthPortamentoDial = new Nexus.Dial('#synth-portamento', {
+    'size': [25, 25],
+    'interaction': 'radial',
+    'mode': 'relative',
+    'min': 0,
+    'max': 1,
+    'step': 0,
+    'value': 0
+   });
+   module.exports.synthDetuneDial = new Nexus.Dial('#synth-detune', {
+    'size': [25, 25],
+    'interaction': 'radial',
+    'mode': 'relative',
+    'min': -3000,
+    'max': 3000,
+    'step': 0,
+    'value': 0
+   });
+

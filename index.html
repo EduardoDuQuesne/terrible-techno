@@ -42,14 +42,18 @@
     </div>
     <br>
     <br>
+    <!-- TAB SELECT SEQUENCER -->
     <div id="select-sequencer"></div>
     <ul id="tab-select">
         <li id="select-arpeggiator" class="tab-select" value="Arpeggiator">Arpeggiator</li>
         <li id="select-bass" class="tab-select" value="Bass">Bass</li>
         <li id="select-rhythm" class="tab-select" value="Rhythm">Rhythm</li>
+        <li id="select-synthesizer" class="tab-select" value="Synthesizer">Synthesizer</li>
     </ul>
     </div>
+    <!-- Sequencers -->
     <div class="flex-wrap">
+        <!-- ARPEGGIATOR - SYNTH SELECT -->
         <div>
             <div class="arp-flexwrap" id="Arpeggiator">
                 <div class="arp-flexitem">
@@ -81,7 +85,6 @@
                     </div>
                     <br>
 
-                    <!-- ARPEGGIATOR - SYNTH SELECT -->
                     <div>
                         <ul id="arp-synth">
                             <li class="arp-sound-select" value="simpleSynth">Simple Synth</li>
@@ -97,7 +100,7 @@
                     <div id="arp-volpan"></div>
                 </div>
             </div>
-
+            <!-- Bass Sequencer -->
             <div id="Bass" class="seq-hidden">
                 <div class="arp-flexwrap">
                     <div>
@@ -118,8 +121,10 @@
                     <div class="bass-multislider" id="bass-multislider"></div>
                 </div>
             </div>
+            <!-- DRUM SEQUENCER -->
             <div id="Rhythm" class="seq-hidden">
                 <div class="arp-flexwrap">
+                    <!-- Seq and FX -->
                     <div>
                         <h2>Rhythm:</h2>
                         <div class="flex-item sequencer" id="beat-sequencer"></div>
@@ -135,7 +140,7 @@
                                     <div id="distortion-amount"></div>
                                 </div>
                                 <div class="fx-hidden show-Slap">
-                                    <p class="fx-label">Mix:</p>
+                          {}          <p class="fx-label">Mix:</p>
                                     <div id="drumSlap-wet"></div>
                                     <p class="fx-label">Room Size:</p>
                                     <div id="drumSlap-room-size"></div>
@@ -143,9 +148,46 @@
                             </div>
                         </div>
                     </div>
+                    <!-- Vol/Pan -->
                     <div>
                         <h2>Volume/Pan:</h2>
                         <div id="beat-volpan"></div>
+                    </div>
+                </div>
+            </div>
+            <div id="Synthesizer" class="seq-hidden">
+                <div class="arp-flexwrap">
+                    <div>
+                        <h2>Synthesizer:</h2>
+                        <div class="flex-item sequencer synthesizer" id="synthesizer-live"></div>
+                        <div id="synth-settings">
+                            <p>attack</p>
+                            <div id="synth-attack"></div>
+                            <p>decay</p>
+                            <div id="synth-decay"></div>
+                            <p>sustain</p>
+                            <div id="synth-sustain"></div>
+                            <p>release</p>
+                            <div id="synth-release"></div>
+                            <h3>Filter Envelope: </h3>
+                            <p>attack</p>
+                            <div id="synth-filter-attack"></div>
+                            <p>decay</p>
+                            <div id="synth-filter-decay"></div>
+                            <p>sustain</p>
+                            <div id="synth-filter-sustain"></div>
+                            <p>release</p>
+                            <div id="synth-filter-release"></div>
+                            <p>Portamento</p>
+                            <div id="synth-portamento"></div>
+                            <p>Detune</p>
+                            <div id="synth-detune"></div>
+                        </div>
+                    </div>
+                    <div>
+                        <h2>Volume/Pan:</h2>
+                        <div id="synth-volpan"></div>
+                        
                     </div>
                 </div>
             </div>
@@ -153,6 +195,7 @@
         </div>
     </div>
     <div>
+        <!-- Chord Grid -->
         <h2>Chords:</h2>
         <div class="chord-flexwrap">
             <div class="chord-flexitem chord-0">

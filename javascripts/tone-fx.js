@@ -2,6 +2,7 @@
 
 const $ = require('jquery');
 const Tone = require('tone');
+const interface = require('./interfaces');
 
 //// INST and FX Sounds////
 let delayOne = new Tone.FeedbackDelay({
@@ -28,16 +29,25 @@ let arpVolPan = new Tone.PanVol();
 let bassVolPan = new Tone.PanVol();
 //Beat Volume and Pan
 let beatVolPan = new Tone.PanVol();
+//Synth Volume and Pan
+let synthVolPan = new Tone.PanVol();
 
 //Compressor
 let masterComp = new Tone.Compressor(-30, 3);
 
 //Distortion
 let drumDisto = new Tone.Distortion({
-        distortion  : 0,
-        wet: 0,
-        oversample: "4x"       
+    distortion: 0,
+    wet: 0,
+    oversample: "4x"
 });
+
+// Live Synthesizer
+
+// let duoSynth = new Tone.DuoSynth
+let liveSynth = new Tone.MonoSynth().chain(synthVolPan, Tone.Master);
+
+
 
 module.exports = {
     delayOne,
@@ -47,5 +57,7 @@ module.exports = {
     beatVolPan,
     masterComp,
     drumDisto,
-    drumSlap
+    drumSlap,
+    liveSynth,
+    synthVolPan
 };
