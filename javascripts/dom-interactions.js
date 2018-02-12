@@ -68,7 +68,8 @@ $('#stop').on("click", () => {
     loops.drumLoop.stop();
 });
 $(document).on('keydown', function (event) {
-    if (event.which === 32) {
+    if (!$('#settings-title').is(":focus") &&
+        event.which === 32) {
         startCount += 1;
         event.preventDefault();
         if (startCount % 2 !== 0) {
@@ -308,28 +309,6 @@ interface.liveSynthKeyboard.on("change", function (key) {
 });
 //Play with Keyboard
 let octave = 4;
-interface.octaveInterface.on("change", function (value) {
-    octave = value;
-    keyboardNotes = {
-        "key-65": `C${octave}`,
-        "key-87": `C#${octave}`,
-        "key-83": `D${octave}`,
-        "key-69": `D#${octave}`,
-        "key-68": `E${octave}`,
-        "key-70": `F${octave}`,
-        "key-84": `F#${octave}`,
-        "key-71": `G${octave}`,
-        "key-89": `G#${octave}`,
-        "key-72": `A${octave}`,
-        "key-85": `A#${octave}`,
-        "key-74": `B${octave}`,
-        "key-75": `C${octave + 1}`,
-        "key-79": `C#${octave + 1}`,
-        "key-76": `D${octave + 1}`,
-        "key-80": `D#${octave + 1}`,
-        "key-186": `E${octave + 1}`
-    };
-});
 let keyboardNotes = {
     "key-65": `C${octave}`,
     "key-87": `C#${octave}`,
@@ -355,14 +334,18 @@ let lastKeyDown = 0;
 let index = 0;
 let downIndex = 0;
 $(document).on("keydown", function (event) {
-    if (!keyDown && keyboardNotes[`key-${event.which}`] !== undefined) {
+    if (!$('#settings-title').is(":focus") &&
+        !keyDown &&
+        keyboardNotes[`key-${event.which}`] !== undefined) {
         lastKeyDown = event.which;
         downIndex = noteArray.indexOf(keyboardNotes[`key-${event.which}`]);
         // interface.liveSynthKeyboard.keys[downIndex].state = false;
         interface.liveSynthKeyboard.keys[downIndex].state = true;
         keyDown = true;
     }
-    if (keyDown && event.which !== lastKeyDown && keyboardNotes[`key-${event.which}`] !== undefined) {
+    if (!$('#settings-title').is(":focus") && keyDown &&
+        event.which !== lastKeyDown &&
+        keyboardNotes[`key-${event.which}`] !== undefined) {
         interface.liveSynthKeyboard.keys[downIndex].state = false;
         downIndex = noteArray.indexOf(keyboardNotes[`key-${event.which}`]);
         interface.liveSynthKeyboard.keys[downIndex].state = true;
@@ -380,9 +363,34 @@ $(document).on("keyup", function (event) {
 
 //////settings
 //Octave
-//On Click
+interface.octaveInterface.on("change", function (value) {
+    octave = value;
+    keyboardNotes = {
+        "key-65": `C${octave}`,
+        "key-87": `C#${octave}`,
+        "key-83": `D${octave}`,
+        "key-69": `D#${octave}`,
+        "key-68": `E${octave}`,
+        "key-70": `F${octave}`,
+        "key-84": `F#${octave}`,
+        "key-71": `G${octave}`,
+        "key-89": `G#${octave}`,
+        "key-72": `A${octave}`,
+        "key-85": `A#${octave}`,
+        "key-74": `B${octave}`,
+        "key-75": `C${octave + 1}`,
+        "key-79": `C#${octave + 1}`,
+        "key-76": `D${octave + 1}`,
+        "key-80": `D#${octave + 1}`,
+        "key-186": `E${octave + 1}`
+    };
+});
 
-//envelope
+//Type
+interface.selectSynthType.on("change", function (type) {
+    fx.liveSynth.oscillator.type = type.value;
+});
+//Envelope
 interface.synthAttackDial.on("change", function (value) {
     fx.liveSynth.envelope.attack = value;
 });
@@ -414,4 +422,16 @@ interface.synthPortamentoDial.on("change", function (value) {
 });
 interface.synthDetuneDial.on("change", function (value) {
     fx.liveSynth.detune.value = value;
+});
+//synth delay
+interface.dialSynthDelayWet.on('change', function (value) {
+    fx.synthDelay.wet.value = value;
+
+});
+interface.dialSynthDelayFeedback.on('change', function (value) {
+    fx.synthDelay.feedback.value = value;
+
+});
+interface.dialSynthDelayTime.on('change', function (value) {
+    fx.synthDelay.delayTime.value = value;
 });
