@@ -56,7 +56,7 @@ module.exports.liveSynthKeyboard = new Nexus.Piano('#synthesizer-live',{
     'size': [800,200],
     'mode': 'button',  // 'button', 'toggle', or 'impulse'
     'lowNote': 0,
-    'highNote': 36
+    'highNote': 53
 });
 /////Stop and Start Interface/////
 module.exports.playButton = new Nexus.TextButton('#play', {
@@ -209,7 +209,7 @@ module.exports.synthVolPanKnob = new Nexus.Position('#synth-volpan', {
     'stepX': 0,
     'y': 0.5,
     'minY': 0,
-    'maxY': 0.18,
+    'maxY': 0.3,
     'stepY': 0
 });
 
@@ -308,6 +308,14 @@ module.exports.bassSynthEnvelope = new Nexus.Multislider('#bass-multislider',{
    });
 
    /////Synthesizer Dials/////
+   //Octave
+module.exports.octaveInterface = new Nexus.Number('#synth-octave',{
+    'size': [40,25],
+    'value': 4,
+    'min': 2,
+    'max': 5,
+    'step': 1
+  });
    //Envelope
    module.exports.synthAttackDial = new Nexus.Dial('#synth-attack', {
     'size': [25, 25],
