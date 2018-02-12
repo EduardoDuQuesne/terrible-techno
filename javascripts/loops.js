@@ -4,6 +4,8 @@ const $ = require('jquery');
 const Tone = require('tone');
 const interface = require('./interfaces');
 const fx = require('./tone-fx');
+const songKey = require('./arp-keys');
+const bassKey = require('./bass-keys');
 
 ///// Arpeggiator Sounds /////
 let simpleSynth = new Tone.Synth({
@@ -106,9 +108,8 @@ $('.bass-sound-select').on('click', function () {
     //     fx.bassVolPan.volume.input.value = 0.05;
 
     // }
-    
-
 });
+
 //Store and Recall Bass Sounds
 let recallBassSound = (synthPatch) => {
     bassSynth = bassSounds[synthPatch];
@@ -116,7 +117,6 @@ let recallBassSound = (synthPatch) => {
 let storeBassSound = () => {
     return bassSynthName;
 };
-
 
 /////Load Chords On Page Load/////
 let arpKeys = [];
@@ -127,6 +127,7 @@ let loadChords = () => {
         arpKeys.push($(`.chord-${i}`).children().filter('.play').attr('value'));
     }
 };
+
 /////Change Chords On Click/////
 let changeChords = (target) => {
     arpKeys = [];
@@ -147,6 +148,7 @@ let getChords = () => {
     }
     return arpKeys;
 };
+
 /////Load Chords on Recall/////
 let loadUserChords = (chords) => {
     arpKeys = [];
@@ -161,24 +163,26 @@ let loadUserChords = (chords) => {
 
 ///// Arpeggiator One ////
 //Note Names Arrays//
-let noteNames = {
-    Imaj: ["A4", "C#4", "E4", "G#4"],
-    iimin: ["B4", "D4", "F#4", "A5"],
-    iiimin: ["C#4", "E4", "G#4", "B5"],
-    IVmaj: ["D4", "F#4", "A5", "C#5"],
-    Vdom: ["E4", "G#4", "B5", "D5"],
-    vimin: ["F#4", "A5", "C#5", "E5"],
-    viiminb5: ["G#4", "B5", "D5", "F5"]
-};
 // let noteNames = {
-//     Imaj: ["C3", "E3", "G3", "B3"],
-//     iimin: ["D3", "F3", "A ", "C "],
-//     iiimin: ["E3", "G3", "B ", "D "],
-//     IVmaj: ["F3", "A3", "C ", "E "],
-//     Vdom: ["G3", "B3", "D ", "F "],
-//     vimin: ["A4", "C ", "E ", "G "],
-//     viiminb : ["B4", "D ", "F ", "A "]
+//     Imaj: ["A4", "C#4", "E4", "G#4"],
+//     iimin: ["B4", "D4", "F#4", "A5"],
+//     iiimin: ["C#4", "E4", "G#4", "B5"],
+//     IVmaj: ["D4", "F#4", "A5", "C#5"],
+//     Vdom: ["E4", "G#4", "B5", "D5"],
+//     vimin: ["F#4", "A5", "C#5", "E5"],
+//     viiminb5: ["G#4", "B5", "D5", "F5"]
 // };
+
+//Song Keys
+let noteNames = songKey.Amaj;
+let noteNamesBass = bassKey.Amaj;
+//Change Song Key
+interface.selectKey.on("change", function (key) {
+    noteNames = songKey[key.value];
+    noteNamesBass = bassKey[key.value];
+});
+
+/////Arp Loop 1/////
 let seqKey = [];
 let step = [];
 let arpLoop = new Tone.Sequence((time, col) => {
@@ -195,15 +199,15 @@ let arpLoop = new Tone.Sequence((time, col) => {
 
 //////Bass//////
 //Bass Notes
-let noteNamesBass = {
-    Imaj: ["A2", "C#2", "E2", "G#2"],
-    iimin: ["B2", "D2", "F#2", "A3"],
-    iiimin: ["C#2", "E2", "G#2", "B3"],
-    IVmaj: ["D2", "F#2", "A3", "C#3"],
-    Vdom: ["E2", "G#2", "B3", "D3"],
-    vimin: ["F#2", "A3", "C#3", "E3"],
-    viiminb5: ["G#2", "B3", "D3", "F3"]
-};
+// {
+//     Imaj: ["A2", "C#2", "E2", "G#2"],
+//     iimin: ["B2", "D2", "F#2", "A3"],
+//     iiimin: ["C#2", "E2", "G#2", "B3"],
+//     IVmaj: ["D2", "F#2", "A3", "C#3"],
+//     Vdom: ["E2", "G#2", "B3", "D3"],
+//     vimin: ["F#2", "A3", "C#3", "E3"],
+//     viiminb5: ["G#2", "B3", "D3", "F3"]
+// };
 //Bass Loop
 let bassLoop = new Tone.Sequence((time, col) => {
     step = [];

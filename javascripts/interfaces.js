@@ -85,6 +85,10 @@ module.exports.selectSynthType = new Nexus.Select('#synth-type', {
     'size': [75, 25],
     'options': ['square', 'sine', 'triangle', 'sawtooth']
 });
+module.exports.selectKey = new Nexus.Select('#select-key', {
+    'size': [100, 50],
+    'options': ['Amaj', 'Bmaj', 'Cmaj', 'Dmaj', 'Emaj', 'Fmaj', 'Gmaj']
+});
 
 /////Delay Interfaces/////
 module.exports.dialDelayWet = new Nexus.Dial('#delay-wet', {
