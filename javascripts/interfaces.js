@@ -4,14 +4,14 @@ const $ = require('jquery');
 const Nexus = require('nexusui');
 
 /////Log In and Out/////
-module.exports.logIn = new Nexus.TextButton('#login-btn' ,{
-    'size': [150,50],
+module.exports.logIn = new Nexus.TextButton('#login-btn', {
+    'size': [150, 50],
     'state': false,
     'text': 'Log In',
     'alternate': false
 });
-module.exports.logOut = new Nexus.TextButton('#logout-btn' ,{
-    'size': [150,50],
+module.exports.logOut = new Nexus.TextButton('#logout-btn', {
+    'size': [150, 50],
     'state': false,
     'text': 'Log Out',
     'alternate': false
@@ -52,9 +52,9 @@ module.exports.beatSequencer = new Nexus.Sequencer('#beat-sequencer', {
 });
 
 /////Synthesizer Interface/////
-module.exports.liveSynthKeyboard = new Nexus.Piano('#synthesizer-live',{
-    'size': [800,200],
-    'mode': 'button',  // 'button', 'toggle', or 'impulse'
+module.exports.liveSynthKeyboard = new Nexus.Piano('#synthesizer-live', {
+    'size': [800, 200],
+    'mode': 'button', // 'button', 'toggle', or 'impulse'
     'lowNote': 0,
     'highNote': 53
 });
@@ -81,8 +81,12 @@ module.exports.selectDrumFx = new Nexus.Select('#three-fx-select', {
     'size': [75, 25],
     'options': ['Default', 'Distortion', 'Slap']
 });
+module.exports.selectSynthType = new Nexus.Select('#synth-type', {
+    'size': [75, 25],
+    'options': ['square', 'sine', 'triangle', 'sawtooth']
+});
 
-/////Delay Interface/////
+/////Delay Interfaces/////
 module.exports.dialDelayWet = new Nexus.Dial('#delay-wet', {
     'size': [25, 25],
     'interaction': 'radial',
@@ -223,9 +227,9 @@ module.exports.thresholdKnob = new Nexus.Dial('#threshold', {
     'step': 1,
     'value': -30
 });
-module.exports.thresholdNumber = new Nexus.Number('#threshold-number',{
-    'size': [40,25]
-  });
+module.exports.thresholdNumber = new Nexus.Number('#threshold-number', {
+    'size': [40, 25]
+});
 
 module.exports.ratioKnob = new Nexus.Dial('#ratio', {
     'size': [25, 25],
@@ -236,9 +240,9 @@ module.exports.ratioKnob = new Nexus.Dial('#ratio', {
     'step': 1,
     'value': 0
 });
-module.exports.ratioNumber = new Nexus.Number('#ratio-number',{
-    'size': [40,25]
-  });
+module.exports.ratioNumber = new Nexus.Number('#ratio-number', {
+    'size': [40, 25]
+});
 
 module.exports.attackKnob = new Nexus.Dial('#attack', {
     'size': [25, 25],
@@ -249,9 +253,9 @@ module.exports.attackKnob = new Nexus.Dial('#attack', {
     'step': 0,
     'value': 0
 });
-module.exports.attackNumber = new Nexus.Number('#attack-number',{
-    'size': [40,25]
-  });
+module.exports.attackNumber = new Nexus.Number('#attack-number', {
+    'size': [40, 25]
+});
 
 module.exports.releaseKnob = new Nexus.Dial('#release', {
     'size': [25, 25],
@@ -262,32 +266,32 @@ module.exports.releaseKnob = new Nexus.Dial('#release', {
     'step': 0,
     'value': 0
 });
-module.exports.releaseNumber = new Nexus.Number('#release-number',{
-    'size': [40,25]
-  });
+module.exports.releaseNumber = new Nexus.Number('#release-number', {
+    'size': [40, 25]
+});
 
 //Arp Synth Envelope
-module.exports.arpSynthEnvelope = new Nexus.Multislider('#fm-multislider',{
-    'size': [200,100],
+module.exports.arpSynthEnvelope = new Nexus.Multislider('#fm-multislider', {
+    'size': [200, 100],
     'numberOfSliders': 4,
     'min': 0,
     'max': 1,
     'step': 0,
     'values': [0.005, 0.1, 0.3, 1]
-   });
+});
 
 //Bass Synth Envelope
-module.exports.bassSynthEnvelope = new Nexus.Multislider('#bass-multislider',{
-    'size': [200,100],
+module.exports.bassSynthEnvelope = new Nexus.Multislider('#bass-multislider', {
+    'size': [200, 100],
     'numberOfSliders': 4,
     'min': 0,
     'max': 1,
     'step': 0,
-    'values': [0.7,0.7,0.7,0.7,0.7]
-   });
+    'values': [0.7, 0.7, 0.7, 0.7, 0.7]
+});
 
-   //Drum Distortion
-   module.exports.drumDistoWetDial = new Nexus.Dial('#distortion-wet', {
+//Drum Distortion
+module.exports.drumDistoWetDial = new Nexus.Dial('#distortion-wet', {
     'size': [25, 25],
     'interaction': 'radial',
     'mode': 'relative',
@@ -295,9 +299,9 @@ module.exports.bassSynthEnvelope = new Nexus.Multislider('#bass-multislider',{
     'max': 1,
     'step': 0,
     'value': 0
-   });
-   
-   module.exports.drumDistoAmountDial = new Nexus.Dial('#distortion-amount', {
+});
+
+module.exports.drumDistoAmountDial = new Nexus.Dial('#distortion-amount', {
     'size': [25, 25],
     'interaction': 'radial',
     'mode': 'relative',
@@ -305,19 +309,19 @@ module.exports.bassSynthEnvelope = new Nexus.Multislider('#bass-multislider',{
     'max': 1,
     'step': 0,
     'value': 0
-   });
+});
 
-   /////Synthesizer Dials/////
-   //Octave
-module.exports.octaveInterface = new Nexus.Number('#synth-octave',{
-    'size': [40,25],
+/////Synthesizer Dials/////
+//Octave
+module.exports.octaveInterface = new Nexus.Number('#synth-octave', {
+    'size': [40, 25],
     'value': 4,
     'min': 2,
     'max': 5,
     'step': 1
-  });
-   //Envelope
-   module.exports.synthAttackDial = new Nexus.Dial('#synth-attack', {
+});
+//Envelope
+module.exports.synthAttackDial = new Nexus.Dial('#synth-attack', {
     'size': [25, 25],
     'interaction': 'radial',
     'mode': 'relative',
@@ -325,8 +329,8 @@ module.exports.octaveInterface = new Nexus.Number('#synth-octave',{
     'max': 1,
     'step': 0,
     'value': 0
-   });
-   module.exports.synthDecayDial = new Nexus.Dial('#synth-decay', {
+});
+module.exports.synthDecayDial = new Nexus.Dial('#synth-decay', {
     'size': [25, 25],
     'interaction': 'radial',
     'mode': 'relative',
@@ -334,8 +338,8 @@ module.exports.octaveInterface = new Nexus.Number('#synth-octave',{
     'max': 1,
     'step': 0,
     'value': 0
-   });
-   module.exports.synthSustainDial = new Nexus.Dial('#synth-sustain', {
+});
+module.exports.synthSustainDial = new Nexus.Dial('#synth-sustain', {
     'size': [25, 25],
     'interaction': 'radial',
     'mode': 'relative',
@@ -343,8 +347,8 @@ module.exports.octaveInterface = new Nexus.Number('#synth-octave',{
     'max': 1,
     'step': 0,
     'value': 0
-   });
-   module.exports.synthReleaseDial = new Nexus.Dial('#synth-release', {
+});
+module.exports.synthReleaseDial = new Nexus.Dial('#synth-release', {
     'size': [25, 25],
     'interaction': 'radial',
     'mode': 'relative',
@@ -352,9 +356,9 @@ module.exports.octaveInterface = new Nexus.Number('#synth-octave',{
     'max': 1,
     'step': 0,
     'value': 0
-   });
-   //Filter Envelope
-   module.exports.synthFilterAttackDial = new Nexus.Dial('#synth-filter-attack', {
+});
+//Filter Envelope
+module.exports.synthFilterAttackDial = new Nexus.Dial('#synth-filter-attack', {
     'size': [25, 25],
     'interaction': 'radial',
     'mode': 'relative',
@@ -362,8 +366,8 @@ module.exports.octaveInterface = new Nexus.Number('#synth-octave',{
     'max': 1,
     'step': 0,
     'value': 0
-   });
-   module.exports.synthFilterDecayDial = new Nexus.Dial('#synth-filter-decay', {
+});
+module.exports.synthFilterDecayDial = new Nexus.Dial('#synth-filter-decay', {
     'size': [25, 25],
     'interaction': 'radial',
     'mode': 'relative',
@@ -371,8 +375,8 @@ module.exports.octaveInterface = new Nexus.Number('#synth-octave',{
     'max': 1,
     'step': 0,
     'value': 0
-   });
-   module.exports.synthFilterSustainDial = new Nexus.Dial('#synth-filter-sustain', {
+});
+module.exports.synthFilterSustainDial = new Nexus.Dial('#synth-filter-sustain', {
     'size': [25, 25],
     'interaction': 'radial',
     'mode': 'relative',
@@ -380,8 +384,8 @@ module.exports.octaveInterface = new Nexus.Number('#synth-octave',{
     'max': 1,
     'step': 0,
     'value': 0
-   });
-   module.exports.synthFilterReleaseDial = new Nexus.Dial('#synth-filter-release', {
+});
+module.exports.synthFilterReleaseDial = new Nexus.Dial('#synth-filter-release', {
     'size': [25, 25],
     'interaction': 'radial',
     'mode': 'relative',
@@ -389,8 +393,8 @@ module.exports.octaveInterface = new Nexus.Number('#synth-octave',{
     'max': 1,
     'step': 0,
     'value': 0
-   });
-   module.exports.synthPortamentoDial = new Nexus.Dial('#synth-portamento', {
+});
+module.exports.synthPortamentoDial = new Nexus.Dial('#synth-portamento', {
     'size': [25, 25],
     'interaction': 'radial',
     'mode': 'relative',
@@ -398,8 +402,8 @@ module.exports.octaveInterface = new Nexus.Number('#synth-octave',{
     'max': 1,
     'step': 0,
     'value': 0
-   });
-   module.exports.synthDetuneDial = new Nexus.Dial('#synth-detune', {
+});
+module.exports.synthDetuneDial = new Nexus.Dial('#synth-detune', {
     'size': [25, 25],
     'interaction': 'radial',
     'mode': 'relative',
@@ -407,5 +411,32 @@ module.exports.octaveInterface = new Nexus.Number('#synth-octave',{
     'max': 3000,
     'step': 0,
     'value': 0
-   });
-
+});
+//Delay
+module.exports.dialSynthDelayWet = new Nexus.Dial('#synth-delay-wet', {
+    'size': [25, 25],
+    'interaction': 'radial',
+    'mode': 'relative',
+    'min': 0,
+    'max': 1,
+    'step': 0,
+    'value': 0
+});
+module.exports.dialSynthDelayFeedback = new Nexus.Dial('#synth-delay-feedback', {
+    'size': [25, 25],
+    'interaction': 'radial',
+    'mode': 'relative',
+    'min': 0,
+    'max': 1,
+    'step': 0,
+    'value': 0
+});
+module.exports.dialSynthDelayTime = new Nexus.Dial('#synth-delay-time', {
+    'size': [25, 25],
+    'interaction': 'radial',
+    'mode': 'relative',
+    'min': 0,
+    'max': 1,
+    'step': 0,
+    'value': 0
+});

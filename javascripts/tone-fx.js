@@ -5,7 +5,14 @@ const Tone = require('tone');
 const interface = require('./interfaces');
 
 //// INST and FX Sounds////
+//Arp Delay
 let delayOne = new Tone.FeedbackDelay({
+    wet: 0,
+    delayTime: 0,
+    feedback: 0
+});
+//Synth Delay
+let synthDelay = new Tone.FeedbackDelay({
     wet: 0,
     delayTime: 0,
     feedback: 0
@@ -45,12 +52,13 @@ let drumDisto = new Tone.Distortion({
 // Live Synthesizer
 
 // let duoSynth = new Tone.DuoSynth
-let liveSynth = new Tone.MonoSynth().chain(synthVolPan, Tone.Master);
+let liveSynth = new Tone.MonoSynth().chain(synthVolPan, synthDelay, Tone.Master);
 
 
 
 module.exports = {
     delayOne,
+    synthDelay,
     reverbOne,
     arpVolPan,
     bassVolPan,
