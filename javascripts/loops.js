@@ -69,9 +69,10 @@ let bassMonoSynth = new Tone.MonoSynth({
         attack  : 0.005 ,
         decay  : 0.1 ,
         sustain  : 0.9 ,
-        release  : 1
+        release  : 1,
         }
 }).chain(fx.bassVolPan, Tone.Master);
+
 
 let bassFMSynth = new Tone.FMSynth({
     envelope  : {
@@ -92,8 +93,20 @@ let bassSounds = {
 
 //Bass Sound Select
 $('.bass-sound-select').on('click', function () {
+    console.log('Check3', bassSynth);
     module.exports.bassSynth = bassSounds[$(this).attr('value')];
+    bassSynth = bassSounds[$(this).attr('value')];
     bassSynthName = $(this).attr('value');
+    // if ($(this).attr('value') !== "bassSimpleSynth") {
+    //     fx.bassVolPan.volume.input.value = 0.3;
+
+    // }
+    // if ($(this).attr('value') === "bassMonoSynth") {
+    //     fx.bassVolPan.volume.input.value = 0.05;
+
+    // }
+    
+
 });
 //Store and Recall Bass Sounds
 let recallBassSound = (synthPatch) => {
