@@ -325,19 +325,30 @@ let keyboardNotes = {
 };
 
 let keyDown = false;
+let lastKeyDown = 0;
 let index = 0;
 $(document).on("keydown", function (event) {
     if (!keyDown && keyboardNotes[`key-${event.which}`] !== undefined) {
-        index = noteArray.indexOf(keyboardNotes[`key-${event.which}`]);
-        interface.liveSynthKeyboard.keys[index].state = true;
+        lastKeyDown = event.which;
+        downIndex = noteArray.indexOf(keyboardNotes[`key-${event.which}`]);
+        interface.liveSynthKeyboard.keys[downIndex].state = false;
+        interface.liveSynthKeyboard.keys[downIndex].state = true;
         keyDown = true;
-        fx.liveSynth.triggerAttack(keyboardNotes[`key-${event.which}`]);
     }
+    if (keyDown && event.which !== lastKeyDown && keyboardNotes[`key-${event.which}`] !== undefined) {
+        interface.liveSynthKeyboard.keys[downIndex].state = false;
+        downIndex = noteArray.indexOf(keyboardNotes[`key-${event.which}`]);
+        interface.liveSynthKeyboard.keys[downIndex].state = true;
+    }
+    lastKeyDown = event.which;
 });
 $(document).on("keyup", function (event) {
-    interface.liveSynthKeyboard.keys[index].state = false;
-    keyDown = false;
-    fx.liveSynth.triggerRelease();
+    let upIndex = noteArray.indexOf(keyboardNotes[`key-${event.which}`]);
+    if (interface.liveSynthKeyboard.keys[downIndex].state !== undefined && 
+        downIndex === upIndex) {
+        interface.liveSynthKeyboard.keys[downIndex].state = false;
+        keyDown = false;
+    }
 });
 
 //////settings
