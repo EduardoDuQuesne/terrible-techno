@@ -112,7 +112,6 @@ $('#settings-title').on('keypress', function (e) {
             });
     }
 });
-
 /////Load Setting/////
 $(document).on("click", ".get-setting", function () {
     let user = firebase.auth().currentUser.uid;
@@ -256,16 +255,13 @@ interface.releaseNumber.link(interface.releaseKnob);
 
 //Master Reverb
 interface.dialMasterReverbWet.on('change', function (value) {
-    console.log('1', value);
     fx.masterReverb.wet.value = value;
 });
 interface.dialMasterReverbDampening.on('change', function (value) {
-    console.log('2', value);
     fx.masterReverb.dampening.value = value;
 });
 interface.dialMasterReverbRoomSize.on('change', function (value) {
     fx.masterReverb.roomSize.value = value;
-    console.log('3', value);
 });
 
 ///// Arpeggiator Synth Envelopes //////
