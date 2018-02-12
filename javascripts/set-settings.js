@@ -87,7 +87,30 @@ module.exports.storeSettings = (input) => {
         drumSlapWet: fx.drumSlap.wet.value,
         drumSlapRoomSize: fx.drumSlap.roomSize.value,
         //Chords//
-        chords: currentChords
+        chords: currentChords,
+        //synth
+        synthType: fx.liveSynth.oscillator.type,
+        synthAttack: fx.liveSynth.envelope.attack,
+        synthDecay: fx.liveSynth.envelope.decay,
+        synthSustain: fx.liveSynth.envelope.sustain,
+        synthRelease: fx.liveSynth.envelope.release,
+        synthFilterAttack: fx.liveSynth.filterEnvelope.attack,
+        synthFilterDecay: fx.liveSynth.filterEnvelope.decay,
+        synthFilterSustain: fx.liveSynth.filterEnvelope.sustain,
+        synthFilterRelease: fx.liveSynth.filterEnvelope.release,
+        synthPortamento: fx.liveSynth.portamento,
+        synthDetune: fx.liveSynth.detune.value,
+        //synth delay
+        synthDelayWet: fx.synthDelay.wet.value,
+        synthDelayFeedback: fx.synthDelay.feedback.value,
+        synthDelayWetTime: fx.synthDelay.delayTime.value,
+        //master comp
+        masterCompThresh: fx.masterComp.threshold.value,
+        masterCompRatio: fx.masterComp.ratio.value,
+        masterCompAttack: fx.masterComp.attack.value,
+        masterCompRelease: fx.masterComp.release.value 
+
+
     };
     console.log('SETTINGS!', settings);
     return settings;
@@ -171,7 +194,49 @@ module.exports.recallSetting = (setting) => {
     interface.dialDrumSlapWet.value = setting.drumSlapWet;
     fx.drumSlap.roomSize.value = setting.drumSlapRoomSize;
     interface.dialDrumSlapRoomSize.value = setting.drumSlapRoomSize;
+    //synth settings
+    fx.liveSynth.oscillator.type = setting.synthType;
+    interface.selectSynthType.value = setting.synthType;
+    fx.liveSynth.envelope.attack = setting.synthAttack;
+    interface.synthAttackDial.value = setting.synthAttack;
+    fx.liveSynth.envelope.decay = setting.synthDecay;
+    interface.synthDecayDial.value = setting.synthDecay;
+    fx.liveSynth.envelope.sustain = setting.synthSustain;
+    interface.synthSustainDial.value = setting.synthSustain;
+    fx.liveSynth.envelope.release = setting.synthRelease;
+    interface.synthReleaseDial.value = setting.synthRelease;
+    fx.liveSynth.filterEnvelope.attack = setting.synthFilterAttack;
+    interface.synthFilterAttackDial.value = setting.synthFilterAttack;
+    fx.liveSynth.filterEnvelope.decay = setting.synthFilterDecay;
+    interface.synthFilterDecayDial.value = setting.synthFilterDecay;
+    fx.liveSynth.filterEnvelope.sustain = setting.synthFilterSustain;
+    interface.synthFilterSustainDial.value = setting.synthFilterSustain;
+    fx.liveSynth.filterEnvelope.release = setting.synthFilterRelease;
+    interface.synthFilterReleaseDial.value = setting.synthFilterRelease;
+    fx.liveSynth.portamento = setting.synthPortamento;
+    interface.synthPortamentoDial.value = setting.synthPortamento;
+    fx.liveSynth.detune.value = setting.synthDetune;
+    interface.synthDetuneDial.value = setting.synthDetune;
+    //Synth Delay
+    fx.synthDelay.wet.value = setting.synthDelayWet;
+    interface.dialSynthDelayWet.value = setting.synthDelayWet;
+    fx.synthDelay.feedback.value = setting.synthDelayFeedback;
+    interface.dialSynthDelayFeedback.value = setting.synthDelayFeedback;
+    fx.synthDelay.delayTime.value = setting.synthDelayWetTime;
+    interface.dialSynthDelayTime.value = setting.synthDelayWetTime;
+    //Master Comp
+    //master comp
+    fx.masterComp.threshold.value = setting.masterCompThresh; 
+    interface.thresholdKnob.value = setting.masterCompThresh; 
+    fx.masterComp.ratio.value = setting.masterCompRatio; 
+    interface.ratioKnob.value = setting.masterCompRatio; 
+    fx.masterComp.attack.value = setting.masterCompAttack; 
+    interface.attackKnob.value = setting.masterCompAttack; 
+    fx.masterComp.release.value = setting.masterCompRelease;
+    interface.releaseKnob.value = setting.masterCompRelease;
 };
+
+
 
 // let setEnvDisplay = (synthPatch) => {
 //     console.log('synthpatch', loops.arpSounds[synthPatch].envelope.attack );
