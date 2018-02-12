@@ -186,7 +186,7 @@ $(".tab-select").on("click", function () {
     $(`#${value}`).siblings().hide();
 });
 //Tab Through Sequencer
-let seqTab = ["Arpeggiator", "Bass", "Rhythm", "Synthesizer"];
+let seqTab = ["Arpeggiator", "Bass", "Rhythm", "Synthesizer", "Chords"];
 let counter = 0;
 $(document).on('keyup', function (event) {
     if (event.which === 187) {
