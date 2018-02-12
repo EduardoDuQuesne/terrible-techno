@@ -108,7 +108,12 @@ module.exports.storeSettings = (input) => {
         masterCompThresh: fx.masterComp.threshold.value,
         masterCompRatio: fx.masterComp.ratio.value,
         masterCompAttack: fx.masterComp.attack.value,
-        masterCompRelease: fx.masterComp.release.value 
+        masterCompRelease: fx.masterComp.release.value,
+        //master reverb
+        masterReverbWet: fx.masterReverb.wet.value,
+        masterReverbDampening: fx.masterReverb.dampening.value,
+        masterReverbRoomSize: fx.masterReverb.roomSize.value
+
 
 
     };
@@ -225,15 +230,21 @@ module.exports.recallSetting = (setting) => {
     fx.synthDelay.delayTime.value = setting.synthDelayWetTime;
     interface.dialSynthDelayTime.value = setting.synthDelayWetTime;
     //Master Comp
-    //master comp
-    fx.masterComp.threshold.value = setting.masterCompThresh; 
-    interface.thresholdKnob.value = setting.masterCompThresh; 
-    fx.masterComp.ratio.value = setting.masterCompRatio; 
-    interface.ratioKnob.value = setting.masterCompRatio; 
-    fx.masterComp.attack.value = setting.masterCompAttack; 
-    interface.attackKnob.value = setting.masterCompAttack; 
+    fx.masterComp.threshold.value = setting.masterCompThresh;
+    interface.thresholdKnob.value = setting.masterCompThresh;
+    fx.masterComp.ratio.value = setting.masterCompRatio;
+    interface.ratioKnob.value = setting.masterCompRatio;
+    fx.masterComp.attack.value = setting.masterCompAttack;
+    interface.attackKnob.value = setting.masterCompAttack;
     fx.masterComp.release.value = setting.masterCompRelease;
     interface.releaseKnob.value = setting.masterCompRelease;
+    //Master Reverb
+    fx.masterReverb.wet.value = setting.masterReverbWet;
+    interface.dialMasterReverbWet.value = setting.masterReverbWet;
+    fx.masterReverb.dampening.value = setting.masterReverbDampening;
+    interface.dialMasterReverbDampening.value = setting.masterReverbDampening;
+    fx.masterReverb.roomSize.value = setting.masterReverbRoomSize;
+    interface.dialMasterReverbRoomSize.value = setting.masterReverbRoomSize;
 };
 
 

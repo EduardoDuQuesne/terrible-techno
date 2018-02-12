@@ -14,8 +14,16 @@ const view = require('./view');
 
 Nexus.context = Tone.context;
 Tone.Transport.start();
-Tone.Master.chain(fx.masterComp);
-// interface.spectogram.connect(Tone.Master);
+Tone.Master.chain(fx.masterReverb, fx.masterComp);
+let spectogram = new Nexus.Spectrogram('#spectogram', {
+    'size': [100, 50]
+});
+let oscilloscope = new Nexus.Oscilloscope('#oscilloscope', {
+    'size': [1000, 25]
+});
+let meter = new Nexus.Meter('#stereo-meter',{
+    size: [75,75]
+  });
 
 //Authorization//
 interface.logIn.on("click", function () {
@@ -172,6 +180,7 @@ interface.dialReverbRoomSize.on('change', function () {
 //Arp Fx
 interface.selectFx.on('change', function (select) {
     $(`.show-${select.value}`).show();
+    $(`.show-${select.value}`).show();
     $(`.show-${select.value}`).siblings().hide();
 });
 //Drum Fx
@@ -186,7 +195,7 @@ $(".tab-select").on("click", function () {
     $(`#${value}`).siblings().hide();
 });
 //Tab Through Sequencer
-let seqTab = ["Arpeggiator", "Bass", "Rhythm", "Synthesizer", "Chords"];
+let seqTab = ["Arpeggiator", "Bass", "Rhythm", "Synthesizer", "Chords", "Master"];
 let counter = 0;
 $(document).on('keyup', function (event) {
     if (event.which === 187) {
@@ -223,7 +232,8 @@ interface.synthVolPanKnob.on('change', function () {
     fx.synthVolPan.pan.value = interface.synthVolPanKnob.x;
 });
 
-/////Master Compressor/////
+/////Master Section/////
+//Master Compressor
 interface.thresholdKnob.on("change", function (value) {
     fx.masterComp.threshold.value = value;
 });
@@ -243,6 +253,20 @@ interface.releaseKnob.on("change", function (value) {
     fx.masterComp.release.value = value;
 });
 interface.releaseNumber.link(interface.releaseKnob);
+
+//Master Reverb
+interface.dialMasterReverbWet.on('change', function (value) {
+    console.log('1', value);
+    fx.masterReverb.wet.value = value;
+});
+interface.dialMasterReverbDampening.on('change', function (value) {
+    console.log('2', value);
+    fx.masterReverb.dampening.value = value;
+});
+interface.dialMasterReverbRoomSize.on('change', function (value) {
+    fx.masterReverb.roomSize.value = value;
+    console.log('3', value);
+});
 
 ///// Arpeggiator Synth Envelopes //////
 let currentSynth = loops.arpSounds.simpleSynth;
@@ -435,3 +459,12 @@ interface.dialSynthDelayFeedback.on('change', function (value) {
 interface.dialSynthDelayTime.on('change', function (value) {
     fx.synthDelay.delayTime.value = value;
 });
+
+
+
+
+
+//Spectogram
+// spectogram.connect(Tone.Master);
+oscilloscope.connect(Tone.Master);
+meter.connect(Tone.Master);

@@ -44,7 +44,8 @@ let arpSounds = {
 //Arp Sound Select
 $('.arp-sound-select').on('click', function () {
     module.exports.synth = arpSounds[$(this).attr('value')];
-    recallArpSound($(this).attr('value'));
+    synth = arpSounds[$(this).attr('value')];
+    synthName = $(this).attr('value');
 });
 //Store and Recall Arp Sound
 let recallArpSound = (synthPatch) => {
@@ -110,7 +111,6 @@ $('.bass-sound-select').on('click', function () {
 });
 //Store and Recall Bass Sounds
 let recallBassSound = (synthPatch) => {
-    console.log('bass synth patch', synthPatch );
     bassSynth = bassSounds[synthPatch];
 };
 let storeBassSound = () => {
