@@ -29,6 +29,12 @@ let drumSlap = new Tone.JCReverb({
     wet: 0,
     roomSize: 0.05
 });
+//Master Reverb
+let masterReverb = new Tone.Freeverb({
+    dampening: 1600,
+    wet: 0.01,
+    roomSize: 0.05
+});
 
 //Arp Volume and Pan
 let arpVolPan = new Tone.PanVol();
@@ -60,6 +66,7 @@ module.exports = {
     delayOne,
     synthDelay,
     reverbOne,
+    masterReverb,
     arpVolPan,
     bassVolPan,
     beatVolPan,
