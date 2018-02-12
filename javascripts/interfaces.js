@@ -26,10 +26,10 @@ module.exports.tempoKnob = new Nexus.Number('#tempo', {
     'step': 1
 });
 
-//Septrogram
-module.exports.spectogram = new Nexus.Spectrogram('#spectogram', {
-    'size': [100, 50]
-});
+//Spectrogram
+// module.exports.spectogram = new Nexus.Spectrogram('#spectogram', {
+//     'size': [100, 50]
+// });
 
 /////Sequencer Interfaces/////
 module.exports.sequencer = new Nexus.Sequencer('#sequencer', {
@@ -154,6 +154,34 @@ module.exports.dialDrumSlapWet = new Nexus.Dial('#drumSlap-wet', {
     'value': 0
 });
 module.exports.dialDrumSlapRoomSize = new Nexus.Dial('#drumSlap-room-size', {
+    'size': [25, 25],
+    'interaction': 'radial',
+    'mode': 'relative',
+    'min': 0.05,
+    'max': 1,
+    'step': 0,
+    'value': 0.01
+});
+//Master Reverb
+module.exports.dialMasterReverbWet = new Nexus.Dial('#master-wet', {
+    'size': [25, 25],
+    'interaction': 'radial',
+    'mode': 'relative',
+    'min': 0,
+    'max': 1,
+    'step': 0.05,
+    'value': 0
+});
+module.exports.dialMasterReverbDampening = new Nexus.Dial('#master-dampening', {
+    'size': [25, 25],
+    'interaction': 'radial',
+    'mode': 'relative',
+    'min': 100,
+    'max': 1600,
+    'step': 0.05,
+    'value': 1600
+});
+module.exports.dialMasterReverbRoomSize = new Nexus.Dial('#master-room-size', {
     'size': [25, 25],
     'interaction': 'radial',
     'mode': 'relative',

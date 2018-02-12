@@ -23,6 +23,7 @@
         <div id="logout-btn" class="auth-hidden"></div>
         <div id="store-btn" class="auth-hidden"></div>
     </div>
+    <div id="oscilloscope"></div>
     <br>
     <br>
     <div id "settings" class="user-settings">
@@ -50,6 +51,7 @@
         <li id="select-rhythm" class="tab-select" value="Rhythm">Rhythm</li>
         <li id="select-synthesizer" class="tab-select" value="Synthesizer">Synthesizer</li>
         <li id="select-synthesizer" class="tab-select" value="Chords">Chords</li>
+        <li id="select-synthesizer" class="tab-select" value="Master">Master</li>
     </ul>
     </div>
     <!-- Sequencers -->
@@ -61,6 +63,7 @@
                     <h2>Arpeggiator:</h2>
                     <div class="flex-item sequencer" id="sequencer"></div>
                     <br>
+                    <!-- select fx -->
                     <div class="select-fx">
                         <div id="one-fx-select" class="one-fx-select"></div>
                         <br>
@@ -94,6 +97,7 @@
                         </ul>
                         <div class="fm-multislider" id="fm-multislider"></div>
                     </div>
+
                 </div>
                 <!-- Arp Vol/Pan -->
                 <div class="arp-flexitem">
@@ -214,7 +218,7 @@
                     </div>
                 </div>
             </div>
-            <div id ="Chords" class="seq-hidden">
+            <div id="Chords" class="seq-hidden">
                 <!-- Chord Grid -->
                 <h2>Chords:</h2>
                 <div class="chord-flexwrap">
@@ -289,26 +293,56 @@
                         <p class="Vdom chord" value="Vdom">Vdom</p>
                         <p class="vimin chord" value="vimin">vimin</p>
                         <p class="viiminb5 chord" value="viiminb5">viiminb5</p>
-                    </div>       
+                    </div>
                 </div>
-            </div>       
+            </div>
+            <div id="Master" class="seq-hidden">
+                <div id="master-compressor">
+                    <h2>Master Compressor</h2>
+                    <div id="threshold"></div>
+                    <div id="threshold-number"></div>
+                    <div id="ratio"></div>
+                    <div id="ratio-number"></div>
+                    <div id="attack"></div>
+                    <div id="attack-number"></div>
+                    <div id="release"></div>
+                    <div id="release-number"></div>
+                </div>
+                <div>
+                    <h2>Master Reverb</h2>
+                    <p>Mix</p>
+                    <div id="master-wet"></div>
+                    <p>Dampening</p>
+                    <div id="master-dampening"></div>
+                    <p>Room Size</p>
+                    <div id="master-room-size"></div>
+                    <div></div>
+                </div>
+                <div id="stereo-metter-container">
+                    <div id="stereo-meter"></div>
+                </div>
+            </div>
         </div>
     </div>
 
 
     <!-- Master Compressor -->
-    <div>
-        <h2>Master Compressor</h2>
-        <div id="threshold"></div>
-        <div id="threshold-number"></div>
-        <div id="ratio"></div>
-        <div id="ratio-number"></div>
-        <div id="attack"></div>
-        <div id="attack-number"></div>
-        <div id="release"></div>
-        <div id="release-number"></div>
-    </div>
-
+    <!-- <div id="Master">
+        <div id="master-compressor">
+            <h2>Master Compressor</h2>
+            <div id="threshold"></div>
+            <div id="threshold-number"></div>
+            <div id="ratio"></div>
+            <div id="ratio-number"></div>
+            <div id="attack"></div>
+            <div id="attack-number"></div>
+            <div id="release"></div>
+            <div id="release-number"></div>
+        </div>
+        <div id="stereo-metter-container">
+            <div id="stereo-meter"></div>
+        </div>
+    </div> -->
 
 
     <script src='dist/bundle.js'></script>
