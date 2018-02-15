@@ -54,6 +54,12 @@ let drumDisto = new Tone.Distortion({
     wet: 0,
     oversample: "4x"
 });
+//Chebyshev
+let drumChebyShev = new Tone.Chebyshev({
+    order: 1,
+    oversample: "none",
+    wet: 0
+});
 
 // Live Synthesizer
 let liveSynth = new Tone.MonoSynth().chain(synthVolPan, synthDelay, Tone.Master);
@@ -70,5 +76,6 @@ module.exports = {
     drumDisto,
     drumSlap,
     liveSynth,
-    synthVolPan
+    synthVolPan,
+    drumChebyShev
 };
