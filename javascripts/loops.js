@@ -152,17 +152,13 @@ let loadUserChords = (chords) => {
     });
 };
 
-///// Arpeggiator One ////
-//Note Names Arrays//
-// let noteNames = {
-//     Imaj: ["A4", "C#4", "E4", "G#4"],
-//     iimin: ["B4", "D4", "F#4", "A5"],
-//     iiimin: ["C#4", "E4", "G#4", "B5"],
-//     IVmaj: ["D4", "F#4", "A5", "C#5"],
-//     Vdom: ["E4", "G#4", "B5", "D5"],
-//     vimin: ["F#4", "A5", "C#5", "E5"],
-//     viiminb5: ["G#4", "B5", "D5", "F5"]
-// };
+/////Load Display on Recall/////
+let recallSoundDisplay = (arpSound, bassSound) => {
+    $(`.${arpSound}-arp`).addClass('highlight-soft');
+    $(`.${arpSound}-arp`).siblings().removeClass('highlight-soft');
+    $(`.${bassSound}-bass`).addClass('highlight-soft');
+    $(`.${bassSound}-bass`).siblings().removeClass('highlight-soft');
+};
 
 //Song Keys
 let noteNames = songKey.Amaj;
@@ -260,6 +256,7 @@ module.exports = {
     synthName,
     storeArpSound,
     recallArpSound,
+    recallSoundDisplay,
     arpSounds,
     bassSimpleSynth,
     bassMonoSynth,
