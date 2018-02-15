@@ -129,6 +129,7 @@ module.exports.storeSettings = (input) => {
 module.exports.recallSetting = (setting) => {
     console.log('Setting: ', setting);
     loops.loadUserChords(setting.chords);
+    loops.recallSoundDisplay(setting.arpSound, setting.bassSound);
     Tone.Transport.bpm.value = setting.tempo;
     interface.tempoKnob.value = setting.tempoDisplay;
     //arp//

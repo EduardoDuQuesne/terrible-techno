@@ -37,15 +37,15 @@
         <div id="settings" class="user-settings grid-area-settings">
             <div class="setting-flex">
                 <div>
-                    <a id="save-settings" href="#" title="save">
+                    <a id="save-settings" class="save-icon-link" href="#" title="save">
                         <i id="save-btn" class="save-icon icons fas fa-save fa-lg"></i>
                     </a>
+                    <p class="save-text cursor-default">Save...</p>
                     <input type="text" id="settings-title" class="settings-title">
                 </div>
-                <p>Save...</p>
             </div>
             <hr>
-            <p>User Settings:</p>
+            <p class="cursor-default">User Settings:</p>
             <hr>
             <!-- <a id="clear-settings" href="#" title="clear">
                 <i class="icons fas fa-minus-circle fa-lg"></i>
@@ -83,9 +83,9 @@
                     <div class="arp-subgrid-sound arp-env-flex">
                         <ul id="arp-synth" class="arp-sound-list">
                             <li class="arp-sound-select sound-title" value="">SOUND BANK</li>
-                            <li class="arp-sound-select sound-pointer" value="simpleSynth">Simple Synth</li>
-                            <li class="arp-sound-select sound-pointer" value="FMSynth">FMSynth</li>
-                            <li class="arp-sound-select sound-pointer" value="AMSynth">AMSynth</li>
+                            <li class="arp-sound-select sound-pointer simpleSynth-arp" value="simpleSynth">Simple Synth</li>
+                            <li class="arp-sound-select sound-pointer FMSynth-arp" value="FMSynth">FMSynth</li>
+                            <li class="arp-sound-select sound-pointer AMSynth-arp" value="AMSynth">AMSynth</li>
                         </ul>
                         <div class="fm-multislider" id="fm-multislider"></div>
                     </div>
@@ -133,9 +133,9 @@
                         <div class="arp-env-flex">
                             <ul id="bass-synth" class="arp-sound-list">
                                 <li class="arp-sound-select sound-title">SOUND BANK</li>
-                                <li class="bass-sound-select sound-pointer" value="bassSimpleSynth">Simple Synth</li>
-                                <li class="bass-sound-select sound-pointer" value="bassMonoSynth">Mono Synth</li>
-                                <li class="bass-sound-select sound-pointer" value="bassFMSynth">FMSynth</li>
+                                <li class="bass-sound-select sound-pointer bassSimpleSynth-bass" value="bassSimpleSynth">Simple Synth</li>
+                                <li class="bass-sound-select sound-pointer bassMonoSynth-bass" value="bassMonoSynth">Mono Synth</li>
+                                <li class="bass-sound-select sound-pointer bassFMSynth-bass" value="bassFMSynth">FMSynth</li>
                             </ul>
                             <div class="bass-multislider" id="bass-multislider"></div>
                         </div>
@@ -181,7 +181,6 @@
                             <div id="drumSlap-room-size" class="setting-dial"></div>
                         </div>
                     </div>
-                    <div>Check</div>
                 </div>
             </div>
 
@@ -411,6 +410,15 @@
 
 
         </div>
+        <!-- <div class="key-commands">
+            <p>Key Commands</p>
+            <ul>
+                <li>"+" "-" = tab through instruments</li>
+                <li>Space bar = Play/Stop</li>
+                <li></li>
+                <li></li>
+            </ul>
+        </div> -->
     </div>
 
     <script src='dist/bundle.js'></script>
