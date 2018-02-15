@@ -1,5 +1,4 @@
 @import url('https://fonts.googleapis.com/css?family=Orbitron');
-
 * {
 	// font-family: 'Orbitron', sans-serif;
 }
@@ -8,36 +7,39 @@ body {
 	background-color: black;
 	color: white;
 }
+
 p {
 	color: white;
 }
+
 li {
 	list-style-type: none;
 }
+
 a {
 	text-decoration: none;
 	color: white;
 }
-.flex-wrap-buttons {
-	margin: 0 auto;
-	width: 70%;
-	display: flex;
-	justify-content: space-around;
-	margin-left: 0px;
-}
-.title-head {
-	width: 965px;
-}
+
 h1 {
 	font-family: 'Orbitron', sans-serif;
 	text-align: center;
 	text-shadow: 1px 1px #8bfbf5;
 }
+.title-head {
+	width: 965px;
+}
+.flex-header {
+	display: flex;
+	justify-content: space-between;
+}
+
 h2,
 h3,
 h4 {
-	color: white;	
+	color: white;
 }
+
 .chord-flexwrap {
 	display: flex;
 	justify-content: space-between;
@@ -45,6 +47,7 @@ h4 {
 	margin-left: 30px;
 	margin-bottom: 105px;
 }
+
 p.chord {
 	border: 1px solid white;
 	box-shadow: 2px 2px #8bfbf5;
@@ -55,62 +58,80 @@ p.chord {
 	margin-top: 0;
 	margin-bottom: 0;
 }
+
 .play {
 	background-color: #8B9AB6;
 }
+
 .sequencer {
 	margin-left: 30px;
 }
+
 .border {
 	border: 2px solid #8bfbf5;
 	box-shadow: 3px 4px hotpink;
 }
+
 .fx-hidden {
 	display: none;
 }
+
 .seq-hidden {
 	display: none;
 }
+
 .auth-hidden {
 	display: none;
 }
+
 .icons {
-	color: white;	
-};
+	color: white;
+}
+
+;
 .settings-title {
 	height: 15px;
 	vertical-align: middle;
-	display: none;	
+	display: none;
 }
+
 .user-settings-list {
 	list-style-type: none;
 	padding-left: 0;
 }
+
 .red-icon {
 	color: hotpink;
 }
+
 .save-icon {
 	display: inline;
 }
+
 ul {
 	color: white;
 }
+
 .select-li {
 	display: inline;
 }
+
 //TEMPORARY TRASH CAN FIX//
 .icon-spin {
 	display: none;
 }
+
 .highlight {
 	font-weight: bolder;
 	color: hotpink;
 	text-shadow: 1px 1px #8bfbf5;
 }
+
 .setting-flex {
 	display: flex;
 	justify-content: space-between;
 }
+
 .save-setting-flex {
 	display: flex;
 	justify-content: space-between;
@@ -126,39 +147,48 @@ ul {
 	"head head" 
 	"transport transport" 
 	"osc osc" 
-	"select select"
+	"select select" 
 	"sequencers settings";
 }
+
 .grid-area-header {
 	grid-area: head;
 }
+
 .grid-area-transport {
 	grid-area: transport;
 }
+
 .grid-area-settings {
 	grid-area: settings;
 }
+
 .grid-area-sequencer {
 	grid-area: sequencers;
 }
+
 .grid-area-select {
 	grid-area: select;
 }
+
 .grid-area-osc {
 	grid-area: osc;
 }
+
 ///// SEQUENCER SUBGRIDS AND STRUCTURE/////
 .arp-subgrid-container {
 	margin-left: 30px;
 	display: grid;
-	grid-template-columns: 150px 330px 160px 160px; 
+	grid-template-columns: 150px 330px 160px 160px;
 }
+
 .arp-env-flex {
 	display: flex;
 }
+
 .arp-sound-list {
 	border: 1px solid white;
-	font-family:  'Orbitron', sans-serif;
+	font-family: 'Orbitron', sans-serif;
 	font-size: .8em;
 	margin: 0;
 	height: 148px;
@@ -167,19 +197,27 @@ ul {
 	flex-direction: column;
 	justify-content: space-around;
 }
+
 .sound-title {
 	color: hotpink;
 	text-shadow: 1px 1px #8bfbf5;
+	cursor: default;
 }
+
 .arp-sound-list li {
 	// border-bottom: 1px solid white;
 	padding: 10px 10px;
 	text-align: center;
 }
+
 .fx-flex {
 	display: flex;
 	justify-content: space-around;
 	text-align: center;
+}
+
+.setting-dial {
+	margin: 0 auto;
 }
 
 ///// OSCILLOSCOPE /////
@@ -191,34 +229,41 @@ ul {
 .synth-subgrid-container {
 	margin-left: 30px;
 	display: grid;
-	grid-template-columns: 140px repeat(3, 176px) 130px; 
+	grid-template-columns: 140px repeat(3, 176px) 130px;
 }
+
 .synth-setting-flex {
 	display: flex;
 	justify-content: space-around;
 	text-align: center;
 }
+
 .synth-setting-flex p {
 	margin-left: 0;
 }
+
 .vertical-label {
 	text-align: center;
 	padding: 0;
 }
+
 .vertical-style {
 	writing-mode: vertical-lr;
 	text-orientation: upright;
 	margin-right: 0;
 	text-align: center;
 	font-family: 'Orbitron', sans-serif;
-	text-shadow: 1px 1px #8bfbf5;		
-	text-shadow: 1px 1px #8bfbf5;		
+	text-shadow: 1px 1px #8bfbf5;
+	text-shadow: 1px 1px #8bfbf5;
+	cursor: default;
 }
+
 .synth-octave {
 	display: inline;
 	text-align: center;
 	font-family: 'Orbitron', sans-serif;
 }
+
 .sound-type {
 	font-family: 'Orbitron', sans-serif;
 }
@@ -227,19 +272,41 @@ ul {
 .drum-subgrid-container {
 	margin-left: 30px;
 	display: grid;
-	grid-template-columns: 150px 150px 150px 150px 200px; 
+	grid-template-columns: 150px 150px 150px 150px 200px;
 }
-	
 
+/////TRANSPORT/////
+//PLAY BUTTON
+.button,
+select,
+div.button > input {
+	font-family: 'Orbitron', sans-serif !important;
+}
+select,
+div.button > input {
+	font-size: .7em !important;
+}
+.flex-wrap-buttons {
+	width: 965px;
+	display: flex;
+	justify-content: space-around;
+	margin-left: 30px;
+}
+.btn-auth {
+	margin-left: auto;
+}
+.btn-transport {
+	margin-right: 15px;
+}
 /////MASTER SUBGRID/////
-.master-section-subgrid	{
+.master-section-subgrid {
 	margin-left: 30px;
 	display: grid;
-	grid-template-columns: 60px repeat(3, 245px); 
+	grid-template-columns: 50px 245px 155px repeat(5, 70px);
 	grid-template-rows: 125px;
-	border: 2px solid white;
-	// z-index: -1;
+	border: 2px solid white; 
 }
+
 .master-title {
 	text-align: center;
 	writing-mode: vertical-lr;
@@ -249,14 +316,26 @@ ul {
 	border-right: 2px solid white;
 	font-family: 'Orbitron', sans-serif;
 }
+
 .master-title p {
 	color: hotpink;
 }
+
 .flex-transport {
 	display: flex;
 }
+
 .master-reverb p {
 	margin-bottom: 0;
+}
+
+.comp-setting {
+	display: inline;
+}
+
+.comp-number {
+	margin-left: 2px;
+	margin-top: 2px;
 }
 
 /////FX DIAL STYLING/////
@@ -265,9 +344,15 @@ ul {
 	text-align: center;
 	font-family: 'Orbitron', sans-serif;
 	font-size: .7em;
+	cursor: default;
 }
+
 .fx-params {
-	margin-top: 30px;
+	margin-top: 15px;
+}
+
+.fx-params-cheby {
+	margin-top: 7px;
 }
 
 /////USER SETTINGS/////
@@ -278,15 +363,20 @@ ul {
 	width: 150px;
 	background-color: grey;
 }
+
 .line-style {
-	border-top: 1px solid white; 
+	border-top: 1px solid white;
 	display: inline-block;
 }
 
 ///// TAB SELECT /////
 .tab-select {
 	font-family: 'Orbitron', sans-serif;
+	cursor: pointer;
 	width: 800px;
 	display: flex;
 	justify-content: space-around;
+}
+.sound-pointer {
+	cursor: pointer;
 }
