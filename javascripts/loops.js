@@ -246,6 +246,7 @@ module.exports = {
     arpKeys,
     arpLoop,
     bassLoop,
+    drums,
     drumLoop,
     chordLoop,
     changeChords,

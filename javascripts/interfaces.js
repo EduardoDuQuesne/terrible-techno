@@ -5,13 +5,13 @@ const Nexus = require('nexusui');
 
 /////Log In and Out/////
 module.exports.logIn = new Nexus.TextButton('#login-btn', {
-    'size': [80, 40],
+    'size': [80, 30],
     'state': false,
     'text': 'Log In',
     'alternate': false
 });
 module.exports.logOut = new Nexus.TextButton('#logout-btn', {
-    'size': [80, 40],
+    'size': [80, 30],
     'state': false,
     'text': 'Log Out',
     'alternate': false
@@ -19,7 +19,7 @@ module.exports.logOut = new Nexus.TextButton('#logout-btn', {
 
 /////Tempo Interface/////
 module.exports.tempoKnob = new Nexus.Number('#tempo', {
-    'size': [100, 40],
+    'size': [100, 30],
     'value': 120,
     'min': 60,
     'max': 180,
@@ -55,13 +55,13 @@ module.exports.liveSynthKeyboard = new Nexus.Piano('#synthesizer-live', {
 });
 /////Stop and Start Interface/////
 module.exports.playButton = new Nexus.TextButton('#play', {
-    'size': [100, 40],
+    'size': [100, 30],
     'state': false,
     'text': 'Play',
     'alternate': false
 });
 module.exports.stopButton = new Nexus.TextButton('#stop', {
-    'size': [101, 40],
+    'size': [101, 30],
     'state': false,
     'text': 'Stop',
     'alternate': false
@@ -81,7 +81,7 @@ module.exports.selectSynthType = new Nexus.Select('#synth-type', {
     'options': ['square', 'sine', 'triangle', 'sawtooth']
 });
 module.exports.selectKey = new Nexus.Select('#select-key', {
-    'size': [100, 40],
+    'size': [100, 30],
     'options': ['Amaj', 'Bmaj', 'Cmaj', 'Dmaj', 'Emaj', 'Fmaj', 'Gmaj']
 });
 
@@ -279,10 +279,10 @@ module.exports.thresholdKnob = new Nexus.Dial('#threshold', {
     'min': -60,
     'max': 0,
     'step': 1,
-    'value': -30
+    'value': -40
 });
 module.exports.thresholdNumber = new Nexus.Number('#threshold-number', {
-    'size': [40, 25]
+    'size': [35, 20]
 });
 
 module.exports.ratioKnob = new Nexus.Dial('#ratio', {
@@ -292,10 +292,10 @@ module.exports.ratioKnob = new Nexus.Dial('#ratio', {
     'min': 1,
     'max': 20,
     'step': 1,
-    'value': 0
+    'value': 20
 });
 module.exports.ratioNumber = new Nexus.Number('#ratio-number', {
-    'size': [40, 25]
+    'size': [35, 20]
 });
 
 module.exports.attackKnob = new Nexus.Dial('#attack', {
@@ -308,7 +308,7 @@ module.exports.attackKnob = new Nexus.Dial('#attack', {
     'value': 0
 });
 module.exports.attackNumber = new Nexus.Number('#attack-number', {
-    'size': [40, 25]
+    'size': [35, 20]
 });
 
 module.exports.releaseKnob = new Nexus.Dial('#release', {
@@ -321,7 +321,7 @@ module.exports.releaseKnob = new Nexus.Dial('#release', {
     'value': 0
 });
 module.exports.releaseNumber = new Nexus.Number('#release-number', {
-    'size': [40, 25]
+    'size': [35, 20]
 });
 
 //Arp Synth Envelope
