@@ -46,7 +46,11 @@ let beatVolPan = new Tone.PanVol();
 let synthVolPan = new Tone.PanVol();
 
 //Compressor
-let masterComp = new Tone.Compressor(-30, 3);
+let masterComp = new Tone.Compressor({
+    ratio  : 20,
+    threshold: -40 ,
+    }
+    );
 
 //Distortion
 let drumDisto = new Tone.Distortion({

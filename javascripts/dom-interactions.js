@@ -21,8 +21,20 @@ Tone.Master.chain(fx.masterReverb, fx.masterComp);
 let oscilloscope = new Nexus.Oscilloscope('#oscilloscope', {
     'size': [965, 25]
 });
-let meter = new Nexus.Meter('#stereo-meter', {
-    size: [45, 125]
+let meterDrums = new Nexus.Meter('#stereo-meter-drums', {
+    size: [40, 125]
+});
+let meterBass = new Nexus.Meter('#stereo-meter-bass', {
+    size: [40, 125]
+});
+let meterArp = new Nexus.Meter('#stereo-meter-arp', {
+    size: [40, 125]
+});
+let meterSynth = new Nexus.Meter('#stereo-meter-synth', {
+    size: [40, 125]
+});
+let meterMix = new Nexus.Meter('#stereo-meter-mix', {
+    size: [40, 125]
 });
 
 //Authorization//
@@ -267,8 +279,14 @@ interface.dialMasterReverbRoomSize.on('change', function (value) {
 
 ///// Arpeggiator Synth Envelopes //////
 let currentSynth = loops.arpSounds.simpleSynth;
+let currentBassSynth = loops.bassSounds.bassSimpleSynth;
+$(document).ready(function () {
+    meterArp.connect(currentSynth);
+    meterBass.connect(currentBassSynth);
+});
 $('.arp-sound-select').on('click', function () {
     currentSynth = loops.arpSounds[$(this).attr('value')];
+    meterArp.connect(currentSynth);
     interface.arpSynthEnvelope.setSlider(0, loops.arpSounds[$(this).attr('value')].envelope.attack);
     interface.arpSynthEnvelope.setSlider(1, loops.arpSounds[$(this).attr('value')].envelope.decay);
     interface.arpSynthEnvelope.setSlider(2, loops.arpSounds[$(this).attr('value')].envelope.sustain);
@@ -282,8 +300,8 @@ $(document).on('mouseup', '.fm-multislider', function () {
 });
 
 ///// Bass Synth Envelopes /////
-let currentBassSynth = loops.bassSounds.bassSimpleSynth;
 $('.bass-sound-select').on('click', function () {
+    meterBass.connect(currentBassSynth);
     currentBassSynth = loops.bassSounds[$(this).attr('value')];
     interface.bassSynthEnvelope.setSlider(0, loops.bassSounds[$(this).attr('value')].envelope.attack);
     interface.bassSynthEnvelope.setSlider(1, loops.bassSounds[$(this).attr('value')].envelope.decay);
@@ -476,4 +494,6 @@ interface.dialSynthDelayTime.on('change', function (value) {
 //Spectogram
 // spectogram.connect(Tone.Master);
 oscilloscope.connect(Tone.Master);
-meter.connect(Tone.Master);
+meterDrums.connect(loops.drums);
+meterSynth.connect(fx.liveSynth);
+meterMix.connect(Tone.Master);

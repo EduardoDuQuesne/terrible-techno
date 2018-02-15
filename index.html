@@ -20,14 +20,13 @@
         <!-- TRANSPORT -->
         <!-- GRID AREA: TRANSPORT -->
         <div class="flex-wrap-buttons grid-area-transport">
-            <!-- <div id="play" class="play"></div>
-            <div id="stop" class="stop"></div>
-            <div id="tempo" class="stop"></div>
-            <div id="select-key" class="stop"></div>
-            <div id="spectogram"></div>
-            <div id="login-btn" class="auth-hidden"></div>
-            <div id="logout-btn" class="auth-hidden"></div>
-            <div id="store-btn" class="auth-hidden"></div> -->
+            <div id="play" class=" button btn-transport play"></div>
+            <div id="stop" class="button btn-transport"></div>
+            <div id="tempo" class="button btn-transport stop"></div>
+            <div id="select-key" class="button btn-transport"></div>
+            <div id="login-btn" class="button btn-auth auth-hidden"></div>
+            <div id="logout-btn" class="button btn-auth auth-hidden"></div>
+            <!-- <div id="spectogram"></div> -->
         </div>
         <!-- Oscilloscope -->
         <!-- GRID AREA: Oscilloscope -->
@@ -84,9 +83,9 @@
                     <div class="arp-subgrid-sound arp-env-flex">
                         <ul id="arp-synth" class="arp-sound-list">
                             <li class="arp-sound-select sound-title" value="">SOUND BANK</li>
-                            <li class="arp-sound-select" value="simpleSynth">Simple Synth</li>
-                            <li class="arp-sound-select" value="FMSynth">FMSynth</li>
-                            <li class="arp-sound-select" value="AMSynth">AMSynth</li>
+                            <li class="arp-sound-select sound-pointer" value="simpleSynth">Simple Synth</li>
+                            <li class="arp-sound-select sound-pointer" value="FMSynth">FMSynth</li>
+                            <li class="arp-sound-select sound-pointer" value="AMSynth">AMSynth</li>
                         </ul>
                         <div class="fm-multislider" id="fm-multislider"></div>
                     </div>
@@ -95,26 +94,26 @@
                         <p class="vertical-style">DELAY</p>
                         <div class="fx-params">
                             <p class="fx-label">mix</p>
-                            <div id="delay-wet"></div>
+                            <div id="delay-wet" class="setting-dial"></div>
                             <p class="fx-label">fb</p>
-                            <div id="delay-feedback"></div>
+                            <div id="delay-feedback" class="setting-dial"></div>
                         </div>
                         <div class="fx-params">
                             <p class="fx-label">time</p>
-                            <div id="delay-time"></div>
+                            <div id="delay-time" class="setting-dial"></div>
                         </div>
                     </div>
                     <div class="synth-setting-flex">
                         <p class="vertical-style">VERB</p>
                         <div class="fx-params">
                             <p class="fx-label">mix</p>
-                            <div id="reverb-wet"></div>
+                            <div id="reverb-wet" class="setting-dial"></div>
                             <p class="fx-label">damp</p>
-                            <div id="reverb-dampening"></div>
+                            <div id="reverb-dampening" class="setting-dial"></div>
                         </div>
                         <div class="fx-params">
                             <p class="fx-label">decay</p>
-                            <div id="reverb-room-size"></div>
+                            <div id="reverb-room-size" class="setting-dial"></div>
                         </div>
 
                     </div>
@@ -134,9 +133,9 @@
                         <div class="arp-env-flex">
                             <ul id="bass-synth" class="arp-sound-list">
                                 <li class="arp-sound-select sound-title">SOUND BANK</li>
-                                <li class="bass-sound-select" value="bassSimpleSynth">Simple Synth</li>
-                                <li class="bass-sound-select" value="bassMonoSynth">Mono Synth</li>
-                                <li class="bass-sound-select" value="bassFMSynth">FMSynth</li>
+                                <li class="bass-sound-select sound-pointer" value="bassSimpleSynth">Simple Synth</li>
+                                <li class="bass-sound-select sound-pointer" value="bassMonoSynth">Mono Synth</li>
+                                <li class="bass-sound-select sound-pointer" value="bassFMSynth">FMSynth</li>
                             </ul>
                             <div class="bass-multislider" id="bass-multislider"></div>
                         </div>
@@ -153,33 +152,33 @@
                     </div>
                     <div class="synth-setting-flex">
                         <p class="vertical-style">FILTER</p>
-                        <div>
+                        <div class="fx-params-cheby">
                             <p class="fx-label">mix</p>
-                            <div id="chebyshev-wet"></div>
+                            <div id="chebyshev-wet" class="setting-dial"></div>
                             <p class="fx-label">amount</p>
-                            <div id="chebyshev-order"></div>
+                            <div id="chebyshev-order" class="setting-dial"></div>
                             <div>
                                 <p class="fx-label">oversample</p>
-                                <div id="chebyshev-oversample"></div>
+                                <div id="chebyshev-oversample" class="setting-dial"></div>
                             </div>
                         </div>
                     </div>
                     <div class="synth-setting-flex">
                         <p class="vertical-style">DISTO</p>
-                        <div>
+                        <div class="fx-params">
                             <p class="fx-label">mix</p>
-                            <div id="distortion-wet"></div>
+                            <div id="distortion-wet" class="setting-dial"></div>
                             <p class="fx-label">amount</p>
-                            <div id="distortion-amount"></div>
+                            <div id="distortion-amount" class="setting-dial"></div>
                         </div>
                     </div>
                     <div class="synth-setting-flex">
                         <p class="vertical-style">SLAP</p>
-                        <div>
+                        <div class="fx-params">
                             <p class="fx-label">mix</p>
-                            <div id="drumSlap-wet"></div>
+                            <div id="drumSlap-wet" class="setting-dial"></div>
                             <p class="fx-label">room size</p>
-                            <div id="drumSlap-room-size"></div>
+                            <div id="drumSlap-room-size" class="setting-dial"></div>
                         </div>
                     </div>
                     <div>Check</div>
@@ -197,64 +196,62 @@
                                 <div id="synth-volpan"></div>
                             </div>
                             <div class="synth-setting-flex">
-                                <div>
+                                <div class="fx-params">
                                     <p class="fx-label">octave</p>
-                                    <div id="synth-octave" class="synth-octave"></div>
+                                    <div id="synth-octave" class="synth-octave setting-dial"></div>
                                     <p class="fx-label">type</p>
-                                    <div id="synth-type" class="sound-type"></div>
+                                    <div id="synth-type" class="sound-type setting-dial"></div>
                                 </div>
-                                <div>
-                                    <div>
-                                        <p class="fx-label">gluide</p>
-                                        <div id="synth-portamento"></div>
-                                        <p class="fx-label">detune</p>
-                                        <div id="synth-detune"></div>
-                                    </div>
+                                <div class="fx-params">
+                                    <p class="fx-label">gluide</p>
+                                    <div id="synth-portamento" class="setting-dial"></div>
+                                    <p class="fx-label">detune</p>
+                                    <div id="synth-detune" class="setting-dial"></div>
                                 </div>
                             </div>
                             <div class="synth-setting-flex">
                                 <p class="vertical-style">ENVELOPE</p>
-                                <div>
+                                <div class="fx-params">
                                     <p class="fx-label">attack</p>
-                                    <div id="synth-attack"></div>
+                                    <div id="synth-attack" class="setting-dial"></div>
                                     <p class="fx-label">decay</p>
-                                    <div id="synth-decay"></div>
+                                    <div id="synth-decay" class="setting-dial"></div>
                                 </div>
-                                <div>
+                                <div class="fx-params">
                                     <p class="fx-label">sustain</p>
-                                    <div id="synth-sustain"></div>
+                                    <div id="synth-sustain" class="setting-dial"></div>
                                     <p class="fx-label">release</p>
-                                    <div id="synth-release"></div>
+                                    <div id="synth-release" class="setting-dial"></div>
                                 </div>
                             </div>
                             <div class="synth-setting-flex">
                                 <p class="vertical-style">FILTER</p>
-                                <div>
+                                <div class="fx-params">
                                     <p class="fx-label">attack</p>
-                                    <div id="synth-filter-attack"></div>
+                                    <div id="synth-filter-attack" class="setting-dial"></div>
                                     <p class="fx-label">decay</p>
-                                    <div id="synth-filter-decay"></div>
+                                    <div id="synth-filter-decay" class="setting-dial"></div>
                                 </div>
-                                <div>
+                                <div class="fx-params">
                                     <p class="fx-label">sustain</p>
-                                    <div id="synth-filter-sustain"></div>
+                                    <div id="synth-filter-sustain" class="setting-dial"></div>
                                     <p class="fx-label">release</p>
-                                    <div id="synth-filter-release"></div>
+                                    <div id="synth-filter-release" class="setting-dial"></div>
                                 </div>
                             </div>
 
 
                             <div id="synth-fx" class="synth-setting-flex">
                                 <p class="vertical-style">DELAY</p>
-                                <div>
+                                <div class="fx-params">
                                     <p class="fx-label">mix</p>
-                                    <div id="synth-delay-wet"></div>
+                                    <div id="synth-delay-wet" class="setting-dial"></div>
                                     <p class="fx-label">feedback</p>
-                                    <div id="synth-delay-feedback"></div>
+                                    <div id="synth-delay-feedback" class="setting-dial"></div>
                                 </div>
-                                <div>
+                                <div class="fx-params">
                                     <p class="fx-label">time</p>
-                                    <div id="synth-delay-time"></div>
+                                    <div id="synth-delay-time" class="setting-dial"></div>
                                 </div>
                             </div>
                         </div>
@@ -348,56 +345,71 @@
             <div id="master-compressor">
 
                 <div class="synth-setting-flex">
-                    <p class="vertical-style">COMP</p>
-                    <div>
-                        <div id="threshold"></div>
-                        <div id="threshold-number"></div>
-                        <div id="ratio"></div>
-                        <div id="ratio-number"></div>
+                    <p class="vertical-style fx-params">COMP</p>
+                    <div class="fx-params">
+                        <p class="fx-label">theshold</p>
+                        <div class="synth-setting-flex setting-dial">
+                            <div id="threshold"></div>
+                            <div id="threshold-number" class="comp-number"></div>
+                        </div>
+                        <p class="fx-label">ratio</p>
+                        <div class="synth-setting-flex setting-dial">
+                            <div id="ratio"></div>
+                            <div id="ratio-number" class="comp-number"></div>
+                        </div>
                     </div>
-                    <div>
-                        <div id="attack"></div>
-                        <div id="attack-number"></div>
-                        <div id="release"></div>
-                        <div id="release-number"></div>
+                    <div class="fx-params">
+                        <p class="fx-label">attack</p>
+                        <div class="synth-setting-flex setting-dial">
+                            <div id="attack"></div>
+                            <div id="attack-number" class="comp-number"></div>
+                        </div>
+                        <p class="fx-label">release</p>
+                        <div class="synth-setting-flex setting-dial">
+                            <div id="release"></div>
+                            <div id="release-number" class="comp-number"></div>
+                        </div>
                     </div>
                 </div>
             </div>
             <div>
 
                 <div class="synth-setting-flex master-reverb">
-                    <p class="vertical-style">VERB</p>
-                    <div>
+                    <p class="vertical-style fx-params">VERB</p>
+                    <div class="fx-params">
                         <p class="fx-label">mix</p>
-                        <div id="master-wet"></div>
+                        <div id="master-wet" class="setting-dial"></div>
                         <p class="fx-label">dampen</p>
-                        <div id="master-dampening"></div>
+                        <div id="master-dampening" class="setting-dial"></div>
                     </div>
-                    <div>
+                    <div class="fx-params">
                         <p class="fx-label">decay</p>
-                        <div id="master-room-size"></div>
+                        <div id="master-room-size" class="setting-dial"></div>
                     </div>
                 </div>
             </div>
-            <div id="stereo-metter-container">
-                <div class="flex-transport">
-                    <div>
-                        <div id="stereo-meter"></div>
-                    </div>
-                    <div class="flex-button-down">
-                        <div id="play" class="play"></div>
-                        <div id="tempo" class="stop"></div>
-                        <div id="login-btn" class="auth-hidden"></div>
-                    </div>
-                    <div class="flex-button-down">
-                        <div id="stop" class="stop"></div>
-                        <div id="select-key" class="stop"></div>
-                        <!-- <div id="spectogram"></div> -->
-                        <div id="logout-btn" class="auth-hidden"></div>
-                    </div>
-                </div>
+            <div class="synth-setting-flex">
+                <p class="vertical-style">RHYTHM</p>
+                <div id="stereo-meter-drums"></div>
+            </div>
+            <div class="synth-setting-flex">
+                <p class="vertical-style">BASS</p>
+                <div id="stereo-meter-bass"></div>
+            </div>
+            <div class="synth-setting-flex">
+                <p class="vertical-style">ARP</p>
+                <div id="stereo-meter-arp"></div>
+            </div>
+            <div class="synth-setting-flex">
+                <p class="vertical-style">SYNTH</p>
+                <div id="stereo-meter-synth"></div>
+            </div>
+            <div class="synth-setting-flex">
+                <p class="vertical-style">MIX</p>
+                <div id="stereo-meter-mix"></div>
+            </div>
 
-            </div>
+
         </div>
     </div>
 
