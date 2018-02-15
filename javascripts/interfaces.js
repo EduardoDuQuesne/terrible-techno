@@ -5,13 +5,13 @@ const Nexus = require('nexusui');
 
 /////Log In and Out/////
 module.exports.logIn = new Nexus.TextButton('#login-btn', {
-    'size': [150, 50],
+    'size': [80, 40],
     'state': false,
     'text': 'Log In',
     'alternate': false
 });
 module.exports.logOut = new Nexus.TextButton('#logout-btn', {
-    'size': [150, 50],
+    'size': [80, 40],
     'state': false,
     'text': 'Log Out',
     'alternate': false
@@ -19,17 +19,12 @@ module.exports.logOut = new Nexus.TextButton('#logout-btn', {
 
 /////Tempo Interface/////
 module.exports.tempoKnob = new Nexus.Number('#tempo', {
-    'size': [70, 50],
+    'size': [100, 40],
     'value': 120,
     'min': 60,
     'max': 180,
     'step': 1
 });
-
-//Spectrogram
-// module.exports.spectogram = new Nexus.Spectrogram('#spectogram', {
-//     'size': [100, 50]
-// });
 
 /////Sequencer Interfaces/////
 module.exports.sequencer = new Nexus.Sequencer('#sequencer', {
@@ -60,33 +55,33 @@ module.exports.liveSynthKeyboard = new Nexus.Piano('#synthesizer-live', {
 });
 /////Stop and Start Interface/////
 module.exports.playButton = new Nexus.TextButton('#play', {
-    'size': [150, 50],
+    'size': [100, 40],
     'state': false,
     'text': 'Play',
     'alternate': false
 });
 module.exports.stopButton = new Nexus.TextButton('#stop', {
-    'size': [150, 50],
+    'size': [101, 40],
     'state': false,
     'text': 'Stop',
     'alternate': false
 });
 /////Select Interfaces
-module.exports.selectFx = new Nexus.Select('#one-fx-select', {
-    'size': [75, 25],
-    'options': ['Default', 'Delay', 'Reverb']
-});
+// module.exports.selectFx = new Nexus.Select('#one-fx-select', {
+//     'size': [75, 25],
+//     'options': ['Default', 'Delay', 'Reverb']
+// });
 
-module.exports.selectDrumFx = new Nexus.Select('#three-fx-select', {
-    'size': [75, 25],
-    'options': ['Default', 'Distortion', 'Slap']
-});
+// module.exports.selectDrumFx = new Nexus.Select('#three-fx-select', {
+//     'size': [75, 25],
+//     'options': ['Default', 'Distortion', 'Slap']
+// });
 module.exports.selectSynthType = new Nexus.Select('#synth-type', {
     'size': [75, 25],
     'options': ['square', 'sine', 'triangle', 'sawtooth']
 });
 module.exports.selectKey = new Nexus.Select('#select-key', {
-    'size': [100, 50],
+    'size': [100, 40],
     'options': ['Amaj', 'Bmaj', 'Cmaj', 'Dmaj', 'Emaj', 'Fmaj', 'Gmaj']
 });
 
@@ -198,7 +193,7 @@ module.exports.dialMasterReverbRoomSize = new Nexus.Dial('#master-room-size', {
 
 ///// VOLUME/PAN AXIS INTERFACE /////
 module.exports.arpVolPanKnob = new Nexus.Position('#arp-volpan', {
-    'size': [200, 198],
+    'size': [150, 150],
     'mode': 'absolute',
     'x': 0,
     'minX': -1,
@@ -211,7 +206,7 @@ module.exports.arpVolPanKnob = new Nexus.Position('#arp-volpan', {
 });
 
 module.exports.bassVolPanKnob = new Nexus.Position('#bass-volpan', {
-    'size': [200, 198],
+    'size': [150, 150],
     'mode': 'absolute',
     'x': 0,
     'minX': -1,
@@ -224,7 +219,7 @@ module.exports.bassVolPanKnob = new Nexus.Position('#bass-volpan', {
 });
 
 module.exports.beatVolPanKnob = new Nexus.Position('#beat-volpan', {
-    'size': [200, 198],
+    'size': [150, 150],
     'mode': 'absolute',
     'x': 0,
     'minX': -1,
@@ -237,7 +232,7 @@ module.exports.beatVolPanKnob = new Nexus.Position('#beat-volpan', {
 });
 
 module.exports.synthVolPanKnob = new Nexus.Position('#synth-volpan', {
-    'size': [200, 198],
+    'size': [150, 150],
     'mode': 'absolute',
     'x': 0,
     'minX': -1,
@@ -304,7 +299,7 @@ module.exports.releaseNumber = new Nexus.Number('#release-number', {
 
 //Arp Synth Envelope
 module.exports.arpSynthEnvelope = new Nexus.Multislider('#fm-multislider', {
-    'size': [200, 100],
+    'size': [200, 150],
     'numberOfSliders': 4,
     'min': 0,
     'max': 1,
@@ -314,7 +309,7 @@ module.exports.arpSynthEnvelope = new Nexus.Multislider('#fm-multislider', {
 
 //Bass Synth Envelope
 module.exports.bassSynthEnvelope = new Nexus.Multislider('#bass-multislider', {
-    'size': [200, 100],
+    'size': [200, 150],
     'numberOfSliders': 4,
     'min': 0,
     'max': 1,

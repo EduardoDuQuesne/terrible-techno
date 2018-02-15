@@ -56,11 +56,7 @@ let drumDisto = new Tone.Distortion({
 });
 
 // Live Synthesizer
-
-// let duoSynth = new Tone.DuoSynth
 let liveSynth = new Tone.MonoSynth().chain(synthVolPan, synthDelay, Tone.Master);
-
-
 
 module.exports = {
     delayOne,
