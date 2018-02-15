@@ -93,6 +93,7 @@ p.chord {
 	height: 15px;
 	vertical-align: middle;
 	display: none;
+	width: px;
 }
 
 .user-settings-list {
@@ -105,6 +106,14 @@ p.chord {
 }
 
 .save-icon {
+	display: inline;
+	margin-top: 5px;
+	margin-left: 5px;
+}
+.save-icon-link {
+	display: inline;
+}
+.save-text {
 	display: inline;
 }
 
@@ -124,6 +133,10 @@ ul {
 .highlight {
 	font-weight: bolder;
 	color: hotpink;
+	text-shadow: 1px 1px #8bfbf5;
+}
+.highlight-soft {
+	font-weight: bolder;
 	text-shadow: 1px 1px #8bfbf5;
 }
 
@@ -202,6 +215,7 @@ ul {
 	color: hotpink;
 	text-shadow: 1px 1px #8bfbf5;
 	cursor: default;
+	pointer-events: none;
 }
 
 .arp-sound-list li {
@@ -380,3 +394,11 @@ div.button > input {
 .sound-pointer {
 	cursor: pointer;
 }
+.cursor-default {
+	cursor: default;
+}
+
+
+//Key Commands
+
+//TEXT SHADOW

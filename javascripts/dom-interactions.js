@@ -110,10 +110,12 @@ $("#save-settings").on("click", function () {
     if ($('#save-btn').hasClass('red-icon') === true) {
         $('#save-btn').removeClass('red-icon');
         $('#settings-title').hide();
+        $('.save-text').show();
     } else {
         $('#settings-title').show();
         $('#settings-title').focus();
         $('#save-btn').addClass('red-icon');
+        $('.save-text').hide();
     }
 });
 $('#settings-title').on('keypress', function (e) {
@@ -285,6 +287,8 @@ $(document).ready(function () {
     meterBass.connect(currentBassSynth);
 });
 $('.arp-sound-select').on('click', function () {
+    $(this).addClass('highlight-soft');
+    $(this).siblings().removeClass('highlight-soft');
     currentSynth = loops.arpSounds[$(this).attr('value')];
     meterArp.connect(currentSynth);
     interface.arpSynthEnvelope.setSlider(0, loops.arpSounds[$(this).attr('value')].envelope.attack);
@@ -301,6 +305,8 @@ $(document).on('mouseup', '.fm-multislider', function () {
 
 ///// Bass Synth Envelopes /////
 $('.bass-sound-select').on('click', function () {
+    $(this).addClass('highlight-soft');
+    $(this).siblings().removeClass('highlight-soft');
     meterBass.connect(currentBassSynth);
     currentBassSynth = loops.bassSounds[$(this).attr('value')];
     interface.bassSynthEnvelope.setSlider(0, loops.bassSounds[$(this).attr('value')].envelope.attack);
