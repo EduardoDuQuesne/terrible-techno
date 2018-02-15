@@ -96,18 +96,9 @@ let bassSounds = {
 
 //Bass Sound Select
 $('.bass-sound-select').on('click', function () {
-    console.log('Check3', bassSynth);
     module.exports.bassSynth = bassSounds[$(this).attr('value')];
     bassSynth = bassSounds[$(this).attr('value')];
     bassSynthName = $(this).attr('value');
-    // if ($(this).attr('value') !== "bassSimpleSynth") {
-    //     fx.bassVolPan.volume.input.value = 0.3;
-
-    // }
-    // if ($(this).attr('value') === "bassMonoSynth") {
-    //     fx.bassVolPan.volume.input.value = 0.05;
-
-    // }
 });
 
 //Store and Recall Bass Sounds
@@ -197,18 +188,6 @@ let arpLoop = new Tone.Sequence((time, col) => {
     }
 }, [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15], "16n");
 
-//////Bass//////
-//Bass Notes
-// {
-//     Imaj: ["A2", "C#2", "E2", "G#2"],
-//     iimin: ["B2", "D2", "F#2", "A3"],
-//     iiimin: ["C#2", "E2", "G#2", "B3"],
-//     IVmaj: ["D2", "F#2", "A3", "C#3"],
-//     Vdom: ["E2", "G#2", "B3", "D3"],
-//     vimin: ["F#2", "A3", "C#3", "E3"],
-//     viiminb5: ["G#2", "B3", "D3", "F3"]
-// };
-//Bass Loop
 let bassLoop = new Tone.Sequence((time, col) => {
     step = [];
     for (let i = 0; i < 4; i++) {
@@ -232,7 +211,7 @@ let drums = new Tone.Players({
 }, {
     "volume": 0,
     "fadeOut": "64n"
-}).chain(fx.beatVolPan, fx.drumDisto, fx.drumSlap, Tone.Master);
+}).chain(fx.beatVolPan, fx.drumChebyShev, fx.drumDisto, fx.drumSlap, Tone.Master);
 //Beat Loop//
 let step2 = [];
 let beatName = ["kick", "snare", "clap", "hihat"];

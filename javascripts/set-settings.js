@@ -86,6 +86,11 @@ module.exports.storeSettings = (input) => {
         //drum reverb
         drumSlapWet: fx.drumSlap.wet.value,
         drumSlapRoomSize: fx.drumSlap.roomSize.value,
+        //drum chebyshev
+        drumChebyWet: fx.drumChebyShev.wet.value,
+        drumChebyOrder: fx.drumChebyShev.order,
+        drumChebyOverSample: fx.drumChebyShev.oversample,
+        drumChebyOverSampleDisplay: interface.dialDrumChebyOverSample.value,
         //Chords//
         chords: currentChords,
         //synth
@@ -199,6 +204,13 @@ module.exports.recallSetting = (setting) => {
     interface.dialDrumSlapWet.value = setting.drumSlapWet;
     fx.drumSlap.roomSize.value = setting.drumSlapRoomSize;
     interface.dialDrumSlapRoomSize.value = setting.drumSlapRoomSize;
+    //drum ChebyShev
+    fx.drumChebyShev.wet.value = setting.drumChebyWet;
+    interface.dialDrumChebyWet.value = setting.drumChebyWet;
+    fx.drumChebyShev.order = setting.drumChebyOrder;
+    interface.dialDrumChebyOrder.value = setting.drumChebyOrder;
+    fx.drumChebyShev.oversample = setting.drumChebyOverSample;
+    interface.dialDrumChebyOverSample.value = setting.drumChebyOverSampleDisplay;
     //synth settings
     fx.liveSynth.oscillator.type = setting.synthType;
     interface.selectSynthType.value = setting.synthType;

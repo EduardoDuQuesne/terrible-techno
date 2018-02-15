@@ -1,7 +1,7 @@
 /*jshint esversion: 6 */
 
 let Amaj = {
-    Imaj: ["A4", "C#4", "E4", "G#4"],
+    Imaj: ["A3", "C#4", "E4", "G#4"],
     iimin: ["B4", "D4", "F#4", "A5"],
     iiimin: ["C#4", "E4", "G#4", "B5"],
     IVmaj: ["D4", "F#4", "A5", "C#5"],
