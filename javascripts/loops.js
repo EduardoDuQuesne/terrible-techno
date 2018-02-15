@@ -249,6 +249,7 @@ let drumLoop = new Tone.Sequence((time, col) => {
 }, [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15], "16n");
 
 ///// MASTER CHORD LOOP /////
+let colors = ["black", "blue", "pink", "black", "purple", "black", "yellow", "green"]; 
 let chordLoop = new Tone.Sequence((time, col) => {
     arpLoop.start();
     bassLoop.start();
@@ -257,7 +258,9 @@ let chordLoop = new Tone.Sequence((time, col) => {
     seqKeyBass = noteNamesBass[arpKeys[col]];
     $(`.chord-${col}`).addClass('border');
     $(`.chord-${col}`).siblings().removeClass('border');
-
+    // $('.body-colors').css("background-color", `${colors[col]}`);
+    // console.log('Check', colors[col] );
+    
 }, [0, 1, 2, 3, 4, 5, 6, 7], "1n");
 
 module.exports = {

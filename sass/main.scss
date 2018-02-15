@@ -1,36 +1,49 @@
-body {
-	background-color: black;
+@import url('https://fonts.googleapis.com/css?family=Orbitron');
+
+* {
+	// font-family: 'Orbitron', sans-serif;
 }
 
+body {
+	background-color: black;
+	color: white;
+}
 p {
 	color: white;
 }
-
+li {
+	list-style-type: none;
+}
+a {
+	text-decoration: none;
+	color: white;
+}
 .flex-wrap-buttons {
 	margin: 0 auto;
 	width: 70%;
 	display: flex;
-	justify-content: space-between;
+	justify-content: space-around;
 	margin-left: 0px;
 }
-
+.title-head {
+	width: 965px;
+}
+h1 {
+	font-family: 'Orbitron', sans-serif;
+	text-align: center;
+	text-shadow: 1px 1px #8bfbf5;
+}
 h2,
-h3 {
-	color: white;
-	
-}
-
+h3,
 h4 {
-	color: white;
-
+	color: white;	
 }
-
-
 .chord-flexwrap {
 	display: flex;
 	justify-content: space-between;
-	width: 70%;
-	margin-left: 20px;
+	width: 780px;
+	margin-left: 30px;
+	margin-bottom: 70px;
 }
 p.chord {
 	border: 1px solid white;
@@ -38,8 +51,6 @@ p.chord {
 	padding: 10px 15px;
 	margin-top: 0;
 	margin-bottom: 0;
-	// margin-left: 10px;
-
 }
 .play {
 	background-color: grey;
@@ -48,25 +59,14 @@ p.chord {
 	margin-left: 30px;
 }
 .border {
-	border: 2px solid yellow;
-}
-.fx-label {
-	display: inline;
-}
-
-.fx-wrap {
-	display: flex;
-	justify-content: space-between;
-	width: 40%;
+	border: 2px solid #8bfbf5;
+	box-shadow: 2px 2px hotpink;
 }
 .fx-hidden {
 	display: none;
 }
 .seq-hidden {
 	display: none;
-}
-.arp-flexwrap {
-	display: flex;
 }
 .auth-hidden {
 	display: none;
@@ -75,19 +75,210 @@ p.chord {
 	color: white;	
 };
 .settings-title {
-	height: 25px;
+	height: 15px;
 	vertical-align: middle;
-	
+	display: none;	
+}
+.user-settings-list {
+	list-style-type: none;
+	padding-left: 0;
 }
 .red-icon {
 	color: red;
 }
+.save-icon {
+	display: inline;
+}
 ul {
 	color: white;
 }
-li {
+.select-li {
 	display: inline;
 }
-// .icon-spin {
-// 	display: none;
-// }
+//TEMPORARY TRASH CAN FIX//
+.icon-spin {
+	display: none;
+}
+.highlight {
+	font-weight: bolder;
+	color: hotpink;
+	text-shadow: 1px 1px #8bfbf5;
+}
+.setting-flex {
+	display: flex;
+	justify-content: space-between;
+}
+
+///// MASTER GRID /////
+.grid-container {
+	display: grid;
+	grid-template-columns: 2fr 1fr;
+	grid-template-rows: repeat(5, auto);
+	grid-gap: 10px 0;
+	grid-template-areas: 
+	"head head" 
+	"transport transport" 
+	"osc osc" 
+	"select select"
+	"sequencers settings";
+}
+.grid-area-header {
+	grid-area: head;
+}
+.grid-area-transport {
+	grid-area: transport;
+}
+.grid-area-settings {
+	grid-area: settings;
+}
+.grid-area-sequencer {
+	grid-area: sequencers;
+}
+.grid-area-select {
+	grid-area: select;
+}
+.grid-area-osc {
+	grid-area: osc;
+}
+///// SEQUENCER SUBGRIDS AND STRUCTURE/////
+.arp-subgrid-container {
+	margin-left: 30px;
+	display: grid;
+	grid-template-columns: 150px 330px 160px 160px; 
+}
+.arp-env-flex {
+	display: flex;
+}
+.arp-sound-list {
+	border: 1px solid white;
+	font-family:  'Orbitron', sans-serif;
+	font-size: .8em;
+	margin: 0;
+	height: 148px;
+	padding-left: 0;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-around;
+}
+.sound-title {
+	color: hotpink;
+	text-shadow: 1px 1px #8bfbf5;
+}
+.arp-sound-list li {
+	// border-bottom: 1px solid white;
+	padding: 10px 10px;
+	text-align: center;
+}
+.fx-flex {
+	display: flex;
+	justify-content: space-around;
+	text-align: center;
+}
+
+///// OSCILLOSCOPE /////
+.oscilloscope {
+	margin-left: 30px;
+}
+
+///// SYNTH SUBGRID /////
+.synth-subgrid-container {
+	margin-left: 30px;
+	display: grid;
+	grid-template-columns: 140px repeat(3, 176px) 130px; 
+}
+.synth-setting-flex {
+	display: flex;
+	justify-content: space-around;
+	text-align: center;
+}
+.synth-setting-flex p {
+	margin-left: 0;
+}
+.vertical-label {
+	text-align: center;
+	padding: 0;
+}
+.vertical-style {
+	writing-mode: vertical-lr;
+	text-orientation: upright;
+	margin-right: 0;
+	text-align: center;
+	font-family: 'Orbitron', sans-serif;
+	text-shadow: 1px 1px #8bfbf5;		
+	text-shadow: 1px 1px #8bfbf5;		
+}
+.synth-octave {
+	display: inline;
+	text-align: center;
+	font-family: 'Orbitron', sans-serif;
+}
+.sound-type {
+	font-family: 'Orbitron', sans-serif;
+}
+	
+
+/////MASTER SUBGRID/////
+.master-section-subgrid	{
+	margin-left: 30px;
+	display: grid;
+	grid-template-columns: 60px repeat(3, 245px); 
+	grid-template-rows: 125px;
+	border: 2px solid white;
+	// z-index: -1;
+}
+.master-section-label {
+	margin-bottom: -10px;
+	// z-index: 10;
+	text-align: center;
+	color: red;
+}
+.master-title {
+	text-align: center;
+	writing-mode: vertical-lr;
+	text-orientation: upright;
+	color: hotpink;
+	text-shadow: 1px 1px #8bfbf5;
+	border-right: 2px solid white;
+	font-family: 'Orbitron', sans-serif;
+}
+.master-title p {
+	color: hotpink;
+}
+.flex-transport {
+	display: flex;
+}
+.master-reverb p {
+	margin-bottom: 0;
+}
+
+/////FX DIAL STYLING/////
+.fx-label {
+	margin: 5px 0;
+	text-align: center;
+	font-family: 'Orbitron', sans-serif;
+	font-size: .7em;
+}
+.fx-params {
+	margin-top: 30px;
+}
+
+/////USER SETTINGS/////
+.user-settings {
+	font-family: 'Orbitron', sans-serif;
+	font-size: 0.8em;
+	border: 2px solid white;
+	width: 150px;
+	background-color: grey;
+}
+.line-style {
+	border-top: 1px solid white; 
+	display: inline-block;
+}
+
+///// TAB SELECT /////
+.tab-select {
+	font-family: 'Orbitron', sans-serif;
+	width: 800px;
+	display: flex;
+	justify-content: space-around;
+}

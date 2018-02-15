@@ -7,8 +7,12 @@ module.exports.displaySettings = (settings) => {
     let fbKeys = Object.keys(settings);
     fbKeys.forEach((key) => {
         $('#user-settings').append(
-            `<li id="${key}" class="get-setting"> ${settings[key].title}</li> 
-            <a id="del-${key}" class= "delete-setting" href="#"><i class="icons fa fa-trash" aria-hidden="true"></i></a><br>`
+            `<div class="setting-flex">
+                <a href="#">
+                    <li id="${key}" class="get-setting"> ${settings[key].title}</li> 
+                </a>
+                <a id="del-${key}" class= "delete-setting" href="#"><i class="fas fa-times"></i></a>
+                </div>`
         );
     });
 };
