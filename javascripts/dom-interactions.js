@@ -65,7 +65,6 @@ interface.tempoKnob.on("change", function () {
 ///// Start and Stop /////
 let startCount = 0;
 $('#play').on("click", () => {
-    console.log('PLAY: ', interface.playButton );
     startCount += 1;
     loops.chordLoop.start();
 });
@@ -124,10 +123,10 @@ $('#settings-title').on('keypress', function (e) {
 $(document).on("click", ".get-setting", function () {
     let user = firebase.auth().currentUser.uid;
     let settingId = $(this).attr('id');
-    $(this).addClass("highlight");
-    $(this).siblings().removeClass("highlight");
+    $('.get-setting').removeClass("highlight");
     factory.getSetting(settingId)
         .then(setting => {
+            $(this).addClass("highlight");
             settings.recallSetting(setting);
         });
 });
@@ -183,18 +182,7 @@ interface.dialReverbDampening.on('change', function () {
 interface.dialReverbRoomSize.on('change', function () {
     fx.reverbOne.roomSize.value = interface.dialReverbRoomSize.value;
 });
-/////Select Button Listeners/////
-//Arp Fx
-// interface.selectFx.on('change', function (select) {
-//     $(`.show-${select.value}`).show();
-//     $(`.show-${select.value}`).show();
-//     $(`.show-${select.value}`).siblings().hide();
-// });
-//Drum Fx
-// interface.selectDrumFx.on('change', function (select) {
-//     $(`.show-${select.value}`).show();
-//     $(`.show-${select.value}`).siblings().hide();
-// });
+
 //Sequencer Select
 let counter = 0;
 let seqTab = ["Arpeggiator", "Bass", "Rhythm", "Synthesizer", "Chords"];
@@ -318,12 +306,24 @@ interface.drumDistoAmountDial.on("change", function (value) {
     fx.drumDisto.distortion = value;
 });
 
-/////Drum Reverb/////
+/////Drum Slap/////
 interface.dialDrumSlapWet.on("change", function (value) {
     fx.drumSlap.wet.value = value;
 });
 interface.dialDrumSlapRoomSize.on("change", function (value) {
     fx.drumSlap.roomSize.value = value;
+});
+
+//// Drum Chebyshev /////
+interface.dialDrumChebyWet.on("change", function (value) {
+    fx.drumChebyShev.wet.value = value;
+});
+interface.dialDrumChebyOrder.on("change", function (value) {
+    fx.drumChebyShev.order = value;
+});
+let sampleValue = ["none", "2x", "4x"];
+interface.dialDrumChebyOverSample.on("change", function (value) {
+    fx.drumChebyShev.oversample = sampleValue[value];
 });
 
 /////Live Synth/////

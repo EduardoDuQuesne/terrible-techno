@@ -161,6 +161,33 @@ module.exports.dialDrumSlapRoomSize = new Nexus.Dial('#drumSlap-room-size', {
     'step': 0,
     'value': 0.01
 });
+module.exports.dialDrumChebyWet = new Nexus.Dial('#chebyshev-wet', {
+    'size': [25, 25],
+    'interaction': 'radial',
+    'mode': 'relative',
+    'min': 0,
+    'max': 1,
+    'step': 0,
+    'value': 0
+});
+module.exports.dialDrumChebyOverSample = new Nexus.Dial('#chebyshev-oversample', {
+    'size': [25, 25],
+    'interaction': 'radial',
+    'mode': 'relative',
+    'min': 0,
+    'max': 2,
+    'step': 1,
+    'value': 0
+});
+module.exports.dialDrumChebyOrder = new Nexus.Dial('#chebyshev-order', {
+    'size': [25, 25],
+    'interaction': 'radial',
+    'mode': 'relative',
+    'min': 1,
+    'max': 3,
+    'step': 1,
+    'value': 1
+});
 //Master Reverb
 module.exports.dialMasterReverbWet = new Nexus.Dial('#master-wet', {
     'size': [25, 25],
