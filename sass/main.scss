@@ -43,24 +43,27 @@ h4 {
 	justify-content: space-between;
 	width: 780px;
 	margin-left: 30px;
-	margin-bottom: 70px;
+	margin-bottom: 105px;
 }
 p.chord {
 	border: 1px solid white;
+	box-shadow: 2px 2px #8bfbf5;
 	text-align: center;
+	font-family: 'Orbitron', sans-serif;
+	font-size: .8em;
 	padding: 10px 15px;
 	margin-top: 0;
 	margin-bottom: 0;
 }
 .play {
-	background-color: grey;
+	background-color: #8B9AB6;
 }
 .sequencer {
 	margin-left: 30px;
 }
 .border {
 	border: 2px solid #8bfbf5;
-	box-shadow: 2px 2px hotpink;
+	box-shadow: 3px 4px hotpink;
 }
 .fx-hidden {
 	display: none;
@@ -84,7 +87,7 @@ p.chord {
 	padding-left: 0;
 }
 .red-icon {
-	color: red;
+	color: hotpink;
 }
 .save-icon {
 	display: inline;
@@ -105,6 +108,10 @@ ul {
 	text-shadow: 1px 1px #8bfbf5;
 }
 .setting-flex {
+	display: flex;
+	justify-content: space-between;
+}
+.save-setting-flex {
 	display: flex;
 	justify-content: space-between;
 }
@@ -215,6 +222,13 @@ ul {
 .sound-type {
 	font-family: 'Orbitron', sans-serif;
 }
+
+/////DRUM SUBGRID
+.drum-subgrid-container {
+	margin-left: 30px;
+	display: grid;
+	grid-template-columns: 150px 150px 150px 150px 200px; 
+}
 	
 
 /////MASTER SUBGRID/////
@@ -225,12 +239,6 @@ ul {
 	grid-template-rows: 125px;
 	border: 2px solid white;
 	// z-index: -1;
-}
-.master-section-label {
-	margin-bottom: -10px;
-	// z-index: 10;
-	text-align: center;
-	color: red;
 }
 .master-title {
 	text-align: center;

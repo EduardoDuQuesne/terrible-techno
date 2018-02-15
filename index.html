@@ -36,10 +36,16 @@
         </div>
         <!-- USER SETTINGS -->
         <div id="settings" class="user-settings grid-area-settings">
-            <a id="save-settings" href="#" title="save">
-                <i id="save-btn" class="save-icon icons fas fa-save fa-lg"></i>
-            </a>
-            <input type="text" id="settings-title" class="settings-title">
+            <div class="setting-flex">
+                <div>
+                    <a id="save-settings" href="#" title="save">
+                        <i id="save-btn" class="save-icon icons fas fa-save fa-lg"></i>
+                    </a>
+                    <input type="text" id="settings-title" class="settings-title">
+                </div>
+                <p>Save...</p>
+            </div>
+            <hr>
             <p>User Settings:</p>
             <hr>
             <!-- <a id="clear-settings" href="#" title="clear">
@@ -141,12 +147,22 @@
             <!-- DRUM SEQUENCER -->
             <div id="Rhythm" class="seq-hidden">
                 <div class="flex-item sequencer" id="beat-sequencer"></div>
-                <div class="arp-subgrid-container">
+                <div class="drum-subgrid-container">
                     <div>
                         <div id="beat-volpan"></div>
                     </div>
-                    <div>
-                        <p>Check</p>
+                    <div class="synth-setting-flex">
+                        <p class="vertical-style">FILTER</p>
+                        <div>
+                            <p class="fx-label">mix</p>
+                            <div id="chebyshev-wet"></div>
+                            <p class="fx-label">amount</p>
+                            <div id="chebyshev-order"></div>
+                            <div>
+                                <p class="fx-label">oversample</p>
+                                <div id="chebyshev-oversample"></div>
+                            </div>
+                        </div>
                     </div>
                     <div class="synth-setting-flex">
                         <p class="vertical-style">DISTO</p>
@@ -166,6 +182,7 @@
                             <div id="drumSlap-room-size"></div>
                         </div>
                     </div>
+                    <div>Check</div>
                 </div>
             </div>
 
