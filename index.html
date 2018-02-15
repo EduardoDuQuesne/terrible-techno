@@ -10,220 +10,246 @@
     <script src='font-awesome/fontawesome-all.js'></script>
 </head>
 
-<body>
-
-    <h2 class="header">Terrible Techno</h2>
-
-    <div class="flex-wrap-buttons">
-        <div id="play" class="play"></div>
-        <div id="stop" class="stop"></div>
-        <div id="tempo" class="stop"></div>
-        <div id="select-key" class="stop"></div>
-        <div id="spectogram"></div>
-        <div id="login-btn" class="auth-hidden"></div>
-        <div id="logout-btn" class="auth-hidden"></div>
-        <div id="store-btn" class="auth-hidden"></div>
-    </div>
-    <div id="oscilloscope"></div>
-    <br>
-    <br>
-    <div id "settings" class="user-settings">
-        <a id="save-settings" href="#" title="save">
-            <i id="save-btn" class="icons fas fa-save fa-2x"></i>
-        </a>
-        <a id="clear-settings" href="#" title="clear">
-            <i class="icons fas fa-minus-circle fa-2x"></i>
-        </a>
-        <input type="text" id="settings-title" class="settings-title">
-        <div>
-            <h4>Your Settings: </h4>
-            <ul id="user-settings">
-                <i class="icon-spin icons fas fa-spinner fa-spin fa-2x"></i>
+<body class="body-colors">
+    <div class="grid-container">
+        <!-- HEADER -->
+        <!-- GRID AREA: HEADER -->
+        <div class="grid-area-header title-head">
+            <h1 class="header">terrible techno</h1>
+        </div>
+        <!-- TRANSPORT -->
+        <!-- GRID AREA: TRANSPORT -->
+        <div class="flex-wrap-buttons grid-area-transport">
+            <!-- <div id="play" class="play"></div>
+            <div id="stop" class="stop"></div>
+            <div id="tempo" class="stop"></div>
+            <div id="select-key" class="stop"></div>
+            <div id="spectogram"></div>
+            <div id="login-btn" class="auth-hidden"></div>
+            <div id="logout-btn" class="auth-hidden"></div>
+            <div id="store-btn" class="auth-hidden"></div> -->
+        </div>
+        <!-- Oscilloscope -->
+        <!-- GRID AREA: Oscilloscope -->
+        <div class="grid-area-osc oscilloscope">
+            <div id="oscilloscope"></div>
+        </div>
+        <!-- USER SETTINGS -->
+        <div id="settings" class="user-settings grid-area-settings">
+            <a id="save-settings" href="#" title="save">
+                <i id="save-btn" class="save-icon icons fas fa-save fa-lg"></i>
+            </a>
+            <input type="text" id="settings-title" class="settings-title">
+            <p>User Settings:</p>
+            <hr>
+            <!-- <a id="clear-settings" href="#" title="clear">
+                <i class="icons fas fa-minus-circle fa-lg"></i>
+            </a> -->
+            <div>
+                <ul id="user-settings" class="user-settings-list">
+                    <i class="icon-spin icons fas fa-spinner fa-spin fa-2x"></i>
+                </ul>
+            </div>
+        </div>
+        <!-- TAB SELECT SEQUENCER -->
+        <!-- GRID AREA: TAB SELECT -->
+        <div class="grid-area-select">
+            <ul id="tab-select" class="tab-select">
+                <li id="select-arpeggiator" class="select-li tab-select tab-select-Arpeggiator highlight" value="Arpeggiator">arpeggiator</li>
+                <li id="select-bass" class="select-li tab-select tab-select-Bass" value="Bass">bass</li>
+                <li id="select-rhythm" class="select-li tab-select tab-select-Rhythm" value="Rhythm">rhythm</li>
+                <li id="select-synthesizer" class="select-li tab-select tab-select-Synthesizer" value="Synthesizer">synthesizer</li>
+                <li id="select-synthesizer" class="select-li tab-select tab-select-Chords" value="Chords">chords</li>
+                <!-- <li id="select-synthesizer" class="select-li tab-select tab-select-Master" value="Master">Master</li> -->
             </ul>
         </div>
-    </div>
-    <br>
-    <br>
-    <!-- TAB SELECT SEQUENCER -->
-    <div id="select-sequencer"></div>
-    <ul id="tab-select">
-        <li id="select-arpeggiator" class="tab-select" value="Arpeggiator">Arpeggiator</li>
-        <li id="select-bass" class="tab-select" value="Bass">Bass</li>
-        <li id="select-rhythm" class="tab-select" value="Rhythm">Rhythm</li>
-        <li id="select-synthesizer" class="tab-select" value="Synthesizer">Synthesizer</li>
-        <li id="select-synthesizer" class="tab-select" value="Chords">Chords</li>
-        <li id="select-synthesizer" class="tab-select" value="Master">Master</li>
-    </ul>
-    </div>
-    <!-- Sequencers -->
-    <div class="flex-wrap">
-        <!-- ARPEGGIATOR - SYNTH SELECT -->
-        <div>
+        <!-- Sequencers -->
+        <!-- GRID AREA SEQUENCERS -->
+        <div class="flex-wrap grid-area-sequencers">
+            <!-- ARPEGGIATOR - SYNTH SELECT -->
             <div class="arp-flexwrap" id="Arpeggiator">
-                <div class="arp-flexitem">
-                    <h2>Arpeggiator:</h2>
-                    <div class="flex-item sequencer" id="sequencer"></div>
-                    <br>
-                    <!-- select fx -->
-                    <div class="select-fx">
-                        <div id="one-fx-select" class="one-fx-select"></div>
-                        <br>
-                        <div>
-                            <div class="show-Default"></div>
-                            <div class="fx-hidden show-Delay">
-                                <p class="fx-label">Mix:</p>
-                                <div id="delay-wet"></div>
-                                <p class="fx-label">Feedback:</p>
-                                <div id="delay-feedback"></div>
-                                <p class="fx-label">Time:</p>
-                                <div id="delay-time"></div>
-                            </div>
-                            <div class="fx-hidden show-Reverb">
-                                <p class="fx-label">Mix:</p>
-                                <div id="reverb-wet"></div>
-                                <p class="fx-label">Dampening:</p>
-                                <div id="reverb-dampening"></div>
-                                <p class="fx-label">Room Size:</p>
-                                <div id="reverb-room-size"></div>
-                            </div>
-                        </div>
+                <div class="flex-item sequencer" id="sequencer"></div>
+                <div class="arp-subgrid-container">
+                    <!-- Arp Vol/Pan -->
+                    <div class="arp-subgrid-volpan">
+                        <div id="arp-volpan"></div>
                     </div>
-                    <br>
-
-                    <div>
-                        <ul id="arp-synth">
+                    <!-- Sound -->
+                    <div class="arp-subgrid-sound arp-env-flex">
+                        <ul id="arp-synth" class="arp-sound-list">
+                            <li class="arp-sound-select sound-title" value="">SOUND BANK</li>
                             <li class="arp-sound-select" value="simpleSynth">Simple Synth</li>
                             <li class="arp-sound-select" value="FMSynth">FMSynth</li>
                             <li class="arp-sound-select" value="AMSynth">AMSynth</li>
                         </ul>
                         <div class="fm-multislider" id="fm-multislider"></div>
                     </div>
+                    <!-- select fx -->
+                    <div class="synth-setting-flex">
+                        <p class="vertical-style">DELAY</p>
+                        <div class="fx-params">
+                            <p class="fx-label">mix</p>
+                            <div id="delay-wet"></div>
+                            <p class="fx-label">fb</p>
+                            <div id="delay-feedback"></div>
+                        </div>
+                        <div class="fx-params">
+                            <p class="fx-label">time</p>
+                            <div id="delay-time"></div>
+                        </div>
+                    </div>
+                    <div class="synth-setting-flex">
+                        <p class="vertical-style">VERB</p>
+                        <div class="fx-params">
+                            <p class="fx-label">mix</p>
+                            <div id="reverb-wet"></div>
+                            <p class="fx-label">damp</p>
+                            <div id="reverb-dampening"></div>
+                        </div>
+                        <div class="fx-params">
+                            <p class="fx-label">decay</p>
+                            <div id="reverb-room-size"></div>
+                        </div>
 
-                </div>
-                <!-- Arp Vol/Pan -->
-                <div class="arp-flexitem">
-                    <h2>Volume/Pan:</h2>
-                    <div id="arp-volpan"></div>
+                    </div>
                 </div>
             </div>
+
+
             <!-- Bass Sequencer -->
             <div id="Bass" class="seq-hidden">
                 <div class="arp-flexwrap">
-                    <div>
-                        <h2>Bass:</h2>
-                        <div class="flex-item sequencer" id="bass-sequencer"></div>
-                    </div>
-                    <div>
-                        <h2>Volume/Pan:</h2>
-                        <div id="bass-volpan"></div>
-                    </div>
-                </div>
-                <div>
-                    <ul id="bass-synth">
-                        <li class="bass-sound-select" value="bassSimpleSynth">Simple Synth</li>
-                        <li class="bass-sound-select" value="bassMonoSynth">Mono Synth</li>
-                        <li class="bass-sound-select" value="bassFMSynth">FMSynth</li>
-                    </ul>
-                    <div class="bass-multislider" id="bass-multislider"></div>
-                </div>
-            </div>
-            <!-- DRUM SEQUENCER -->
-            <div id="Rhythm" class="seq-hidden">
-                <div class="arp-flexwrap">
-                    <!-- Seq and FX -->
-                    <div>
-                        <h2>Rhythm:</h2>
-                        <div class="flex-item sequencer" id="beat-sequencer"></div>
-                        <div class="select-drumfx">
-                            <div id="three-fx-select" class="three-fx-select"></div>
-                            <br>
-                            <div>
-                                <div class="show-Default"></div>
-                                <div class="fx-hidden show-Distortion">
-                                    <p class="fx-label">Mix:</p>
-                                    <div id="distortion-wet"></div>
-                                    <p class="fx-label">Amount:</p>
-                                    <div id="distortion-amount"></div>
-                                </div>
-                                <div class="fx-hidden show-Slap">
-                                    <p class="fx-label">Mix:</p>
-                                    <div id="drumSlap-wet"></div>
-                                    <p class="fx-label">Room Size:</p>
-                                    <div id="drumSlap-room-size"></div>
-                                </div>
-                            </div>
+                    <div class="flex-item sequencer" id="bass-sequencer"></div>
+                    <div class="arp-subgrid-container">
+                        <div>
+                            <div id="bass-volpan"></div>
+                        </div>
+
+                        <div class="arp-env-flex">
+                            <ul id="bass-synth" class="arp-sound-list">
+                                <li class="arp-sound-select sound-title">SOUND BANK</li>
+                                <li class="bass-sound-select" value="bassSimpleSynth">Simple Synth</li>
+                                <li class="bass-sound-select" value="bassMonoSynth">Mono Synth</li>
+                                <li class="bass-sound-select" value="bassFMSynth">FMSynth</li>
+                            </ul>
+                            <div class="bass-multislider" id="bass-multislider"></div>
                         </div>
                     </div>
-                    <!-- Vol/Pan -->
+                </div>
+            </div>
+
+            <!-- DRUM SEQUENCER -->
+            <div id="Rhythm" class="seq-hidden">
+                <div class="flex-item sequencer" id="beat-sequencer"></div>
+                <div class="arp-subgrid-container">
                     <div>
-                        <h2>Volume/Pan:</h2>
                         <div id="beat-volpan"></div>
+                    </div>
+                    <div>
+                        <p>Check</p>
+                    </div>
+                    <div class="synth-setting-flex">
+                        <p class="vertical-style">DISTO</p>
+                        <div>
+                            <p class="fx-label">mix</p>
+                            <div id="distortion-wet"></div>
+                            <p class="fx-label">amount</p>
+                            <div id="distortion-amount"></div>
+                        </div>
+                    </div>
+                    <div class="synth-setting-flex">
+                        <p class="vertical-style">SLAP</p>
+                        <div>
+                            <p class="fx-label">mix</p>
+                            <div id="drumSlap-wet"></div>
+                            <p class="fx-label">room size</p>
+                            <div id="drumSlap-room-size"></div>
+                        </div>
                     </div>
                 </div>
             </div>
+
+
+            <!-- SYNTHESIZER -->
             <div id="Synthesizer" class="seq-hidden">
                 <div class="arp-flexwrap">
                     <div>
-                        <h2>Synthesizer:</h2>
                         <div class="flex-item sequencer synthesizer" id="synthesizer-live"></div>
-                        <div id="synth-settings">
-                            <p>Octave</p>
-                            <div id="synth-octave"></div>
-                            <p>Type:</p>
-                            <div id="synth-type"></div>
-                            <p>attack</p>
-                            <div id="synth-attack"></div>
-                            <p>decay</p>
-                            <div id="synth-decay"></div>
-                            <p>sustain</p>
-                            <div id="synth-sustain"></div>
-                            <p>release</p>
-                            <div id="synth-release"></div>
-                            <h3>Filter Envelope: </h3>
-                            <p>attack</p>
-                            <div id="synth-filter-attack"></div>
-                            <p>decay</p>
-                            <div id="synth-filter-decay"></div>
-                            <p>sustain</p>
-                            <div id="synth-filter-sustain"></div>
-                            <p>release</p>
-                            <div id="synth-filter-release"></div>
-                            <p>Portamento</p>
-                            <div id="synth-portamento"></div>
-                            <p>Detune</p>
-                            <div id="synth-detune"></div>
-                        </div>
-                        <div id="synth-fx">
-                            <div id="synth-delay" class="show-Delay">
-                                <p class="fx-label">Mix:</p>
-                                <div id="synth-delay-wet"></div>
-                                <p class="fx-label">Feedback:</p>
-                                <div id="synth-delay-feedback"></div>
-                                <p class="fx-label">Time:</p>
-                                <div id="synth-delay-time"></div>
+                        <div id="synth-settings" class="synth-subgrid-container">
+                            <div>
+                                <div id="synth-volpan"></div>
                             </div>
-                            <!-- <div id="synth-reverb" class="show-Auto-Wah">
-                                <p class="fx-label">Mix:</p>
-                                <div id="synth-reverb-wet"></div>
-                                <p class="fx-label">Room Size:</p>
-                                <div id="synth-reverb-feedback"></div>
-                                <p class="fx-label">Time:</p>
-                                <div id="synth-reverb-time"></div>
-                            </div> -->
+                            <div class="synth-setting-flex">
+                                <div>
+                                    <p class="fx-label">octave</p>
+                                    <div id="synth-octave" class="synth-octave"></div>
+                                    <p class="fx-label">type</p>
+                                    <div id="synth-type" class="sound-type"></div>
+                                </div>
+                                <div>
+                                    <div>
+                                        <p class="fx-label">gluide</p>
+                                        <div id="synth-portamento"></div>
+                                        <p class="fx-label">detune</p>
+                                        <div id="synth-detune"></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="synth-setting-flex">
+                                <p class="vertical-style">ENVELOPE</p>
+                                <div>
+                                    <p class="fx-label">attack</p>
+                                    <div id="synth-attack"></div>
+                                    <p class="fx-label">decay</p>
+                                    <div id="synth-decay"></div>
+                                </div>
+                                <div>
+                                    <p class="fx-label">sustain</p>
+                                    <div id="synth-sustain"></div>
+                                    <p class="fx-label">release</p>
+                                    <div id="synth-release"></div>
+                                </div>
+                            </div>
+                            <div class="synth-setting-flex">
+                                <p class="vertical-style">FILTER</p>
+                                <div>
+                                    <p class="fx-label">attack</p>
+                                    <div id="synth-filter-attack"></div>
+                                    <p class="fx-label">decay</p>
+                                    <div id="synth-filter-decay"></div>
+                                </div>
+                                <div>
+                                    <p class="fx-label">sustain</p>
+                                    <div id="synth-filter-sustain"></div>
+                                    <p class="fx-label">release</p>
+                                    <div id="synth-filter-release"></div>
+                                </div>
+                            </div>
+
+
+                            <div id="synth-fx" class="synth-setting-flex">
+                                <p class="vertical-style">DELAY</p>
+                                <div>
+                                    <p class="fx-label">mix</p>
+                                    <div id="synth-delay-wet"></div>
+                                    <p class="fx-label">feedback</p>
+                                    <div id="synth-delay-feedback"></div>
+                                </div>
+                                <div>
+                                    <p class="fx-label">time</p>
+                                    <div id="synth-delay-time"></div>
+                                </div>
+                            </div>
                         </div>
                     </div>
-                    <div>
-                        <h2>Volume/Pan:</h2>
-                        <div id="synth-volpan"></div>
 
-                    </div>
                 </div>
             </div>
+
+            <!-- Chord Grid -->
             <div id="Chords" class="seq-hidden">
-                <!-- Chord Grid -->
-                <h2>Chords:</h2>
                 <div class="chord-flexwrap">
-                    <div class="chord-flexitem chord-0">
+                    <div class="chord-flexitem chord-0 chord-bar">
                         <p class="Imaj chord play" value="Imaj" id="one">Imaj</p>
                         <p class="iimin chord" value="iimin">iimin</p>
                         <p class="iiimin chord" value="iiimin">iiimin</p>
@@ -232,7 +258,7 @@
                         <p class="vimin chord" value="vimin">vimin</p>
                         <p class="viiminb5 chord" value="viiminb5">viiminb5</p>
                     </div>
-                    <div class="chord-flexitem chord-1">
+                    <div class="chord-flexitem chord-1 chord-bar">
                         <p class="Imaj chord play" value="Imaj">Imaj</p>
                         <p class="iimin chord" value="iimin">iimin</p>
                         <p class="iiimin chord" value="iiimin">iiimin</p>
@@ -241,7 +267,7 @@
                         <p class="vimin chord" value="vimin">vimin</p>
                         <p class="viimin5 chord" value="viiminb5">viiminb5</p>
                     </div>
-                    <div class="chord-flexitem chord-2">
+                    <div class="chord-flexitem chord-2 chord-bar">
                         <p class="Imaj chord play" value="Imaj">Imaj</p>
                         <p class="iimin chord" value="iimin">iimin</p>
                         <p class="iiimin chord" value="iiimin">iiimin</p>
@@ -250,7 +276,7 @@
                         <p class="vimin chord" value="vimin">vimin</p>
                         <p class="viimin5 chord" value="viiminb5">viiminb5</p>
                     </div>
-                    <div class="chord-flexitem chord-3">
+                    <div class="chord-flexitem chord-3 chord-bar">
                         <p class="Imaj chord play" value="Imaj">Imaj</p>
                         <p class="iimin chord" value="iimin">iimin</p>
                         <p class="iiimin chord" value="iiimin">iiimin</p>
@@ -259,7 +285,7 @@
                         <p class="vimin chord" value="vimin">vimin</p>
                         <p class="viiminb5 chord" value="viiminb5">viiminb5</p>
                     </div>
-                    <div class="chord-flexitem chord-4">
+                    <div class="chord-flexitem chord-4 chord-bar">
                         <p class="Imaj chord play" value="Imaj">Imaj</p>
                         <p class="iimin chord" value="iimin">iimin</p>
                         <p class="iiimin chord" value="iiimin">iiimin</p>
@@ -268,7 +294,7 @@
                         <p class="vimin chord" value="vimin">vimin</p>
                         <p class="viiminb5 chord" value="viiminb5">viiminb5</p>
                     </div>
-                    <div class="chord-flexitem chord-5">
+                    <div class="chord-flexitem chord-5 chord-bar">
                         <p class="Imaj chord play" value="Imaj">Imaj</p>
                         <p class="iimin chord" value="iimin">iimin</p>
                         <p class="iiimin chord" value="iiimin">iiimin</p>
@@ -277,7 +303,7 @@
                         <p class="vimin chord" value="vimin">vimin</p>
                         <p class="viiminb5 chord" value="viiminb5">viiminb5</p>
                     </div>
-                    <div class="chord-flexitem chord-6">
+                    <div class="chord-flexitem chord-6 chord-bar">
                         <p class="Imaj chord play" value="Imaj">Imaj</p>
                         <p class="iimin chord" value="iimin">iimin</p>
                         <p class="iiimin chord" value="iiimin">iiimin</p>
@@ -286,7 +312,7 @@
                         <p class="vimin chord" value="vimin">vimin</p>
                         <p class="viiminb5 chord" value="viiminb5">viiminb5</p>
                     </div>
-                    <div class="chord-flexitem chord-7">
+                    <div class="chord-flexitem chord-7 chord-bar">
                         <p class="Imaj chord play" value="Imaj">Imaj</p>
                         <p class="iimin chord" value="iimin">iimin</p>
                         <p class="iiimin chord" value="iiimin">iiimin</p>
@@ -297,54 +323,66 @@
                     </div>
                 </div>
             </div>
-            <div id="Master" class="seq-hidden">
-                <div id="master-compressor">
-                    <h2>Master Compressor</h2>
-                    <div id="threshold"></div>
-                    <div id="threshold-number"></div>
-                    <div id="ratio"></div>
-                    <div id="ratio-number"></div>
-                    <div id="attack"></div>
-                    <div id="attack-number"></div>
-                    <div id="release"></div>
-                    <div id="release-number"></div>
+        </div>
+        <div id="Master" class="master-section-subgrid">
+            <div class="master-title">
+                <p>MASTER</p>
+            </div>
+            <div id="master-compressor">
+
+                <div class="synth-setting-flex">
+                    <p class="vertical-style">COMP</p>
+                    <div>
+                        <div id="threshold"></div>
+                        <div id="threshold-number"></div>
+                        <div id="ratio"></div>
+                        <div id="ratio-number"></div>
+                    </div>
+                    <div>
+                        <div id="attack"></div>
+                        <div id="attack-number"></div>
+                        <div id="release"></div>
+                        <div id="release-number"></div>
+                    </div>
                 </div>
-                <div>
-                    <h2>Master Reverb</h2>
-                    <p>Mix</p>
-                    <div id="master-wet"></div>
-                    <p>Dampening</p>
-                    <div id="master-dampening"></div>
-                    <p>Room Size</p>
-                    <div id="master-room-size"></div>
-                    <div></div>
+            </div>
+            <div>
+
+                <div class="synth-setting-flex master-reverb">
+                    <p class="vertical-style">VERB</p>
+                    <div>
+                        <p class="fx-label">mix</p>
+                        <div id="master-wet"></div>
+                        <p class="fx-label">dampen</p>
+                        <div id="master-dampening"></div>
+                    </div>
+                    <div>
+                        <p class="fx-label">decay</p>
+                        <div id="master-room-size"></div>
+                    </div>
                 </div>
-                <div id="stereo-metter-container">
-                    <div id="stereo-meter"></div>
+            </div>
+            <div id="stereo-metter-container">
+                <div class="flex-transport">
+                    <div>
+                        <div id="stereo-meter"></div>
+                    </div>
+                    <div class="flex-button-down">
+                        <div id="play" class="play"></div>
+                        <div id="tempo" class="stop"></div>
+                        <div id="login-btn" class="auth-hidden"></div>
+                    </div>
+                    <div class="flex-button-down">
+                        <div id="stop" class="stop"></div>
+                        <div id="select-key" class="stop"></div>
+                        <!-- <div id="spectogram"></div> -->
+                        <div id="logout-btn" class="auth-hidden"></div>
+                    </div>
                 </div>
+
             </div>
         </div>
     </div>
-
-
-    <!-- Master Compressor -->
-    <!-- <div id="Master">
-        <div id="master-compressor">
-            <h2>Master Compressor</h2>
-            <div id="threshold"></div>
-            <div id="threshold-number"></div>
-            <div id="ratio"></div>
-            <div id="ratio-number"></div>
-            <div id="attack"></div>
-            <div id="attack-number"></div>
-            <div id="release"></div>
-            <div id="release-number"></div>
-        </div>
-        <div id="stereo-metter-container">
-            <div id="stereo-meter"></div>
-        </div>
-    </div> -->
-
 
     <script src='dist/bundle.js'></script>
 </body>

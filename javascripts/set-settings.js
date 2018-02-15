@@ -250,7 +250,7 @@ module.exports.recallSetting = (setting) => {
 
 
 // let setEnvDisplay = (synthPatch) => {
-//     console.log('synthpatch', loops.arpSounds[synthPatch].envelope.attack );
+//     }.log('synthpatch', loops.arpSounds[synthPatch].envelope.attack );
 //     let env1 = loops.arpSounds[synthPatch].envelope.attack;
 //     let env2 = loops.arpSounds[synthPatch].envelope.decay;
 //     let env3 = loops.arpSounds[synthPatch].envelope.sustain;

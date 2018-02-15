@@ -15,15 +15,15 @@ const view = require('./view');
 Nexus.context = Tone.context;
 Tone.Transport.start();
 Tone.Master.chain(fx.masterReverb, fx.masterComp);
-let spectogram = new Nexus.Spectrogram('#spectogram', {
-    'size': [100, 50]
-});
+// let spectogram = new Nexus.Spectrogram('#spectogram', {
+//     'size': [100, 50]
+// });
 let oscilloscope = new Nexus.Oscilloscope('#oscilloscope', {
-    'size': [1000, 25]
+    'size': [965, 25]
 });
-let meter = new Nexus.Meter('#stereo-meter',{
-    size: [75,75]
-  });
+let meter = new Nexus.Meter('#stereo-meter', {
+    size: [45, 125]
+});
 
 //Authorization//
 interface.logIn.on("click", function () {
@@ -65,6 +65,7 @@ interface.tempoKnob.on("change", function () {
 ///// Start and Stop /////
 let startCount = 0;
 $('#play').on("click", () => {
+    console.log('PLAY: ', interface.playButton );
     startCount += 1;
     loops.chordLoop.start();
 });
@@ -95,8 +96,14 @@ $(document).on('keydown', function (event) {
 
 //Store Settings//
 $("#save-settings").on("click", function () {
-    $('#settings-title').focus();
-    $('#save-btn').addClass('red-icon');
+    if ($('#save-btn').hasClass('red-icon') === true) {
+        $('#save-btn').removeClass('red-icon');
+        $('#settings-title').hide();
+    } else {
+        $('#settings-title').show();
+        $('#settings-title').focus();
+        $('#save-btn').addClass('red-icon');
+    }
 });
 $('#settings-title').on('keypress', function (e) {
     if (e.which === 13 && $('#save-btn').hasClass('red-icon') === true) {
@@ -105,6 +112,7 @@ $('#settings-title').on('keypress', function (e) {
         factory.storeSettings(currentSettings);
         $('#settings-title').blur().val('');
         $('#save-btn').removeClass('red-icon');
+        $('#settings-title').hide();
         factory.getAllSettings(firebase.auth().currentUser.uid)
             .then(settings => {
                 let userSettings = settings;
@@ -116,12 +124,12 @@ $('#settings-title').on('keypress', function (e) {
 $(document).on("click", ".get-setting", function () {
     let user = firebase.auth().currentUser.uid;
     let settingId = $(this).attr('id');
+    $(this).addClass("highlight");
+    $(this).siblings().removeClass("highlight");
     factory.getSetting(settingId)
         .then(setting => {
             settings.recallSetting(setting);
-
         });
-
 });
 
 /////Delete Setting/////
@@ -177,25 +185,28 @@ interface.dialReverbRoomSize.on('change', function () {
 });
 /////Select Button Listeners/////
 //Arp Fx
-interface.selectFx.on('change', function (select) {
-    $(`.show-${select.value}`).show();
-    $(`.show-${select.value}`).show();
-    $(`.show-${select.value}`).siblings().hide();
-});
+// interface.selectFx.on('change', function (select) {
+//     $(`.show-${select.value}`).show();
+//     $(`.show-${select.value}`).show();
+//     $(`.show-${select.value}`).siblings().hide();
+// });
 //Drum Fx
-interface.selectDrumFx.on('change', function (select) {
-    $(`.show-${select.value}`).show();
-    $(`.show-${select.value}`).siblings().hide();
-});
-//Sequencer
+// interface.selectDrumFx.on('change', function (select) {
+//     $(`.show-${select.value}`).show();
+//     $(`.show-${select.value}`).siblings().hide();
+// });
+//Sequencer Select
+let counter = 0;
+let seqTab = ["Arpeggiator", "Bass", "Rhythm", "Synthesizer", "Chords"];
 $(".tab-select").on("click", function () {
     let value = $(this).attr('value');
     $(`#${value}`).show();
     $(`#${value}`).siblings().hide();
+    $(`.tab-select-${value}`).addClass('highlight');
+    $(`.tab-select-${value}`).siblings().removeClass('highlight');
+    counter = seqTab.indexOf(value);
 });
 //Tab Through Sequencer
-let seqTab = ["Arpeggiator", "Bass", "Rhythm", "Synthesizer", "Chords", "Master"];
-let counter = 0;
 $(document).on('keyup', function (event) {
     if (event.which === 187) {
         counter += 1;
@@ -210,6 +221,8 @@ $(document).on('keyup', function (event) {
     }
     $(`#${seqTab[counter]}`).show();
     $(`#${seqTab[counter]}`).siblings().hide();
+    $(`.tab-select-${seqTab[counter]}`).addClass('highlight');
+    $(`.tab-select-${seqTab[counter]}`).siblings().removeClass('highlight');
 });
 
 
