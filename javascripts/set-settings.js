@@ -105,6 +105,10 @@ module.exports.storeSettings = (input) => {
         synthFilterRelease: fx.liveSynth.filterEnvelope.release,
         synthPortamento: fx.liveSynth.portamento,
         synthDetune: fx.liveSynth.detune.value,
+        synthPan: fx.synthVolPan.pan.value,
+        synthPanDisplay: interface.synthVolPanKnob.x,
+        synthVol: fx.synthVolPan.volume.input.value,
+        synthVolDisplay: interface.synthVolPanKnob.y,
         //synth delay
         synthDelayWet: fx.synthDelay.wet.value,
         synthDelayFeedback: fx.synthDelay.feedback.value,
@@ -235,6 +239,10 @@ module.exports.recallSetting = (setting) => {
     interface.synthPortamentoDial.value = setting.synthPortamento;
     fx.liveSynth.detune.value = setting.synthDetune;
     interface.synthDetuneDial.value = setting.synthDetune;
+    fx.synthVolPan.pan.value = setting.synthPan;
+    interface.synthVolPanKnob.x = setting.synthPanDisplay;
+    fx.synthVolPan.volume.input.value = setting.synthVol;
+    interface.synthVolPanKnob.y = setting.synthVolDisplay;
     //Synth Delay
     fx.synthDelay.wet.value = setting.synthDelayWet;
     interface.dialSynthDelayWet.value = setting.synthDelayWet;
