@@ -126,6 +126,7 @@ $('#settings-title').on('keypress', function (e) {
         $('#settings-title').blur().val('');
         $('#save-btn').removeClass('red-icon');
         $('#settings-title').hide();
+        $('.save-text').show();
         factory.getAllSettings(firebase.auth().currentUser.uid)
             .then(settings => {
                 let userSettings = settings;
