@@ -33,6 +33,9 @@ h1 {
 	display: flex;
 	justify-content: space-between;
 }
+.header {
+	cursor: pointer;
+}
 
 h2,
 h3,
@@ -414,7 +417,100 @@ div.button > input {
 	cursor: default;
 }
 
-
-//Key Commands
-
-//TEXT SHADOW
+//Gradients
+.tempo-gradient-0 {
+	background: linear-gradient( 0deg, black, hotpink 3%);
+}
+.tempo-gradient-1 {
+	background: linear-gradient( 0deg, black, hotpink 6%);
+}
+.tempo-gradient-2 {
+	background: linear-gradient( 0deg, black, hotpink 9%);
+}
+.tempo-gradient-3 {
+	background: linear-gradient( 0deg, black, hotpink 12%);
+}
+.tempo-gradient-4 {
+	background: linear-gradient( 0deg, black, hotpink 15%);
+}
+.tempo-gradient-5 {
+	background: linear-gradient( 0deg, black, hotpink 18%);
+}
+.tempo-gradient-6 {
+	background: linear-gradient( 0deg, black, hotpink 21%);
+}
+.tempo-gradient-7 {
+	background: linear-gradient( 0deg, black, hotpink 24%);
+}
+.tempo-gradient-8 {
+	background: linear-gradient( 0deg, black, hotpink 27%);
+}
+.tempo-gradient-9 {
+	background: linear-gradient( 0deg, black, hotpink 30%);
+}
+.tempo-gradient-10 {
+	background: linear-gradient( 0deg, black, hotpink 33%);
+}
+.tempo-gradient-11 {
+	background: linear-gradient( 0deg, black, hotpink 36%);
+}
+.tempo-gradient-12 {
+	background: linear-gradient( 0deg, black, hotpink 39%);
+}
+.tempo-gradient-13 {
+	background: linear-gradient( 0deg, black, hotpink 42%);
+}
+.tempo-gradient-14 {
+	background: linear-gradient( 0deg, black, hotpink 45%);
+}
+.tempo-gradient-15 {
+	background: linear-gradient( 0deg, black, hotpink 48%);
+}
+.tempo-gradient-16 {
+	background: linear-gradient( 0deg, black, hotpink 51%);
+}
+.tempo-gradient-17 {
+	background: linear-gradient( 0deg, black, hotpink 54%);
+}
+.tempo-gradient-18 {
+	background: linear-gradient( 0deg, black, hotpink 57%);
+}
+.tempo-gradient-19 {
+	background: linear-gradient( 0deg, black, hotpink 60%);
+}
+.tempo-gradient-20 {
+	background: linear-gradient( 0deg, black, hotpink 63%);
+}
+.tempo-gradient-21 {
+	background: linear-gradient( 0deg, black, hotpink 66%);
+}
+.tempo-gradient-22 {
+	background: linear-gradient( 0deg, black, hotpink 69%);
+}
+.tempo-gradient-23 {
+	background: linear-gradient( 0deg, black, hotpink 72%);
+}
+.tempo-gradient-24 {
+	background: linear-gradient( 0deg, black, hotpink 75%);
+}
+.tempo-gradient-25 {
+	background: linear-gradient( 0deg, black, hotpink 78%);
+}
+.tempo-gradient-26 {
+	background: linear-gradient( 0deg, black, hotpink 81%);
+}
+.tempo-gradient-27 {
+	background: linear-gradient( 0deg, black, hotpink 84%);
+}
+.tempo-gradient-28 {
+	background: linear-gradient( 0deg, black, hotpink 87%);
+}
+.tempo-gradient-29 {
+	background: linear-gradient( 0deg, black, hotpink 90%);
+}
+.tempo-gradient-30 {
+	background: linear-gradient( 0deg, black, hotpink 95%);
+}
+.tempo-gradient-31 {
+	background: linear-gradient( 0deg, black, hotpink 100%);
+}
