@@ -86,6 +86,8 @@ $('#stop').on("click", () => {
     loops.chordLoop.stop();
     loops.bassLoop.stop();
     loops.drumLoop.stop();
+    loops.styleLoop.stop();
+    $('body').removeClass();
 });
 $(document).on('keydown', function (event) {
     if (!$('#settings-title').is(":focus") &&
@@ -99,8 +101,13 @@ $(document).on('keydown', function (event) {
             loops.chordLoop.stop();
             loops.bassLoop.stop();
             loops.drumLoop.stop();
+            loops.styleLoop.stop();
+            $('body').removeClass();
         }
     }
+});
+$(`.header`).on('click', function () {
+    loops.styleLoop.start();
 });
 
 /////User Settings/////
