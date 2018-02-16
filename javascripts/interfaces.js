@@ -326,7 +326,7 @@ module.exports.releaseNumber = new Nexus.Number('#release-number', {
 
 //Arp Synth Envelope
 module.exports.arpSynthEnvelope = new Nexus.Multislider('#fm-multislider', {
-    'size': [200, 150],
+    'size': [200, 100],
     'numberOfSliders': 4,
     'min': 0,
     'max': 1,
@@ -336,7 +336,7 @@ module.exports.arpSynthEnvelope = new Nexus.Multislider('#fm-multislider', {
 
 //Bass Synth Envelope
 module.exports.bassSynthEnvelope = new Nexus.Multislider('#bass-multislider', {
-    'size': [200, 150],
+    'size': [200, 100],
     'numberOfSliders': 4,
     'min': 0,
     'max': 1,
