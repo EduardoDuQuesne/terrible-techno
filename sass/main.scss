@@ -93,7 +93,7 @@ p.chord {
 	height: 15px;
 	vertical-align: middle;
 	display: none;
-	width: px;
+	width: 110px;
 }
 
 .user-settings-list {
@@ -219,7 +219,6 @@ ul {
 }
 
 .arp-sound-list li {
-	// border-bottom: 1px solid white;
 	padding: 10px 10px;
 	text-align: center;
 }
@@ -232,6 +231,19 @@ ul {
 
 .setting-dial {
 	margin: 0 auto;
+}
+
+.fm-multislider,
+.bass-multislider {
+	display: block;
+}
+.envelope-label {
+	letter-spacing: 1.1em;
+	text-align: center;
+	font-family: 'Orbitron', sans-serif;
+	margin-left: 14px;
+	margin-top: 18px;
+	text-shadow: 1px 1px #8bfbf5;
 }
 
 ///// OSCILLOSCOPE /////
@@ -293,12 +305,16 @@ ul {
 //PLAY BUTTON
 .button,
 select,
-div.button > input {
+div.button > input,
+.comp-number > input {
 	font-family: 'Orbitron', sans-serif !important;
 }
 select,
 div.button > input {
 	font-size: .7em !important;
+}
+.comp-number > input {
+	font-size: .5em !important;
 }
 .flex-wrap-buttons {
 	width: 965px;
