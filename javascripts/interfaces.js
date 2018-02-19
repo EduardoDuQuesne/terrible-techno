@@ -66,16 +66,7 @@ module.exports.stopButton = new Nexus.TextButton('#stop', {
     'text': 'Stop',
     'alternate': false
 });
-/////Select Interfaces
-// module.exports.selectFx = new Nexus.Select('#one-fx-select', {
-//     'size': [75, 25],
-//     'options': ['Default', 'Delay', 'Reverb']
-// });
 
-// module.exports.selectDrumFx = new Nexus.Select('#three-fx-select', {
-//     'size': [75, 25],
-//     'options': ['Default', 'Distortion', 'Slap']
-// });
 module.exports.selectSynthType = new Nexus.Select('#synth-type', {
     'size': [75, 25],
     'options': ['square', 'sine', 'triangle', 'sawtooth']

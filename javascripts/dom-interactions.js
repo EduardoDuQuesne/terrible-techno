@@ -15,9 +15,7 @@ const view = require('./view');
 Nexus.context = Tone.context;
 Tone.Transport.start();
 Tone.Master.chain(fx.masterReverb, fx.masterComp);
-// let spectogram = new Nexus.Spectrogram('#spectogram', {
-//     'size': [100, 50]
-// });
+
 let oscilloscope = new Nexus.Oscilloscope('#oscilloscope', {
     'size': [965, 25]
 });
@@ -148,6 +146,9 @@ $(document).on("click", ".get-setting", function () {
     $('.get-setting').removeClass("highlight");
     factory.getSetting(settingId)
         .then(setting => {
+            console.log('Setting RECALL', setting );
+            meterArp.connect(loops.arpSounds[setting.arpSound]);
+            meterBass.connect(loops.bassSounds[setting.bassSound]);
             $(this).addClass("highlight");
             settings.recallSetting(setting);
         });
@@ -315,8 +316,8 @@ $(document).on('mouseup', '.fm-multislider', function () {
 $('.bass-sound-select').on('click', function () {
     $(this).addClass('highlight-soft');
     $(this).siblings().removeClass('highlight-soft');
-    meterBass.connect(currentBassSynth);
     currentBassSynth = loops.bassSounds[$(this).attr('value')];
+    meterBass.connect(currentBassSynth);
     interface.bassSynthEnvelope.setSlider(0, loops.bassSounds[$(this).attr('value')].envelope.attack);
     interface.bassSynthEnvelope.setSlider(1, loops.bassSounds[$(this).attr('value')].envelope.decay);
     interface.bassSynthEnvelope.setSlider(2, loops.bassSounds[$(this).attr('value')].envelope.sustain);
@@ -404,7 +405,6 @@ $(document).on("keydown", function (event) {
         keyboardNotes[`key-${event.which}`] !== undefined) {
         lastKeyDown = event.which;
         downIndex = noteArray.indexOf(keyboardNotes[`key-${event.which}`]);
-        // interface.liveSynthKeyboard.keys[downIndex].state = false;
         interface.liveSynthKeyboard.keys[downIndex].state = true;
         keyDown = true;
     }
@@ -501,12 +501,7 @@ interface.dialSynthDelayTime.on('change', function (value) {
     fx.synthDelay.delayTime.value = value;
 });
 
-
-
-
-
-//Spectogram
-// spectogram.connect(Tone.Master);
+//Connect Meters and Oscilloscope
 oscilloscope.connect(Tone.Master);
 meterDrums.connect(loops.drums);
 meterSynth.connect(fx.liveSynth);
