@@ -99,11 +99,6 @@ p.chord {
 	width: 110px;
 }
 
-.user-settings-list {
-	list-style-type: none;
-	padding-left: 0;
-}
-
 .red-icon {
 	color: hotpink;
 }
@@ -194,6 +189,7 @@ ul {
 //Master Volume 
 .master-volume-container {
 	width: 154px;
+	height: 125px;
 	text-align: center;
 	font-family: 'Orbitron', sans-serif;
 	text-shadow: 1px 1px #8bfbf5;
@@ -291,6 +287,7 @@ ul {
 .vertical-style {
 	writing-mode: vertical-lr;
 	text-orientation: upright;
+	width: 20px;
 	margin-right: 0;
 	text-align: center;
 	font-family: 'Orbitron', sans-serif;
@@ -401,17 +398,37 @@ div.button > input {
 }
 
 /////USER SETTINGS/////
+.user-settings-list {
+	list-style-type: none;
+	padding-left: 0;
+}
+
 .user-settings {
 	font-family: 'Orbitron', sans-serif;
 	font-size: 0.8em;
 	border: 2px solid white;
 	width: 150px;
+	height: 350px;
 	background-color: grey;
+	overflow: scroll;
 }
 
 .line-style {
 	border-top: 1px solid white;
 	display: inline-block;
+}
+.user-settings-placehold {
+	width: 150px;
+	height: 350px;
+	border: 2px solid white;
+	background-color: grey;
+}
+.logged-out-message {
+	text-align: center;
+	margin: .5em;
+}
+.logged-out-title {
+	text-shadow: 1px 1px #8bfbf5;
 }
 
 ///// TAB SELECT /////

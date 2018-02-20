@@ -20,19 +20,19 @@ let oscilloscope = new Nexus.Oscilloscope('#oscilloscope', {
     'size': [965, 25]
 });
 let meterDrums = new Nexus.Meter('#stereo-meter-drums', {
-    size: [40, 125]
+    size: [45, 125]
 });
 let meterBass = new Nexus.Meter('#stereo-meter-bass', {
-    size: [40, 125]
+    size: [45, 125]
 });
 let meterArp = new Nexus.Meter('#stereo-meter-arp', {
-    size: [40, 125]
+    size: [45, 125]
 });
 let meterSynth = new Nexus.Meter('#stereo-meter-synth', {
-    size: [40, 125]
+    size: [45, 125]
 });
 let meterMix = new Nexus.Meter('#stereo-meter-mix', {
-    size: [40, 125]
+    size: [45, 125]
 });
 
 //Authorization//
@@ -45,21 +45,25 @@ interface.logIn.on("click", function () {
 });
 interface.logOut.on("click", function () {
     auth.logOut()
-        .then(result => {});
+        .then(result => {
+        });
 });
 firebase.auth().onAuthStateChanged((user) => {
     console.log('User: ', user);
     if (user) {
+        $('.logged-out-message').hide();
+        $('.user-setting-content').show();
         $("#login-btn").hide();
         $("#logout-btn").show();
-        $("#store-btn").show();
         factory.getAllSettings(user.uid)
-            .then(settings => {
-                let userSettings = settings;
-                view.displaySettings(userSettings);
-                $('.icon-spin').hide();
-            });
+        .then(settings => {
+            let userSettings = settings;
+            view.displaySettings(userSettings);
+            $('.icon-spin').hide();
+        });
     } else {
+        $('.user-setting-content').hide();
+        $('.logged-out-message').show();
         $('.icon-spin').show();
         $("#login-btn").show();
         $("#logout-btn").hide();
@@ -172,6 +176,7 @@ $("#clear-settings").on("click", function () {});
 
 /////Set class to play on all 'Iman' chords on startup/////
 $(document).ready(function () {
+    console.log('CHECK' );
     loops.loadChords();
 });
 
@@ -293,14 +298,16 @@ interface.dialMasterVolume.on("change", function (value) {
 });
 $(document).on("keydown", function (event) {
     if (event.which === 40) {
+
         Tone.Master.volume.value = Tone.Master.volume.value - 10;
         interface.dialMasterVolume.value = interface.dialMasterVolume.value - 10;
+        event.preventDefault();
     }
     if (event.which === 38) {
         Tone.Master.volume.value = Tone.Master.volume.value + 10;
         interface.dialMasterVolume.value = interface.dialMasterVolume.value + 10;
+        event.preventDefault();
     }
-
 });
 
 ///// Arpeggiator Synth Envelopes //////
@@ -372,6 +379,20 @@ interface.dialDrumChebyOrder.on("change", function (value) {
 let sampleValue = ["none", "2x", "4x"];
 interface.dialDrumChebyOverSample.on("change", function (value) {
     fx.drumChebyShev.oversample = sampleValue[value];
+});
+
+///// Mutes /////
+let drumMuteCount = 0;
+$(document).on("keydown", function (event) {
+    if (event.which === 49) {
+        drumMuteCount += 1;
+        if (drumMuteCount % 2 !== 0) {
+            loops.drums.mute = true;
+        }
+        if (drumMuteCount % 2 === 0) {
+            loops.drums.mute = false;
+        }
+    }
 });
 
 /////Live Synth/////
