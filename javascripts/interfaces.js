@@ -485,3 +485,14 @@ module.exports.dialSynthDelayTime = new Nexus.Dial('#synth-delay-time', {
     'step': 0,
     'value': 0
 });
+
+///// Master Volume /////
+module.exports.dialMasterVolume = new Nexus.Dial('#master-volume', {
+    'size': [80, 80],
+    'interaction': 'radial',
+    'mode': 'relative',
+    'min': -60,
+    'max': 0,
+    'step': 1,
+    'value': 0
+});
