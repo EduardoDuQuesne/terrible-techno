@@ -65,6 +65,13 @@ let drumChebyShev = new Tone.Chebyshev({
     wet: 0
 });
 
+//Master Volume
+let masterVolume = new Tone.Volume ({
+    volume: 0,
+    mute: false
+});
+
+
 // Live Synthesizer
 let liveSynth = new Tone.MonoSynth().chain(synthVolPan, synthDelay, Tone.Master);
 
@@ -77,6 +84,7 @@ module.exports = {
     bassVolPan,
     beatVolPan,
     masterComp,
+    masterVolume,
     drumDisto,
     drumSlap,
     liveSynth,
