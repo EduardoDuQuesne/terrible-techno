@@ -14,7 +14,7 @@ const view = require('./view');
 
 Nexus.context = Tone.context;
 Tone.Transport.start();
-Tone.Master.chain(fx.masterReverb, fx.masterComp);
+Tone.Master.chain(fx.masterReverb, fx.masterComp, fx.masterVolume);
 
 let oscilloscope = new Nexus.Oscilloscope('#oscilloscope', {
     'size': [965, 25]
@@ -146,7 +146,6 @@ $(document).on("click", ".get-setting", function () {
     $('.get-setting').removeClass("highlight");
     factory.getSetting(settingId)
         .then(setting => {
-            console.log('Setting RECALL', setting );
             meterArp.connect(loops.arpSounds[setting.arpSound]);
             meterBass.connect(loops.bassSounds[setting.bassSound]);
             $(this).addClass("highlight");
@@ -286,6 +285,22 @@ interface.dialMasterReverbDampening.on('change', function (value) {
 });
 interface.dialMasterReverbRoomSize.on('change', function (value) {
     fx.masterReverb.roomSize.value = value;
+});
+
+//Master Volume
+interface.dialMasterVolume.on("change", function (value) {
+    Tone.Master.volume.value = value;
+});
+$(document).on("keydown", function (event) {
+    if (event.which === 40) {
+        Tone.Master.volume.value = Tone.Master.volume.value - 10;
+        interface.dialMasterVolume.value = interface.dialMasterVolume.value - 10;
+    }
+    if (event.which === 38) {
+        Tone.Master.volume.value = Tone.Master.volume.value + 10;
+        interface.dialMasterVolume.value = interface.dialMasterVolume.value + 10;
+    }
+
 });
 
 ///// Arpeggiator Synth Envelopes //////
@@ -487,6 +502,10 @@ interface.synthPortamentoDial.on("change", function (value) {
 });
 interface.synthDetuneDial.on("change", function (value) {
     fx.liveSynth.detune.value = value;
+});
+$('.dial-detune').on('click', function () {
+    fx.liveSynth.detune.value = 0;
+    interface.synthDetuneDial.value = 0;
 });
 //synth delay
 interface.dialSynthDelayWet.on('change', function (value) {
