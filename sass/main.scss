@@ -191,6 +191,18 @@ ul {
 	grid-area: osc;
 }
 
+//Master Volume 
+.master-volume-container {
+	width: 154px;
+	text-align: center;
+	font-family: 'Orbitron', sans-serif;
+	text-shadow: 1px 1px #8bfbf5;
+	font-size: 1.1em
+}
+.master-volume {
+	margin: 0 auto;
+}
+
 ///// SEQUENCER SUBGRIDS AND STRUCTURE/////
 .arp-subgrid-container {
 	margin-left: 30px;
