@@ -28,10 +28,10 @@ In order to save settings: <br/>
 - Hit Enter, settings are immediately available for recall.
 
 ## Run locally
-- Install http-server,  [Click here](https://www.npmjs.com/package/http-server) for documentation and installation.
-- Run the following commands in your terminal:
+- Install http-server,  [click here](https://www.npmjs.com/package/http-server) for documentation and installation.
+- Clone this git repository. 
+- In your clone directory, run the following commands in your terminal:
 ```
-$ git clone https://github.com/EduardoDuQuesne/terrible-techno && cd $_
 $ npm install
 $ grunt
 ```
