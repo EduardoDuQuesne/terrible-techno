@@ -17,6 +17,13 @@
 - "Up and Down Arrow" = Master Volume
 - Use the QWERTY keyboard to play the selected octaves on the synthesizer
 
+### Save Settings
+In order to save settings: <br/>
+- Log in using google
+- Click on floppy disk icon
+- Type in desired name for current settings
+- Hit Enter
+
 
 
 
