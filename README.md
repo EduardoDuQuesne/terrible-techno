@@ -27,9 +27,17 @@ In order to save settings: <br/>
 - Type in desired name for current settings
 - Hit Enter, settings are immediately available for recall.
 
-# Run locally
+## Run locally
 - Install http-server,  [Click here](https://www.npmjs.com/package/http-server) for documentation and installation.
-- CLone this repository
+- Run the following commands in your terminal:
+```
+$ git clone https://github.com/EduardoDuQuesne/terrible-techno && cd $_
+$ npm install
+$ grunt
+```
+- Then run server in same directory
+
+
 
 
 
