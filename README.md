@@ -16,6 +16,7 @@
 - "+" and "-" = tab through instruments
 - "Up and Down Arrow" = Master Volume
 - Use the QWERTY keyboard to play the selected octaves on the synthesizer
+![alt text](https://i.imgur.com/vDkJ0gW.png "Keyboard Map")
 
 ### Save Settings
 In order to save settings: <br/>
@@ -25,7 +26,8 @@ In order to save settings: <br/>
 - Hit Enter, settings are immediately available for recall.
 
 # Run locally
-- Install http-server,  [Click here](https://www.npmjs.com/package/http-server)for documentation and installation.
+- Install http-server,  [Click here](https://www.npmjs.com/package/http-server) for documentation and installation.
+- CLone this repository
 
 
 
