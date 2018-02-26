@@ -19,10 +19,10 @@
 
 ### Save Settings
 In order to save settings: <br/>
-- Log in using google
+- Log in using firebase authentication. A Google account is required.
 - Click on floppy disk icon
 - Type in desired name for current settings
-- Hit Enter
+- Hit Enter, settings are immediately available for recall.
 
 
 
