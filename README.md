@@ -24,6 +24,11 @@ In order to save settings: <br/>
 - Type in desired name for current settings
 - Hit Enter, settings are immediately available for recall.
 
+# Run locally
+- Install http-server,  [Click here to documentation and installation.](https://www.npmjs.com/package/http-server)
+
+
+
 
 
 
