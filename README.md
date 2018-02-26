@@ -14,7 +14,7 @@
 
 ### Key Commands
 - "+" and "-" to tab through instruments
-- "Up and Down Arrow" to raise or lower master volume
+- Up and down arrow keys to raise or lower master volume
 - Use the QWERTY keyboard to play the selected octaves on the synthesizer
 
 ### Keyboard Map
