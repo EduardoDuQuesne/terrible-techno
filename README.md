@@ -37,6 +37,23 @@ $ grunt
 ```
 - Then run server in same directory
 
+### Firebase Authentication
+- In order to store settings, the following steps must be done.
+- Create a project with your personal Firebase account
+```
+$ touch javascripts/config/fbCreds.js
+```
+- The following must be placed in the created files. This includes your API key and domain
+
+```javascript
+'/*jshint esversion: 6 */';
+
+module.exports = {
+    apiKey: "<API KEY>",
+    authDomain: "<DOMAIN>"
+};
+```
+
 
 
 
