@@ -25,7 +25,7 @@ In order to save settings: <br/>
 - Hit Enter, settings are immediately available for recall.
 
 # Run locally
-- Install http-server,  [Click here to documentation and installation.](https://www.npmjs.com/package/http-server)
+- Install http-server,  [Click here](https://www.npmjs.com/package/http-server)for documentation and installation.
 
 
 
