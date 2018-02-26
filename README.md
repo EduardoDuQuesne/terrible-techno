@@ -10,11 +10,13 @@
 - [Tone.Js](https://tonejs.github.io/): Framework for the Web AUdio API
 - [NexusUI](https://nexus-js.github.io/ui/): Collection of HTML5 Music Interfaces
 - [jQuery 3.2.1](https://www.jquery.com/)
+- [Firebase](https://firebase.google.com/): Authentication and data storage
 
 ### Key Commands
 - "+" and "-" = tab through instruments
 - "Up and Down Arrow" = Master Volume
 - Use the QWERTY keyboard to play the selected octaves on the synthesizer
+
 
 
 
