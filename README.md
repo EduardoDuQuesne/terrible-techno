@@ -17,7 +17,7 @@
 - "Up and Down Arrow" = Master Volume
 - Use the QWERTY keyboard to play the selected octaves on the synthesizer  
 
-##### Keyboard Map
+### Keyboard Map
 ![alt text](https://i.imgur.com/vDkJ0gW.png "Keyboard Map")
 
 ### Save Settings
