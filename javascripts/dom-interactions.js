@@ -40,7 +40,6 @@ interface.logIn.on("click", function () {
     auth.logIn()
         .then(result => {})
         .catch(error => {
-            console.log('Error: ', error);
         });
 });
 interface.logOut.on("click", function () {
@@ -49,7 +48,6 @@ interface.logOut.on("click", function () {
         });
 });
 firebase.auth().onAuthStateChanged((user) => {
-    console.log('User: ', user);
     if (user) {
         $('.logged-out-message').hide();
         $('.user-setting-content').show();
@@ -176,7 +174,6 @@ $("#clear-settings").on("click", function () {});
 
 /////Set class to play on all 'Iman' chords on startup/////
 $(document).ready(function () {
-    console.log('CHECK' );
     loops.loadChords();
 });
 
