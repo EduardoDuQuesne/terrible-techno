@@ -126,12 +126,10 @@ module.exports.storeSettings = (input) => {
 
 
     };
-    console.log('SETTINGS!', settings);
     return settings;
 };
 
 module.exports.recallSetting = (setting) => {
-    console.log('Setting: ', setting);
     loops.loadUserChords(setting.chords);
     loops.recallSoundDisplay(setting.arpSound, setting.bassSound);
     Tone.Transport.bpm.value = setting.tempo;
