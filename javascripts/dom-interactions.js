@@ -13,7 +13,7 @@ const settings = require('./set-settings');
 const view = require('./view');
 
 Nexus.context = Tone.context;
-Tone.Transport.start();
+let context = new AudioContext();
 Tone.Master.chain(fx.masterReverb, fx.masterComp, fx.masterVolume);
 
 let oscilloscope = new Nexus.Oscilloscope('#oscilloscope', {
@@ -76,11 +76,16 @@ interface.tempoKnob.on("change", function () {
 
 ///// Start and Stop /////
 let startCount = 0;
-$('#play').on("click", () => {
+$('#play').on("click", () => {   
+    if (Tone.context.state !== 'running') {
+        Tone.context.resume();
+    }
+    Tone.Transport.start();
     startCount += 1;
     loops.chordLoop.start();
 });
 $('#stop').on("click", () => {
+    Tone.Transport.stop();
     startCount += 1;
     loops.arpLoop.stop();
     loops.chordLoop.stop();
